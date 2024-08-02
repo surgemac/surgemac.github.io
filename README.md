@@ -1,4 +1,4 @@
-# 8月1日 | Surge Mac每天更新23M/S免费节点订阅链接  更新时间 2024-08-01 10:00:04
+# 8月2日 | Surge Mac每天更新19.8M/S免费节点订阅链接  更新时间 2024-08-02 10:06:20
 所有免费clash节点都爬取自网络，请勿用于非法用途 。节点地址：<a href="https://surgemac.github.io" target="_blank">点击跳转</a>
 
 ## clash使用教程：
@@ -9,19 +9,19 @@
 
 ### Clash订阅链接
 
-- https://surgemac.github.io/uploads/2024/08/0-20240801.yaml
-- https://surgemac.github.io/uploads/2024/08/1-20240801.yaml
-- https://surgemac.github.io/uploads/2024/08/2-20240801.yaml
-- https://surgemac.github.io/uploads/2024/08/3-20240801.yaml
-- https://surgemac.github.io/uploads/2024/08/4-20240801.yml
+- https://surgemac.github.io/uploads/2024/08/0-20240802.yaml
+- https://surgemac.github.io/uploads/2024/08/1-20240802.yaml
+- https://surgemac.github.io/uploads/2024/08/2-20240802.yaml
+- https://surgemac.github.io/uploads/2024/08/3-20240802.yaml
+- https://surgemac.github.io/uploads/2024/08/4-20240802.yml
 
 ### V2ray订阅链接
 
-- https://surgemac.github.io/uploads/2024/08/0-20240801.txt
-- https://surgemac.github.io/uploads/2024/08/1-20240801.txt
-- https://surgemac.github.io/uploads/2024/08/2-20240801.txt
-- https://surgemac.github.io/uploads/2024/08/3-20240801.txt
-- https://surgemac.github.io/uploads/2024/08/4-20240801.txt
+- https://surgemac.github.io/uploads/2024/08/0-20240802.txt
+- https://surgemac.github.io/uploads/2024/08/1-20240802.txt
+- https://surgemac.github.io/uploads/2024/08/2-20240802.txt
+- https://surgemac.github.io/uploads/2024/08/3-20240802.txt
+- https://surgemac.github.io/uploads/2024/08/4-20240802.txt
 
 ## 更多clash节点订阅 ：
 
