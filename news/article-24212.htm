@@ -123,7 +123,8 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-9">
-                                      				  				  				<div id="content_views" class="markdown_views prism-atom-one-dark"> <p>sudo ./zkServer.sh start<br /> 启动zookeeper，java未找到：<br /><strong>Error: JAVA_HOME is not set and java could not be found in PATH.</strong></p> <p>sudo ./kafka-server-start.sh …/config/server.properties<br /> 启动kafka，java未找到：<br /><strong>kafka-run-class.sh: line *: exec: java: not found</strong></p> <p><strong>原因：</strong><br /> 使用了sudo命令<br /> 尝试执行 sudo java -version 命令，发现sudo找不到java命令<br /><code>sudo: java: command not found</code></p> <p><strong>解决，让sudo能找到java命令</strong></p> <ul> <li>方法1：</li> </ul> <pre><code># 在/usr/bin/中生成java命令软链接，记得替换成自己的java路径 # java和javac都要，如果只有java没有javac，sudo还是无法执行java命令 ln -s /usr/local/java/jdk1.8.0_291/bin/java /usr/bin/ ln -s /usr/local/java/jdk1.8.0_291/bin/javac /usr/bin/</code></pre> <ul> <li>方法2</li> </ul> <pre><code># 直接修改sudo的配置文件 /etc/sudoers sudo vim /etc/sudoers # 在 secure_path 后面直接加上java路径 :/usr/local/java/jdk1.8.0_291/bin Defaults        secure_path="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/usr/local/java/jdk1.8.0_291/bin"</code></pre> <p>都是sudo惹的祸，感觉不要用sudo命令运行更好些。用sudo命令启动后，后续的很多命令可能都要用sudo命令，并不方便。<br /> 可以用<code>sudo chown -R user:group directory</code>命令把zookeeper、kafka和它们要用的相关目录授权给普通用户，然后就可以不使用sudo（root身份）来启动。</p> </div> 			                <div class="clearfix"></div>
+                                    <input type="hidden" id="share-website-info" data-name="Surge Node节点订阅站" data-url="https://surgenode.github.io">
+                  				  				  				<div id="content_views" class="markdown_views prism-atom-one-dark"> <p>sudo ./zkServer.sh start<br /> 启动zookeeper，java未找到：<br /><strong>Error: JAVA_HOME is not set and java could not be found in PATH.</strong></p> <p>sudo ./kafka-server-start.sh …/config/server.properties<br /> 启动kafka，java未找到：<br /><strong>kafka-run-class.sh: line *: exec: java: not found</strong></p> <p><strong>原因：</strong><br /> 使用了sudo命令<br /> 尝试执行 sudo java -version 命令，发现sudo找不到java命令<br /><code>sudo: java: command not found</code></p> <p><strong>解决，让sudo能找到java命令</strong></p> <ul> <li>方法1：</li> </ul> <pre><code># 在/usr/bin/中生成java命令软链接，记得替换成自己的java路径 # java和javac都要，如果只有java没有javac，sudo还是无法执行java命令 ln -s /usr/local/java/jdk1.8.0_291/bin/java /usr/bin/ ln -s /usr/local/java/jdk1.8.0_291/bin/javac /usr/bin/</code></pre> <ul> <li>方法2</li> </ul> <pre><code># 直接修改sudo的配置文件 /etc/sudoers sudo vim /etc/sudoers # 在 secure_path 后面直接加上java路径 :/usr/local/java/jdk1.8.0_291/bin Defaults        secure_path="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/usr/local/java/jdk1.8.0_291/bin"</code></pre> <p>都是sudo惹的祸，感觉不要用sudo命令运行更好些。用sudo命令启动后，后续的很多命令可能都要用sudo命令，并不方便。<br /> 可以用<code>sudo chown -R user:group directory</code>命令把zookeeper、kafka和它们要用的相关目录授权给普通用户，然后就可以不使用sudo（root身份）来启动。</p> </div> 			                <div class="clearfix"></div>
                 <div class="col-md-12 mt-5">
                                         <p>上一个：<a href="/news/article-23749.htm">动物疫苗企业名单公示（动物疫苗行业龙头）</a></p>
                                         <p>下一个：<a href="/news/article-24213.htm">Azure Terraform（十一）Azure DevOps Pipeline 内的动态临时变量的使用</a></p>
@@ -136,16 +137,16 @@
     </div>
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
-                        <li class="py-2"><a href="/free-nodes/2024-11-9-free-high-speed-nodes.htm" title="11月9日 | Surge Mac每天更新23M/S免费节点订阅链接">11月9日 | Surge Mac每天更新23M/S免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-8-12-surge-github.htm" title="8月12日 | Surge Mac每天更新21.8M/S免费节点订阅链接">8月12日 | Surge Mac每天更新21.8M/S免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-11-16-free-high-speed-nodes.htm" title="11月16日 | Surge Mac每天更新19.1M/S免费节点订阅链接">11月16日 | Surge Mac每天更新19.1M/S免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-8-27-free-high-speed-nodes.htm" title="8月27日 | Surge Mac每天更新20.5M/S免费节点订阅链接">8月27日 | Surge Mac每天更新20.5M/S免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-11-15-free-node-subscribe.htm" title="11月15日 | Surge Mac每天更新19.3M/S免费节点订阅链接">11月15日 | Surge Mac每天更新19.3M/S免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/news/article-23747.htm" title="最简颗粒狗粮制作方法是什么（颗粒狗粮制作方法配方大全）">最简颗粒狗粮制作方法是什么（颗粒狗粮制作方法配方大全）</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-12-11-free-node-subscribe.htm" title="12月11日 | Surge Mac每天更新20.6M/S免费节点订阅链接">12月11日 | Surge Mac每天更新20.6M/S免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/news/article-20990.htm" title="请多多无货源店怎么开（拼多多无货源店怎么开）">请多多无货源店怎么开（拼多多无货源店怎么开）</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-8-30-surge-node.htm" title="8月30日 | Surge Mac每天更新19.2M/S免费节点订阅链接">8月30日 | Surge Mac每天更新19.2M/S免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/news/article-20536.htm" title="动物疫苗公司招聘信息最新 动物疫苗公司招聘信息最新消息">动物疫苗公司招聘信息最新 动物疫苗公司招聘信息最新消息</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-10-21-free-high-speed-nodes.htm" title="10月21日 | Surge Mac每天更新22.9M/S免费节点订阅链接">10月21日 | Surge Mac每天更新22.9M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-10-4-free-node-subscribe-links.htm" title="10月4日 | Surge Mac每天更新19.1M/S免费节点订阅链接">10月4日 | Surge Mac每天更新19.1M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-10-7-surge-node.htm" title="10月7日 | Surge Mac每天更新19.2M/S免费节点订阅链接">10月7日 | Surge Mac每天更新19.2M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-9-4-node-share.htm" title="9月4日 | Surge Mac每天更新18.6M/S免费节点订阅链接">9月4日 | Surge Mac每天更新18.6M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-21444.htm" title="开一个宠物零食工厂要多少钱 开一个宠物零食工厂要多少钱呢">开一个宠物零食工厂要多少钱 开一个宠物零食工厂要多少钱呢</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-10-free-subscribe-node.htm" title="12月10日 | Surge Mac每天更新19.2M/S免费节点订阅链接">12月10日 | Surge Mac每天更新19.2M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-2-free-high-speed-nodes.htm" title="11月2日 | Surge Mac每天更新20.6M/S免费节点订阅链接">11月2日 | Surge Mac每天更新20.6M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-10-10-node-share-links.htm" title="10月10日 | Surge Mac每天更新20.5M/S免费节点订阅链接">10月10日 | Surge Mac每天更新20.5M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-9-6-free-surge-node.htm" title="9月6日 | Surge Mac每天更新18.8M/S免费节点订阅链接">9月6日 | Surge Mac每天更新18.8M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-8-13-free-node-subscribe.htm" title="8月13日 | Surge Mac每天更新18M/S免费节点订阅链接">8月13日 | Surge Mac每天更新18M/S免费节点订阅链接</a></li>
                     </ul>
     </div>
 </div>
@@ -157,7 +158,7 @@
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
                         <li class="py-2">
-                <h4><span class="badge" style="float: right;">39</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
+                <h4><span class="badge" style="float: right;">57</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
             </li>
                         <li class="py-2">
                 <h4><span class="badge" style="float: right;">34</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
@@ -190,6 +191,15 @@
             <div class="container">
                 <div class="inner">
                     <div class="row">
+                            <p>
+                                <a href="/">首页</a> | 
+                                <a href="/free-node/">免费节点</a> | 
+                                <a href="/news/">新闻资讯</a> |
+                                <a href="/about-us.htm">关于我们</a> |
+                                <a href="/disclaimer.htm">免责申明</a> |
+                                <a href="/privacy.htm">隐私申明</a> |
+                                <a href="/sitemap.xml">网站地图</a>
+                            </p>
                         <p>Surge Mac免费节点分享站 版权所有 Powered by WordPress</p>
                     </div>
                 </div>
