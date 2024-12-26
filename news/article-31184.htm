@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html class="no-js" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://surgemac.github.io/news/article-31184.htm" />
+    <meta charset="utf-8" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge" />
+    <title>Java中的守护程序线程和用户线程之间的区别</title>
+        <meta name="description" content="众所周知，Java是一种支持多线程的语言，基于自然界，Java中的线程分为两种类型：守护程序线程和用户线程。 以下是守护程序线程和用户线程之间的重要区别。    序号 键 守护进程线程 用户线程   " />
+        <link rel="icon" href="/assets/website/img/surgemac/favicon.ico" type="image/x-icon"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!-- Web Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <!-- ========================= CSS here ========================= -->
+    <link rel="stylesheet" href="/assets/website/css/surgemac/bootstrap.min.css" />
+    <link rel="stylesheet" href="/assets/website/css/surgemac/LineIcons.2.0.css" />
+    <link rel="stylesheet" href="/assets/website/css/surgemac/animate.css" />
+    <link rel="stylesheet" href="/assets/website/css/surgemac/tiny-slider.css" />
+    <link rel="stylesheet" href="/assets/website/css/surgemac/glightbox.min.css" />
+    <link rel="stylesheet" href="/assets/website/css/surgemac/main.css" />
+    <link rel="stylesheet" href="/assets/website/css/surgemac/reset.css" />
+    <link rel="stylesheet" href="/assets/website/css/surgemac/responsive.css" />
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-BJBH6WP5S9"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-BJBH6WP5S9');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+    <!--[if lte IE 9]>
+      <p class="browserupgrade">
+        You are using an <strong>outdated</strong> browser. Please
+        <a href="https://browsehappy.com/">upgrade your browser</a> to improve
+        your experience and security.
+      </p>
+    <![endif]-->
+    <!-- Preloader -->
+    <div class="preloader">
+        <div class="preloader-inner">
+            <div class="preloader-icon">
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </div>
+    <!-- /End Preloader -->
+    <!-- ========================= header start ========================= -->
+    <header class="header navbar-area">
+
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-12">
+                    <div class="nav-inner">
+                        <nav class="navbar navbar-expand-lg">
+                                                        <a class="navbar-brand" href="/">
+                                Surge Mac
+                            </a>
+                                                        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                                <span class="toggler-icon"></span>
+                                <span class="toggler-icon"></span>
+                                <span class="toggler-icon"></span>
+                            </button>
+                            <div class="collapse navbar-collapse sub-menu-bar" id="navbarSupportedContent">
+                                <ul id="nav" class="navbar-nav ms-auto">
+                                                                        <li class="nav-item">
+                                        <a class="page-scroll" href="/">首页</a>
+                                    </li>
+                                                                        <li class="nav-item">
+                                        <a class="page-scroll" href="/free-nodes/">免费节点</a>
+                                    </li>
+                                                                        <li class="nav-item">
+                                        <a class="page-scroll" href="/paid-subscribe/">推荐机场</a>
+                                    </li>
+                                                                        <li class="nav-item">
+                                        <a class="page-scroll" href="/news/">新闻资讯</a>
+                                    </li>
+                                                                        <li class="nav-item">
+                                        <a href="#">关于</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="#">联系</a>
+                                    </li>
+                                </ul>
+                            </div> <!-- navbar collapse -->
+                        </nav> <!-- navbar -->
+                    </div>
+                </div>
+            </div> <!-- row -->
+        </div> <!-- container -->
+    </header>
+    <!-- ========================= header end ========================= -->
+    <!-- Start Breadcrumbs -->
+    <div class="breadcrumbs" data-stellar-background-ratio="0.5">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 col-md-6 col-12">
+                    <div class="breadcrumbs-content left">
+                        <h1 class="page-title">Java中的守护程序线程和用户线程之间的区别</h1>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-6 col-12">
+                    <div class="breadcrumbs-content right">
+                        <ul class="breadcrumb-nav">
+                            <li><a href="/">首页</a></li>
+                            <li><a href="/news/">新闻资讯</a></li>
+                            <li>正文</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End Breadcrumbs -->
+        <!-- Start Features Area -->
+    <section class="Features section">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-9">
+                                    <input type="hidden" id="share-website-info" data-name="Surge Node节点订阅站" data-url="https://surgenode.github.io">
+                  				  				  				<p>众所周知，Java是一种支持多线程的语言，基于自然界，Java中的线程分为两种类型：守护程序线程和用户线程。</p> <p>以下是守护程序线程和用户线程之间的重要区别。</p> <table class="table table-bordered table-striped"> <thead> <tr class="firstRow"> <th>序号</th> <th>键</th> <th>守护进程线程</th> <th>用户线程</th> </tr> </thead> <tbody> <tr> <td>1</td> <td>性质</td> <td>守护程序线程的优先级较低，即JVM不太关心这些类型的线程。</td> <td>用户线程被识别为高优先级线程，即JVM将等待任何活动的用户线程完成。</td> </tr> <tr> <td>2</td> <td>CPU可用性</td> <td>由于优先级低，无法保证Daemon线程总是在需要时获得CPU使用率。</td> <td>用户线程总是优先获得CPU使用率，因为它具有更高的优先级。</td> </tr> <tr> <td>3</td> <td>创建</td> <td>守护程序线程在后台状态下执行，因此通常称为后台线程。</td> <td>用户线程通常是由应用程序创建的，用于并发执行某些任务。</td> </tr> <tr> <td>4</td> <td>刑场</td> <td>守护程序线程在后台状态下执行，因此通常称为后台线程。</td> <td>用户线程在另一方面被称为前台线程。</td> </tr> <tr> <td>5</td> <td>生命周期</td> <td>守护程序线程没有设置生命周期，但是它们完全取决于用户线程。</td> <td>用户线程具有与其他任何普通线程一样的特定生命周期，并且其寿命独立于任何其他线程。</td> </tr> </tbody> </table> <h2>守护程序线程与用户线程的示例</h2> <p><strong>JavaTester.java</strong></p> <pre>class&nbsp;JavaTester&nbsp;extends&nbsp;Thread&nbsp;{ &nbsp;&nbsp;&nbsp;@Override &nbsp;&nbsp;&nbsp;public&nbsp;void&nbsp;run(){ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;System.out.println("User&nbsp;Thread&nbsp;or&nbsp;Non-Daemon&nbsp;Thread"); &nbsp;&nbsp;&nbsp;} } public&nbsp;class&nbsp;MainThread&nbsp;{ &nbsp;&nbsp;&nbsp;public&nbsp;static&nbsp;void&nbsp;main(String[]&nbsp;args){ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;JavaTester&nbsp;mt&nbsp;=&nbsp;new&nbsp;JavaTester(); &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;mt.start(); &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;System.out.println("Main&nbsp;Thread"); &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;System.out.println("Is&nbsp;"&nbsp;+&nbsp;mt.getName()&nbsp;+&nbsp;"&nbsp;a&nbsp;Daemon&nbsp;Thread:&nbsp;"+&nbsp;mt.isDaemon()); &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;System.out.println("Is&nbsp;"&nbsp;+&nbsp;Thread.currentThread().getName()&nbsp;+&nbsp;"&nbsp;a&nbsp;Daemon&nbsp;Thread:&nbsp;"&nbsp;+&nbsp;&nbsp;Thread.currentThread().isDaemon()); &nbsp;&nbsp;&nbsp;} }</pre> <p>输出结果</p> <pre>Main&nbsp;Thread Is&nbsp;Thread-0&nbsp;a&nbsp;Daemon&nbsp;Thread:&nbsp;false Is&nbsp;main&nbsp;a&nbsp;Daemon&nbsp;Thread:&nbsp;false User&nbsp;Thread&nbsp;or&nbsp;Non-Daemon&nbsp;Thread</pre> <div></div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-30755.htm">深圳哪有免费领养狗狗的地方（深圳哪有免费领养狗狗的地方啊）</a></p>
+                                        <p>下一个：<a href="/news/article-31185.htm">为什么不给猫打狂犬疫苗的原因（家猫为啥不建议打狂犬）</a></p>
+                                    </div>
+                                </div>
+                <div class="col-md-3">
+                    <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/free-nodes/2024-9-21-free-subscribe-node.htm" title="9月21日 | Surge Mac每天更新20M/S免费节点订阅链接">9月21日 | Surge Mac每天更新20M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-10-19-latest-surge-node.htm" title="10月19日 | Surge Mac每天更新22.7M/S免费节点订阅链接">10月19日 | Surge Mac每天更新22.7M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-8-15-free-subscribe-node.htm" title="8月15日 | Surge Mac每天更新20.9M/S免费节点订阅链接">8月15日 | Surge Mac每天更新20.9M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-23749.htm" title="动物疫苗企业名单公示（动物疫苗行业龙头）">动物疫苗企业名单公示（动物疫苗行业龙头）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-8-27-free-high-speed-nodes.htm" title="8月27日 | Surge Mac每天更新20.5M/S免费节点订阅链接">8月27日 | Surge Mac每天更新20.5M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-10-24-surge-node.htm" title="10月24日 | Surge Mac每天更新20.5M/S免费节点订阅链接">10月24日 | Surge Mac每天更新20.5M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-19161.htm" title="动物诊疗许可证需要多少钱（动物诊疗许可证条件）">动物诊疗许可证需要多少钱（动物诊疗许可证条件）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-20-node-share.htm" title="12月20日 | Surge Mac每天更新18M/S免费节点订阅链接">12月20日 | Surge Mac每天更新18M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-27928.htm" title="基于SqlSugar的数据库访问处理的封装，支持.net FrameWork和.net core的项目调用 &#8211; 伍华聪 _在线工具">基于SqlSugar的数据库访问处理的封装，支持.net FrameWork和.net core的项目调用 &#8211; 伍华聪 _在线工具</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-8-node-share-links.htm" title="11月8日 | Surge Mac每天更新22.5M/S免费节点订阅链接">11月8日 | Surge Mac每天更新22.5M/S免费节点订阅链接</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">78</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">34</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">31</span> <a href="/date/2024-10/" title="2024-10 归档">2024-10</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">30</span> <a href="/date/2024-09/" title="2024-09 归档">2024-09</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">31</span> <a href="/date/2024-08/" title="2024-08 归档">2024-08</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">1</span> <a href="/date/2024-07/" title="2024-07 归档">2024-07</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- End Features Area -->
+        <!-- Start Footer Area -->
+    <footer class="footer">
+        <!-- Start Footer Bottom -->
+        <div class="footer-bottom">
+            <div class="container">
+                <div class="inner">
+                    <div class="row">
+                            <p>
+                                <a href="/">首页</a> | 
+                                <a href="/free-node/">免费节点</a> | 
+                                <a href="/news/">新闻资讯</a> |
+                                <a href="/about-us.htm">关于我们</a> |
+                                <a href="/disclaimer.htm">免责申明</a> |
+                                <a href="/privacy.htm">隐私申明</a> |
+                                <a href="/sitemap.xml">网站地图</a>
+                            </p>
+                        <p>Surge Mac免费节点分享站 版权所有 Powered by WordPress</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- End Footer Middle -->
+    </footer>
+    <!--/ End Footer Area -->
+    <!-- ========================= scroll-top ========================= -->
+    <a href="#" class="scroll-top btn-hover">
+        <i class="lni lni-chevron-up"></i>
+    </a>
+    <!-- ========================= JS here ========================= -->
+    <script src="/assets/website/js/frontend/surgemac/jquery.min.js"></script>
+    <script src="/assets/website/js/frontend/surgemac/bootstrap.min.js"></script>
+    <script src="/assets/website/js/frontend/surgemac/count-up.min.js"></script>
+    <script src="/assets/website/js/frontend/surgemac/wow.min.js"></script>
+    <script src="/assets/website/js/frontend/surgemac/tiny-slider.js"></script>
+    <script src="/assets/website/js/frontend/surgemac/glightbox.min.js"></script>
+    <script src="/assets/website/js/frontend/surgemac/imagesloaded.min.js"></script>
+    <script src="/assets/website/js/frontend/surgemac/isotope.min.js"></script>
+    <script src="/assets/website/js/frontend/surgemac/main.js"></script>
+    <script type="text/javascript">
+    //========= glightbox
+    GLightbox({
+        'href': '#',
+        'type': 'video',
+        'source': 'youtube', //vimeo, youtube or local
+        'width': 900,
+        'autoplayVideos': true,
+    });
+
+    //====== Clients Logo Slider
+    tns({
+        container: '.client-logo-carousel',
+        slideBy: 'page',
+        autoplay: true,
+        autoplayButtonOutput: false,
+        mouseDrag: true,
+        gutter: 15,
+        nav: false,
+        controls: false,
+        responsive: {
+            0: {
+                items: 1,
+            },
+            540: {
+                items: 2,
+            },
+            768: {
+                items: 3,
+            },
+            992: {
+                items: 4,
+            },
+            1170: {
+                items: 6,
+            }
+        }
+    });
+
+    //======== Home Slider
+    var slider = new tns({
+        container: '.home-slider',
+        slideBy: 'page',
+        autoplay: false,
+        mouseDrag: true,
+        gutter: 0,
+        items: 1,
+        nav: true,
+        controls: false,
+        controlsText: [
+            '<i class="lni lni-arrow-left prev"></i>',
+            '<i class="lni lni-arrow-right next"></i>'
+        ],
+        responsive: {
+            1200: {
+                items: 1,
+            },
+            992: {
+                items: 1,
+            },
+            0: {
+                items: 1,
+            }
+
+        }
+    });
+
+    //======== Testimonial Slider
+    var slider = new tns({
+        container: '.testimonial-slider',
+        slideBy: 'page',
+        autoplay: false,
+        mouseDrag: true,
+        gutter: 0,
+        items: 1,
+        nav: true,
+        controls: false,
+        controlsText: [
+            '<i class="lni lni-arrow-left prev"></i>',
+            '<i class="lni lni-arrow-right next"></i>'
+        ],
+        responsive: {
+            1200: {
+                items: 2,
+            },
+            992: {
+                items: 1,
+            },
+            0: {
+                items: 1,
+            }
+
+        }
+    });
+
+    //============== isotope masonry js with imagesloaded
+    imagesLoaded('#container', function() {
+        var elem = document.querySelector('.grid');
+        var iso = new Isotope(elem, {
+            // options
+            itemSelector: '.grid-item',
+            masonry: {
+                // use outer width of grid-sizer for columnWidth
+                columnWidth: '.grid-item'
+            }
+        });
+
+        let filterButtons = document.querySelectorAll('.portfolio-btn-wrapper button');
+        filterButtons.forEach(e =>
+            e.addEventListener('click', () => {
+
+                let filterValue = event.target.getAttribute('data-filter');
+                iso.arrange({
+                    filter: filterValue
+                });
+            })
+        );
+    });
+    </script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script>
+    <script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
