@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html class="no-js" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://surgemac.github.io/news/article-33609.htm" />
+    <meta charset="utf-8" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge" />
+    <title>Spring Boot &#8211; RestTemplate在URL中转义字符问题</title>
+        <meta name="description" content="Spring Boot - RestTemplate在URL中转义字符问题  相同代码在不同SpringBoot版本中使用RestTemplate请求时遇到的问题：          Map&lt;S" />
+        <link rel="icon" href="/assets/website/img/surgemac/favicon.ico" type="image/x-icon"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!-- Web Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <!-- ========================= CSS here ========================= -->
+    <link rel="stylesheet" href="/assets/website/css/surgemac/bootstrap.min.css" />
+    <link rel="stylesheet" href="/assets/website/css/surgemac/LineIcons.2.0.css" />
+    <link rel="stylesheet" href="/assets/website/css/surgemac/animate.css" />
+    <link rel="stylesheet" href="/assets/website/css/surgemac/tiny-slider.css" />
+    <link rel="stylesheet" href="/assets/website/css/surgemac/glightbox.min.css" />
+    <link rel="stylesheet" href="/assets/website/css/surgemac/main.css" />
+    <link rel="stylesheet" href="/assets/website/css/surgemac/reset.css" />
+    <link rel="stylesheet" href="/assets/website/css/surgemac/responsive.css" />
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-BJBH6WP5S9"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-BJBH6WP5S9');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+    <!--[if lte IE 9]>
+      <p class="browserupgrade">
+        You are using an <strong>outdated</strong> browser. Please
+        <a href="https://browsehappy.com/">upgrade your browser</a> to improve
+        your experience and security.
+      </p>
+    <![endif]-->
+    <!-- Preloader -->
+    <div class="preloader">
+        <div class="preloader-inner">
+            <div class="preloader-icon">
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </div>
+    <!-- /End Preloader -->
+    <!-- ========================= header start ========================= -->
+    <header class="header navbar-area">
+
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-12">
+                    <div class="nav-inner">
+                        <nav class="navbar navbar-expand-lg">
+                                                        <a class="navbar-brand" href="/">
+                                Surge Mac
+                            </a>
+                                                        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                                <span class="toggler-icon"></span>
+                                <span class="toggler-icon"></span>
+                                <span class="toggler-icon"></span>
+                            </button>
+                            <div class="collapse navbar-collapse sub-menu-bar" id="navbarSupportedContent">
+                                <ul id="nav" class="navbar-nav ms-auto">
+                                                                        <li class="nav-item">
+                                        <a class="page-scroll" href="/">首页</a>
+                                    </li>
+                                                                        <li class="nav-item">
+                                        <a class="page-scroll" href="/free-nodes/">免费节点</a>
+                                    </li>
+                                                                        <li class="nav-item">
+                                        <a class="page-scroll" href="/paid-subscribe/">推荐机场</a>
+                                    </li>
+                                                                        <li class="nav-item">
+                                        <a class="page-scroll" href="/news/">新闻资讯</a>
+                                    </li>
+                                                                        <li class="nav-item">
+                                        <a href="#">关于</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="#">联系</a>
+                                    </li>
+                                </ul>
+                            </div> <!-- navbar collapse -->
+                        </nav> <!-- navbar -->
+                    </div>
+                </div>
+            </div> <!-- row -->
+        </div> <!-- container -->
+    </header>
+    <!-- ========================= header end ========================= -->
+    <!-- Start Breadcrumbs -->
+    <div class="breadcrumbs" data-stellar-background-ratio="0.5">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 col-md-6 col-12">
+                    <div class="breadcrumbs-content left">
+                        <h1 class="page-title">Spring Boot &#8211; RestTemplate在URL中转义字符问题</h1>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-6 col-12">
+                    <div class="breadcrumbs-content right">
+                        <ul class="breadcrumb-nav">
+                            <li><a href="/">首页</a></li>
+                            <li><a href="/news/">新闻资讯</a></li>
+                            <li>正文</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End Breadcrumbs -->
+        <!-- Start Features Area -->
+    <section class="Features section">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-9">
+                                    <input type="hidden" id="share-website-info" data-name="Surge Node节点订阅站" data-url="https://surgenode.github.io">
+                  				  				  				<div id="content_views" class="markdown_views prism-atom-one-dark"> <h3> <a id="Spring_Boot__RestTemplateURL_0" rel="nofollow"></a>Spring Boot - RestTemplate在URL中转义字符问题</h3> <blockquote> <p><strong>相同代码在不同SpringBoot版本中使用RestTemplate请求时遇到的问题：</strong></p> </blockquote> <pre><code class="prism language-java">        Map<span class="token generics function"><span class="token punctuation">&lt;</span>String<span class="token punctuation">,</span> Object<span class="token punctuation">&gt;</span></span> param <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">HashMap</span><span class="token generics function"><span class="token punctuation">&lt;</span>String<span class="token punctuation">,</span> Object<span class="token punctuation">&gt;</span></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>             param<span class="token punctuation">.</span><span class="token function">put</span><span class="token punctuation">(</span><span class="token string">"version"</span><span class="token punctuation">,</span><span class="token string">"2.0.0"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>             String userSing <span class="token operator">=</span> <span class="token function">sign</span><span class="token punctuation">(</span>param<span class="token punctuation">)</span><span class="token punctuation">;</span>             param<span class="token punctuation">.</span><span class="token function">put</span><span class="token punctuation">(</span><span class="token string">"user_sign"</span><span class="token punctuation">,</span> userSing<span class="token punctuation">)</span><span class="token punctuation">;</span>             logger<span class="token punctuation">.</span><span class="token function">info</span><span class="token punctuation">(</span><span class="token string">"签名:"</span> <span class="token operator">+</span> userSing<span class="token punctuation">)</span><span class="token punctuation">;</span>             StringBuilder paramStr <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">StringBuilder</span><span class="token punctuation">(</span><span class="token string">"?"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>             <span class="token keyword">for</span><span class="token punctuation">(</span>Map<span class="token punctuation">.</span>Entry<span class="token generics function"><span class="token punctuation">&lt;</span>String<span class="token punctuation">,</span> Object<span class="token punctuation">&gt;</span></span> entry <span class="token operator">:</span> param<span class="token punctuation">.</span><span class="token function">entrySet</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">{<!-- --></span>                 paramStr<span class="token punctuation">.</span><span class="token function">append</span><span class="token punctuation">(</span>entry<span class="token punctuation">.</span><span class="token function">getKey</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">append</span><span class="token punctuation">(</span><span class="token string">"="</span><span class="token punctuation">)</span>                         <span class="token punctuation">.</span><span class="token function">append</span><span class="token punctuation">(</span>entry<span class="token punctuation">.</span><span class="token function">getValue</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">==</span> null <span class="token operator">?</span> <span class="token string">""</span> <span class="token operator">:</span> String<span class="token punctuation">.</span><span class="token function">valueOf</span><span class="token punctuation">(</span>entry<span class="token punctuation">.</span><span class="token function">getValue</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span>                         <span class="token punctuation">.</span><span class="token function">append</span><span class="token punctuation">(</span><span class="token string">"&amp;"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>             <span class="token punctuation">}</span>             paramStr<span class="token punctuation">.</span><span class="token function">deleteCharAt</span><span class="token punctuation">(</span>paramStr<span class="token punctuation">.</span><span class="token function">length</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>             logger<span class="token punctuation">.</span><span class="token function">info</span><span class="token punctuation">(</span><span class="token string">"入参:"</span> <span class="token operator">+</span> paramStr<span class="token punctuation">.</span><span class="token function">toString</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>             RestTemplate restTemplate <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">RestTemplate</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>             String jsonStr <span class="token operator">=</span> restTemplate<span class="token punctuation">.</span><span class="token function">getForObject</span><span class="token punctuation">(</span>sendMessagesUrl <span class="token operator">+</span> paramStr<span class="token punctuation">.</span><span class="token function">toString</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> String<span class="token punctuation">.</span><span class="token keyword">class</span><span class="token punctuation">)</span><span class="token punctuation">;</span>             logger<span class="token punctuation">.</span><span class="token function">info</span><span class="token punctuation">(</span><span class="token string">"响应值："</span> <span class="token operator">+</span> jsonStr<span class="token punctuation">)</span><span class="token punctuation">;</span> </code></pre> <blockquote> <p>下面截图为<strong>springboot1.5.3 RestTemplate request log</strong><br /><img decoding="async" src="http://img.555519.xyz/uploads/20230113/5e04832d2f4713f6b79481d75ee78456.jpg" alt="Spring Boot - RestTemplate在URL中转义字符问题"></p> </blockquote> <blockquote> <p>下面截图为<strong>springboot2.1.7 RestTemplate request log</strong><br /><img decoding="async" src="http://img.555519.xyz/uploads/20230113/ac2416334e78049fa0f9d7c18fb8795b.jpg" alt="Spring Boot - RestTemplate在URL中转义字符问题"></p> </blockquote> <p>在这两份log中可以看到user_sign对应的value值中的 <strong>+</strong> 是特殊的字符，<strong>1.0版本</strong>的被转义为: <strong>%2B</strong>，<strong>2.0版本</strong>没有被转义，最终<strong>2.0版本</strong>程序的RestTemplate请求第三方在签名解码时校验不通过。</p> <h4> <a id="1_31" rel="nofollow"></a>1.尝试与分析</h4> <p>根据上述信息我们可以圈定问题的范围，<strong>=</strong> 有被转码，说明可能是在RestTemplate中url参数的构建转码的方式上与httpClient有什么不通，尝试进行各类处理方法。<br /> 主要使用的方式有：</p> <ul> <li>UriComponent构建uri（未解决）</li> <li>构建如下RestTemplateConfig（未解决）</li> </ul> <pre><code class="prism language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">RestTemplateConfig</span> <span class="token punctuation">{<!-- --></span>     <span class="token annotation punctuation">@Bean</span>     RestTemplate <span class="token function">restTemplate</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{<!-- --></span>         SimpleClientHttpRequestFactory requestFactory <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">SimpleClientHttpRequestFactory</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>         requestFactory<span class="token punctuation">.</span><span class="token function">setReadTimeout</span><span class="token punctuation">(</span><span class="token number">40000</span><span class="token punctuation">)</span><span class="token punctuation">;</span>         requestFactory<span class="token punctuation">.</span><span class="token function">setConnectTimeout</span><span class="token punctuation">(</span><span class="token number">40000</span><span class="token punctuation">)</span><span class="token punctuation">;</span>          <span class="token comment">// 添加转换器</span>         List<span class="token operator">&lt;</span>HttpMessageConverter<span class="token operator">&lt;</span><span class="token operator">?</span><span class="token operator">&gt;&gt;</span> messageConverters <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">ArrayList</span><span class="token operator">&lt;</span><span class="token operator">&gt;</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>         messageConverters<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">StringHttpMessageConverter</span><span class="token punctuation">(</span>Charset<span class="token punctuation">.</span><span class="token function">forName</span><span class="token punctuation">(</span><span class="token string">"UTF-8"</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>         messageConverters<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">FormHttpMessageConverter</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>         messageConverters<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">MappingJackson2HttpMessageConverter</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>          RestTemplate restTemplate <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">RestTemplate</span><span class="token punctuation">(</span>messageConverters<span class="token punctuation">)</span><span class="token punctuation">;</span>         restTemplate<span class="token punctuation">.</span><span class="token function">setRequestFactory</span><span class="token punctuation">(</span>requestFactory<span class="token punctuation">)</span><span class="token punctuation">;</span>         restTemplate<span class="token punctuation">.</span><span class="token function">setErrorHandler</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">DefaultResponseErrorHandler</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>         <span class="token keyword">return</span> restTemplate<span class="token punctuation">;</span>     <span class="token punctuation">}</span>  <span class="token punctuation">}</span> </code></pre> <h4> <a id="2RestTemplate_60" rel="nofollow"></a>2.跟踪RestTemplate源码</h4> <p><img decoding="async" src="http://img.555519.xyz/uploads/20230113/0d030e2746ce441d235ef1c8408ee5e0.jpg" alt="Spring Boot - RestTemplate在URL中转义字符问题">debug到这里时发现user_sign被转义了但 <strong>+</strong> 没有变。<br /><img decoding="async" src="http://img.555519.xyz/uploads/20230113/e2e73d42d8d5f0c293c57a61e85f31e1.jpg" alt="Spring Boot - RestTemplate在URL中转义字符问题">这时URLDecoder.decode("/QaNSBls/U8ciXEWaCWtmeMK6+w%3D")会发现 <strong>+</strong> 变成了 <strong>空格</strong>，导致第三方在签名解码时校验不通过。</p> <p><img decoding="async" src="http://img.555519.xyz/uploads/20230113/de8dd915cc529f6080aeef501aedd8bd.jpg" alt="Spring Boot - RestTemplate在URL中转义字符问题"><br /><img decoding="async" src="http://img.555519.xyz/uploads/20230113/21f647cd53e7f9272a69d3380aac12f4.jpg" alt="Spring Boot - RestTemplate在URL中转义字符问题">再次通过比较会发现<strong>StringBoot2.0版本</strong>对应的URL转码 <strong>+</strong> 不会被解析。</p> <p><strong>经过多次百度有看到如下：</strong></p> <blockquote> <p>根据 RFC 3986 加号等符号的确实可以出现在参数中的，而且不需要编码，有问题的在于服务端的解析没有与时俱进</p> </blockquote> <h4> <a id="3_72" rel="nofollow"></a>3.解决问题</h4> <p>最后解决一些这个问题，当使用RestTemplate发起请求，如果请求参数中有需要url编码时，通过如下两种方式解决：</p> <ol> <li>不希望出现问题的使用姿势应传入URI对象而不是字符串，修改RestTemplate请求方法入参的<code>String url</code> 修改为 <code>URI url</code>。</li> <li>修改入参编码格式<code>URLEncoder.encode(user_sign, "UTF-8")</code>，然后在构建RestTemplate时，</li> </ol> <pre><code class="prism language-java">Map<span class="token generics function"><span class="token punctuation">&lt;</span>String<span class="token punctuation">,</span> Object<span class="token punctuation">&gt;</span></span> param <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">HashMap</span><span class="token generics function"><span class="token punctuation">&lt;</span>String<span class="token punctuation">,</span> Object<span class="token punctuation">&gt;</span></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>         StringBuilder paramStr <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">StringBuilder</span><span class="token punctuation">(</span><span class="token string">"?"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>             param<span class="token punctuation">.</span><span class="token function">put</span><span class="token punctuation">(</span><span class="token string">"version"</span><span class="token punctuation">,</span><span class="token string">"xxxxx"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>             param<span class="token punctuation">.</span><span class="token function">put</span><span class="token punctuation">(</span><span class="token string">"time"</span><span class="token punctuation">,</span><span class="token string">"xxxxx"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>             <span class="token comment">//转化成md5生产密钥</span>             String userSing  <span class="token operator">=</span> <span class="token function">sign</span><span class="token punctuation">(</span>param<span class="token punctuation">)</span><span class="token punctuation">;</span>             String userSign <span class="token operator">=</span> URLEncoder<span class="token punctuation">.</span><span class="token function">encode</span><span class="token punctuation">(</span>userSing<span class="token punctuation">,</span> <span class="token string">"UTF-8"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>             param<span class="token punctuation">.</span><span class="token function">put</span><span class="token punctuation">(</span><span class="token string">"user_sign"</span><span class="token punctuation">,</span> userSign<span class="token punctuation">)</span><span class="token punctuation">;</span>             <span class="token keyword">for</span><span class="token punctuation">(</span>Map<span class="token punctuation">.</span>Entry<span class="token generics function"><span class="token punctuation">&lt;</span>String<span class="token punctuation">,</span> Object<span class="token punctuation">&gt;</span></span> entry <span class="token operator">:</span> param<span class="token punctuation">.</span><span class="token function">entrySet</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">{<!-- --></span>                 paramStr<span class="token punctuation">.</span><span class="token function">append</span><span class="token punctuation">(</span>entry<span class="token punctuation">.</span><span class="token function">getKey</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">append</span><span class="token punctuation">(</span><span class="token string">"="</span><span class="token punctuation">)</span>                         <span class="token punctuation">.</span><span class="token function">append</span><span class="token punctuation">(</span>entry<span class="token punctuation">.</span><span class="token function">getValue</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">==</span> null <span class="token operator">?</span> <span class="token string">""</span> <span class="token operator">:</span> String<span class="token punctuation">.</span><span class="token function">valueOf</span><span class="token punctuation">(</span>entry<span class="token punctuation">.</span><span class="token function">getValue</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span>                         <span class="token punctuation">.</span><span class="token function">append</span><span class="token punctuation">(</span><span class="token string">"&amp;"</span><span class="token punctuation">)</span><span class="token punctuation">;</span>             <span class="token punctuation">}</span>             paramStr<span class="token punctuation">.</span><span class="token function">deleteCharAt</span><span class="token punctuation">(</span>paramStr<span class="token punctuation">.</span><span class="token function">length</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>             CloseableHttpClient httpClient <span class="token operator">=</span> HttpClientUtils<span class="token punctuation">.</span><span class="token function">acceptsUntrustedCertsHttpClient</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>             HttpComponentsClientHttpRequestFactory clientHttpRequestFactory <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">HttpComponentsClientHttpRequestFactory</span><span class="token punctuation">(</span>httpClient<span class="token punctuation">)</span><span class="token punctuation">;</span>             RestTemplate restTemplate <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">RestTemplate</span><span class="token punctuation">(</span>clientHttpRequestFactory<span class="token punctuation">)</span><span class="token punctuation">;</span>             DefaultUriBuilderFactory uriFactory <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">DefaultUriBuilderFactory</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>             uriFactory<span class="token punctuation">.</span><span class="token function">setEncodingMode</span><span class="token punctuation">(</span>DefaultUriBuilderFactory<span class="token punctuation">.</span>EncodingMode<span class="token punctuation">.</span>VALUES_ONLY<span class="token punctuation">)</span><span class="token punctuation">;</span>             restTemplate<span class="token punctuation">.</span><span class="token function">setUriTemplateHandler</span><span class="token punctuation">(</span>uriFactory<span class="token punctuation">)</span><span class="token punctuation">;</span>             String smsJsonStr <span class="token operator">=</span> restTemplate<span class="token punctuation">.</span><span class="token function">getForObject</span><span class="token punctuation">(</span>SMSURL <span class="token operator">+</span> paramStr<span class="token punctuation">.</span><span class="token function">toString</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> String<span class="token punctuation">.</span><span class="token keyword">class</span><span class="token punctuation">)</span><span class="token punctuation">;</span>             Map<span class="token generics function"><span class="token punctuation">&lt;</span>String<span class="token punctuation">,</span> Object<span class="token punctuation">&gt;</span></span> map <span class="token operator">=</span> GsonUtil<span class="token punctuation">.</span><span class="token function">gsonToMap</span><span class="token punctuation">(</span>smsJsonStr<span class="token punctuation">)</span><span class="token punctuation">;</span> </code></pre> <h4> <a id="_102" rel="nofollow"></a>小结</h4> <p>注意<strong>SpringBoot2.0版本</strong>的url参数编码，默认只会针对 <strong>= 和 &amp;</strong> 进行处理；为了兼容我们一般的后端的url编解码处理在需要编码参数时，个人建议尽量不要使用Spring默认的方式，不然接收到数据会和预期的不一致。</p> </p></div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-33133.htm">厦门宠物领养中心在哪儿 厦门宠物领养中心在哪儿啊</a></p>
+                                        <p>下一个：<a href="/news/article-33611.htm">动物防疫工作年终总结（动物防疫工作年终总结怎么写）</a></p>
+                                    </div>
+                                </div>
+                <div class="col-md-3">
+                    <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/free-nodes/2024-9-13-node-share-links.htm" title="9月13日 | Surge Mac每天更新22.6M/S免费节点订阅链接">9月13日 | Surge Mac每天更新22.6M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-8-13-free-node-subscribe.htm" title="8月13日 | Surge Mac每天更新18M/S免费节点订阅链接">8月13日 | Surge Mac每天更新18M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-17-node-share-links.htm" title="12月17日 | Surge Mac每天更新19.6M/S免费节点订阅链接">12月17日 | Surge Mac每天更新19.6M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-26-free-node-subscribe.htm" title="11月26日 | Surge Mac每天更新18.7M/S免费节点订阅链接">11月26日 | Surge Mac每天更新18.7M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-8-25-node-share-links.htm" title="8月25日 | Surge Mac每天更新20.2M/S免费节点订阅链接">8月25日 | Surge Mac每天更新20.2M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-29319.htm" title="宠物领养协议简单版本图片高清（宠物领养协议简单版本图片高清下载）">宠物领养协议简单版本图片高清（宠物领养协议简单版本图片高清下载）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-10-28-node-share.htm" title="10月28日 | Surge Mac每天更新22.2M/S免费节点订阅链接">10月28日 | Surge Mac每天更新22.2M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-9-15-node-share-links.htm" title="9月15日 | Surge Mac每天更新19.5M/S免费节点订阅链接">9月15日 | Surge Mac每天更新19.5M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-7-31-free-hysteria2-node.htm" title="7月31日 | Surge Mac每天更新18.8M/S免费节点订阅链接">7月31日 | Surge Mac每天更新18.8M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-10-23-free-node-subscribe.htm" title="10月23日 | Surge Mac每天更新19.3M/S免费节点订阅链接">10月23日 | Surge Mac每天更新19.3M/S免费节点订阅链接</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">3</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">93</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">34</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">31</span> <a href="/date/2024-10/" title="2024-10 归档">2024-10</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">30</span> <a href="/date/2024-09/" title="2024-09 归档">2024-09</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">31</span> <a href="/date/2024-08/" title="2024-08 归档">2024-08</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">1</span> <a href="/date/2024-07/" title="2024-07 归档">2024-07</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- End Features Area -->
+        <!-- Start Footer Area -->
+    <footer class="footer">
+        <!-- Start Footer Bottom -->
+        <div class="footer-bottom">
+            <div class="container">
+                <div class="inner">
+                    <div class="row">
+                            <p>
+                                <a href="/">首页</a> | 
+                                <a href="/free-node/">免费节点</a> | 
+                                <a href="/news/">新闻资讯</a> |
+                                <a href="/about-us.htm">关于我们</a> |
+                                <a href="/disclaimer.htm">免责申明</a> |
+                                <a href="/privacy.htm">隐私申明</a> |
+                                <a href="/sitemap.xml">网站地图</a>
+                            </p>
+                        <p>Surge Mac免费节点分享站 版权所有 Powered by WordPress</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- End Footer Middle -->
+    </footer>
+    <!--/ End Footer Area -->
+    <!-- ========================= scroll-top ========================= -->
+    <a href="#" class="scroll-top btn-hover">
+        <i class="lni lni-chevron-up"></i>
+    </a>
+    <!-- ========================= JS here ========================= -->
+    <script src="/assets/website/js/frontend/surgemac/jquery.min.js"></script>
+    <script src="/assets/website/js/frontend/surgemac/bootstrap.min.js"></script>
+    <script src="/assets/website/js/frontend/surgemac/count-up.min.js"></script>
+    <script src="/assets/website/js/frontend/surgemac/wow.min.js"></script>
+    <script src="/assets/website/js/frontend/surgemac/tiny-slider.js"></script>
+    <script src="/assets/website/js/frontend/surgemac/glightbox.min.js"></script>
+    <script src="/assets/website/js/frontend/surgemac/imagesloaded.min.js"></script>
+    <script src="/assets/website/js/frontend/surgemac/isotope.min.js"></script>
+    <script src="/assets/website/js/frontend/surgemac/main.js"></script>
+    <script type="text/javascript">
+    //========= glightbox
+    GLightbox({
+        'href': '#',
+        'type': 'video',
+        'source': 'youtube', //vimeo, youtube or local
+        'width': 900,
+        'autoplayVideos': true,
+    });
+
+    //====== Clients Logo Slider
+    tns({
+        container: '.client-logo-carousel',
+        slideBy: 'page',
+        autoplay: true,
+        autoplayButtonOutput: false,
+        mouseDrag: true,
+        gutter: 15,
+        nav: false,
+        controls: false,
+        responsive: {
+            0: {
+                items: 1,
+            },
+            540: {
+                items: 2,
+            },
+            768: {
+                items: 3,
+            },
+            992: {
+                items: 4,
+            },
+            1170: {
+                items: 6,
+            }
+        }
+    });
+
+    //======== Home Slider
+    var slider = new tns({
+        container: '.home-slider',
+        slideBy: 'page',
+        autoplay: false,
+        mouseDrag: true,
+        gutter: 0,
+        items: 1,
+        nav: true,
+        controls: false,
+        controlsText: [
+            '<i class="lni lni-arrow-left prev"></i>',
+            '<i class="lni lni-arrow-right next"></i>'
+        ],
+        responsive: {
+            1200: {
+                items: 1,
+            },
+            992: {
+                items: 1,
+            },
+            0: {
+                items: 1,
+            }
+
+        }
+    });
+
+    //======== Testimonial Slider
+    var slider = new tns({
+        container: '.testimonial-slider',
+        slideBy: 'page',
+        autoplay: false,
+        mouseDrag: true,
+        gutter: 0,
+        items: 1,
+        nav: true,
+        controls: false,
+        controlsText: [
+            '<i class="lni lni-arrow-left prev"></i>',
+            '<i class="lni lni-arrow-right next"></i>'
+        ],
+        responsive: {
+            1200: {
+                items: 2,
+            },
+            992: {
+                items: 1,
+            },
+            0: {
+                items: 1,
+            }
+
+        }
+    });
+
+    //============== isotope masonry js with imagesloaded
+    imagesLoaded('#container', function() {
+        var elem = document.querySelector('.grid');
+        var iso = new Isotope(elem, {
+            // options
+            itemSelector: '.grid-item',
+            masonry: {
+                // use outer width of grid-sizer for columnWidth
+                columnWidth: '.grid-item'
+            }
+        });
+
+        let filterButtons = document.querySelectorAll('.portfolio-btn-wrapper button');
+        filterButtons.forEach(e =>
+            e.addEventListener('click', () => {
+
+                let filterValue = event.target.getAttribute('data-filter');
+                iso.arrange({
+                    filter: filterValue
+                });
+            })
+        );
+    });
+    </script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script>
+    <script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
