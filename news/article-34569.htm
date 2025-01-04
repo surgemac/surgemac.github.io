@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html class="no-js" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://surgemac.github.io/news/article-34569.htm" />
+    <meta charset="utf-8" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge" />
+    <title>shell编程中for循环语句的实现过程及案例_linux shell_</title>
+        <meta name="description" content="目录  前言 示例1：批量添加用户 示例2：根据IP地址检查主机状态 示例3：自动生成一个8位随机密码 取值范围大小写字母和数字 编写脚本应该注意的事项： 总结    前言 本篇是shell编程for" />
+        <link rel="icon" href="/assets/website/img/surgemac/favicon.ico" type="image/x-icon"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!-- Web Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <!-- ========================= CSS here ========================= -->
+    <link rel="stylesheet" href="/assets/website/css/surgemac/bootstrap.min.css" />
+    <link rel="stylesheet" href="/assets/website/css/surgemac/LineIcons.2.0.css" />
+    <link rel="stylesheet" href="/assets/website/css/surgemac/animate.css" />
+    <link rel="stylesheet" href="/assets/website/css/surgemac/tiny-slider.css" />
+    <link rel="stylesheet" href="/assets/website/css/surgemac/glightbox.min.css" />
+    <link rel="stylesheet" href="/assets/website/css/surgemac/main.css" />
+    <link rel="stylesheet" href="/assets/website/css/surgemac/reset.css" />
+    <link rel="stylesheet" href="/assets/website/css/surgemac/responsive.css" />
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-BJBH6WP5S9"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-BJBH6WP5S9');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+    <!--[if lte IE 9]>
+      <p class="browserupgrade">
+        You are using an <strong>outdated</strong> browser. Please
+        <a href="https://browsehappy.com/">upgrade your browser</a> to improve
+        your experience and security.
+      </p>
+    <![endif]-->
+    <!-- Preloader -->
+    <div class="preloader">
+        <div class="preloader-inner">
+            <div class="preloader-icon">
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </div>
+    <!-- /End Preloader -->
+    <!-- ========================= header start ========================= -->
+    <header class="header navbar-area">
+
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-12">
+                    <div class="nav-inner">
+                        <nav class="navbar navbar-expand-lg">
+                                                        <a class="navbar-brand" href="/">
+                                Surge Mac
+                            </a>
+                                                        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                                <span class="toggler-icon"></span>
+                                <span class="toggler-icon"></span>
+                                <span class="toggler-icon"></span>
+                            </button>
+                            <div class="collapse navbar-collapse sub-menu-bar" id="navbarSupportedContent">
+                                <ul id="nav" class="navbar-nav ms-auto">
+                                                                        <li class="nav-item">
+                                        <a class="page-scroll" href="/">首页</a>
+                                    </li>
+                                                                        <li class="nav-item">
+                                        <a class="page-scroll" href="/free-nodes/">免费节点</a>
+                                    </li>
+                                                                        <li class="nav-item">
+                                        <a class="page-scroll" href="/paid-subscribe/">推荐机场</a>
+                                    </li>
+                                                                        <li class="nav-item">
+                                        <a class="page-scroll" href="/news/">新闻资讯</a>
+                                    </li>
+                                                                        <li class="nav-item">
+                                        <a href="#">关于</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="#">联系</a>
+                                    </li>
+                                </ul>
+                            </div> <!-- navbar collapse -->
+                        </nav> <!-- navbar -->
+                    </div>
+                </div>
+            </div> <!-- row -->
+        </div> <!-- container -->
+    </header>
+    <!-- ========================= header end ========================= -->
+    <!-- Start Breadcrumbs -->
+    <div class="breadcrumbs" data-stellar-background-ratio="0.5">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 col-md-6 col-12">
+                    <div class="breadcrumbs-content left">
+                        <h1 class="page-title">shell编程中for循环语句的实现过程及案例_linux shell_</h1>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-6 col-12">
+                    <div class="breadcrumbs-content right">
+                        <ul class="breadcrumb-nav">
+                            <li><a href="/">首页</a></li>
+                            <li><a href="/news/">新闻资讯</a></li>
+                            <li>正文</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End Breadcrumbs -->
+        <!-- Start Features Area -->
+    <section class="Features section">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-9">
+                                    <input type="hidden" id="share-website-info" data-name="Surge Node节点订阅站" data-url="https://surgenode.github.io">
+                  				  				  				<div id="navCategory"> <h5 class="catalogue">目录</h5> <ul class="first_class_ul"> <li><a href="#_label0" rel="nofollow">前言</a></li> <li><a href="#_label1" rel="nofollow">示例1：批量添加用户</a></li> <li><a href="#_label2" rel="nofollow">示例2：根据IP地址检查主机状态</a></li> <li><a href="#_label3" rel="nofollow">示例3：自动生成一个8位随机密码 取值范围大小写字母和数字</a></li> <li><a href="#_label4" rel="nofollow">编写脚本应该注意的事项：</a></li> <li><a href="#_label5" rel="nofollow">总结</a></li> </ul> </div> <p class="maodian"><a name="_label0" rel="nofollow"></a></p> <h2>前言</h2> <p>本篇是shell编程for循环的实现过程以及一些案例</p> <p><strong>什么是for循环</strong></p> <p>读取不同的变量值，用来逐个执行同一组命令</p> <blockquote> <p>for 变量名 in 取值列表<br />do<br />    命令序列<br />done<br />#用变量名去取值，然后挨个执行命令，其实就是一个遍历的过程</p> </blockquote> <p>循环体中三种专业的话术：遍历、迭代、递归</p> <p style="text-align:center"><img decoding="async" alt="" class="left" src="http://img.555519.xyz/uploads3/20220413/00336a0db3456c44a66e07a7b4a6a15d.jpg"></p> <div class="ay1code"> <pre class="brush:bash;">[root@bogon ~]# for i in {1..10}  &gt; do  &gt; echo $i  &gt; done  1  ...  10  [root@bogon ~]# for i in $(seq 1 10); do echo $i; done  1  ...  10  #分号可以使交互式的命令在一行执行  [root@bogon ~]# for ((i=1;i&lt;=10;i++)); do echo $i; done  1  ...  10  #类似于java、c语言</pre> </div> <p style="text-align:center"><img decoding="async" alt="" src="http://img.555519.xyz/uploads3/20220413/d55ed077a224ad9bc91d58419f68f4bc.jpg"></p> <p style="text-align:center"><img decoding="async" alt="" src="http://img.555519.xyz/uploads3/20220413/37ff6de31a16809bb39955b81e101a31.jpg"></p> <p style="text-align:center"><img decoding="async" alt="" src="http://img.555519.xyz/uploads3/20220413/472793b0a0f619365058d5075aabe691.jpg"></p> <p style="text-align:center"><img decoding="async" alt="" src="http://img.555519.xyz/uploads3/20220413/faf877757cc2d3a9d76c7ebd945f36e6.jpg"></p> <p class="maodian"><a name="_label1" rel="nofollow"></a></p> <h2>示例1：批量添加用户</h2> <p>用户名存放在users.txt文件中，每行一个初始密码均设为000000</p> <p style="text-align:center"><img decoding="async" alt="" src="http://img.555519.xyz/uploads3/20220413/f3810cbb5bf1b5fbc1e3836aad4202a7.jpg"></p> <div class="ay1code"> <pre class="brush:bash;">[root@bogon sh]# vim addusers.sh  #!/bin/bash  #demo add users     for USER in $(cat /data/users.txt)  do          useradd $USER          echo "000000" |passwd --stdin $USER  done</pre> </div> <p style="text-align:center"><img decoding="async" alt="" src="http://img.555519.xyz/uploads3/20220413/78bb899a32821cdb434e8850ebd704c7.jpg"></p> <p style="text-align:center"><img fetchpriority="high" decoding="async" alt="" height="642" src="http://img.555519.xyz/uploads3/20220413/e732f940ed04f587707188f90e88f3db.jpg"></p> <p class="maodian"><a name="_label2" rel="nofollow"></a></p> <h2>示例2：根据IP地址检查主机状态</h2> <p>IP地址存放在ipadds.txt文件中，每行一个使用ping命令检测各主机的连通性</p> <p style="text-align:center"><img decoding="async" alt="" src="http://img.555519.xyz/uploads3/20220413/45eb803dea32d6d223271d3d691031ce.jpg"></p> <div class="ay1code"> <pre class="brush:bash;">[root@bogon sh]# vim testping.txt   #!/bin/bash  #demo test ping     for host in $(cat /data/ip.txt)  do          ping -c 3 -i 0.5 -w 2 $host &amp;&gt; /dev/null          if [ $? -eq 0]          then                  echo "$host is online"          else                  echo "$host is offline"          fi  done</pre> </div> <p style="text-align:center"><img decoding="async" alt="" src="http://img.555519.xyz/uploads3/20220413/c940e625dea57cf70b90b15d6cebae47.jpg"></p> <p style="text-align:center"><img decoding="async" alt="" src="http://img.555519.xyz/uploads3/20220413/f31b3aa2cecbbf4ef1bae854e268a3b7.jpg"></p> <div class="ay1code"> <pre class="brush:bash;">[root@bogon sh]# vim testping.txt   #!/bin/bash  #demo test ping 192.168.109.0/24     for host in {1..254}  do          ping -c 3 -i 0.5 -w 2 192.168.109.$host &amp;&gt; /dev/null          if [ $? -eq 0]          then                  echo "$host is online"          else                  echo "$host is offline"          fi  done</pre> </div> <p class="maodian"><a name="_label3" rel="nofollow"></a></p> <h2>示例3：自动生成一个8位随机密码 取值范围大小写字母和数字</h2> <p>字符串分片</p> <div class="ay1code"> <pre class="brush:bash;">i="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"     0                                                            61     ${i:n:m}  #i是变量名，n是开始取值的下标，下标从0开始，m是取值长度  ${#变量名}  #取字符串长度        echo ${i:3:3}  #取值456  echo ${i:7:1}  #取值8     变量1+=变量2  #字符串追加</pre> </div> <p>生成随机数</p> <div class="ay1code"> <pre class="brush:bash;">echo $[$RANDOM % 62]  #生成0-61的随机数     echo $[$RANDOM % ${#i}]  #生成该变量名长度以内的随机数     num=$($[$RANDOM % ${#i}])  for i in {1..8}  do      echo ${i:$num:1}  done  #从i变量值中取随机数，每次取一个，取8次</pre> </div> <p>示例代码</p> <div class="ay1code"> <pre class="brush:bash;">[root@localhost sh]# vim random.sh  #!/bin/bash  #随机生成8位随机密码     #定义密码取值范围  String="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"  #循环8次  for i in {1..8}  do          #每次循环随机获取0到字符串长度-1的下标值          num=$[RANDOM % ${#String}]          #进行字符串截取          var=${String:num:1}          #每次追加生成密码          passwd+=$var  done  echo "本次生成的随机密码为:$passwd"</pre> </div> <p style="text-align:center"><img decoding="async" alt="" src="http://img.555519.xyz/uploads3/20220413/b0117b1c1d816171c78ed4c6e4b9979d.jpg"></p> <p> </p> <p style="text-align:center"><img decoding="async" alt="" src="http://img.555519.xyz/uploads3/20220413/117075aa7cbe70389c01c50ed7f4dfd4.jpg"></p> <p class="maodian"><a name="_label4" rel="nofollow"></a></p> <h2>编写脚本应该注意的事项：</h2> <ol> <li>开头指定使用什么shell，例如：bash，ksh，csh等</li> <li>脚本功能描述，使用方法，作者，版本，日期等</li> <li>变量名，函数名要有实际意义，函数名以动名词形式，第二个单词首字母要大写。例如：updateConfig()</li> <li>缩进统一用4个空格，不用TAB</li> <li>取变量值使用大括号，如${varname}</li> <li>删除文件时，如果路径有变量的，要判断变量有值，如rm -f ${abc}/* 如果变量abc没有值，则会把根目录下的文件删除</li> <li>脚本中尽量不要使用cd变换目录</li> <li>函数中也要有功能描述，使用依法，版本，日期等</li> <li>函数的功能要单一，不要太复杂</li> <li>$()比` `更好</li> <li>尽量不要使用多层if语句，而应该以case语句替代</li> <li>如果需要执行确定次数的循环，应该用for语句替代while语句</li> <li>输入的参数要有正确性判断</li> <li>多加注释，方便自己或他人阅读。</li> </ol> <p class="maodian"><a name="_label5" rel="nofollow"></a></p> <h2>总结</h2> <p>总的来说for循环还是比较简单的只要理解他的固定格式就行</p> <blockquote> <p>for 变量名 in 取值列表<br />do<br />    命令序列<br />done<br />#用变量名去取值，然后挨个执行命令，其实就是一个遍历的过程</p> </blockquote> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-34089.htm">参观动物园心得300字（参观动物园心得体会80字）</a></p>
+                                        <p>下一个：<a href="/news/article-34570.htm">让野猫挠了轻微出血有事吗 让野猫挠了轻微出血有事吗要***吗</a></p>
+                                    </div>
+                                </div>
+                <div class="col-md-3">
+                    <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/news/article-21445.htm" title="宠物救助站领养宠物猫（宠物救助站领养宠物要钱吗）">宠物救助站领养宠物猫（宠物救助站领养宠物要钱吗）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-9-29-surge-node.htm" title="9月29日 | Surge Mac每天更新22.4M/S免费节点订阅链接">9月29日 | Surge Mac每天更新22.4M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-8-14-free-subscribe-node.htm" title="8月14日 | Surge Mac每天更新19.9M/S免费节点订阅链接">8月14日 | Surge Mac每天更新19.9M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-28390.htm" title="动物疫病防控机构（动物疫病防控机构的服务不包括）">动物疫病防控机构（动物疫病防控机构的服务不包括）</a></li>
+                        <li class="py-2"><a href="/news/article-30755.htm" title="深圳哪有免费领养狗狗的地方（深圳哪有免费领养狗狗的地方啊）">深圳哪有免费领养狗狗的地方（深圳哪有免费领养狗狗的地方啊）</a></li>
+                        <li class="py-2"><a href="/news/article-34087.htm" title="设计模式学习笔记责任链模式实现及在Filter中的应用详解">设计模式学习笔记责任链模式实现及在Filter中的应用详解</a></li>
+                        <li class="py-2"><a href="/news/article-27928.htm" title="基于SqlSugar的数据库访问处理的封装，支持.net FrameWork和.net core的项目调用 &#8211; 伍华聪 _在线工具">基于SqlSugar的数据库访问处理的封装，支持.net FrameWork和.net core的项目调用 &#8211; 伍华聪 _在线工具</a></li>
+                        <li class="py-2"><a href="/news/article-20989.htm" title="聊城宠物店洗澡收费标准（一般的宠物店洗澡多少钱）">聊城宠物店洗澡收费标准（一般的宠物店洗澡多少钱）</a></li>
+                        <li class="py-2"><a href="/news/article-34570.htm" title="让野猫挠了轻微出血有事吗 让野猫挠了轻微出血有事吗要***吗">让野猫挠了轻微出血有事吗 让野猫挠了轻微出血有事吗要***吗</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-10-31-free-surge-node.htm" title="10月31日 | Surge Mac每天更新22.5M/S免费节点订阅链接">10月31日 | Surge Mac每天更新22.5M/S免费节点订阅链接</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">12</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">93</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">34</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">31</span> <a href="/date/2024-10/" title="2024-10 归档">2024-10</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">30</span> <a href="/date/2024-09/" title="2024-09 归档">2024-09</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">31</span> <a href="/date/2024-08/" title="2024-08 归档">2024-08</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">1</span> <a href="/date/2024-07/" title="2024-07 归档">2024-07</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- End Features Area -->
+        <!-- Start Footer Area -->
+    <footer class="footer">
+        <!-- Start Footer Bottom -->
+        <div class="footer-bottom">
+            <div class="container">
+                <div class="inner">
+                    <div class="row">
+                            <p>
+                                <a href="/">首页</a> | 
+                                <a href="/free-node/">免费节点</a> | 
+                                <a href="/news/">新闻资讯</a> |
+                                <a href="/about-us.htm">关于我们</a> |
+                                <a href="/disclaimer.htm">免责申明</a> |
+                                <a href="/privacy.htm">隐私申明</a> |
+                                <a href="/sitemap.xml">网站地图</a>
+                            </p>
+                        <p>Surge Mac免费节点分享站 版权所有 Powered by WordPress</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- End Footer Middle -->
+    </footer>
+    <!--/ End Footer Area -->
+    <!-- ========================= scroll-top ========================= -->
+    <a href="#" class="scroll-top btn-hover">
+        <i class="lni lni-chevron-up"></i>
+    </a>
+    <!-- ========================= JS here ========================= -->
+    <script src="/assets/website/js/frontend/surgemac/jquery.min.js"></script>
+    <script src="/assets/website/js/frontend/surgemac/bootstrap.min.js"></script>
+    <script src="/assets/website/js/frontend/surgemac/count-up.min.js"></script>
+    <script src="/assets/website/js/frontend/surgemac/wow.min.js"></script>
+    <script src="/assets/website/js/frontend/surgemac/tiny-slider.js"></script>
+    <script src="/assets/website/js/frontend/surgemac/glightbox.min.js"></script>
+    <script src="/assets/website/js/frontend/surgemac/imagesloaded.min.js"></script>
+    <script src="/assets/website/js/frontend/surgemac/isotope.min.js"></script>
+    <script src="/assets/website/js/frontend/surgemac/main.js"></script>
+    <script type="text/javascript">
+    //========= glightbox
+    GLightbox({
+        'href': '#',
+        'type': 'video',
+        'source': 'youtube', //vimeo, youtube or local
+        'width': 900,
+        'autoplayVideos': true,
+    });
+
+    //====== Clients Logo Slider
+    tns({
+        container: '.client-logo-carousel',
+        slideBy: 'page',
+        autoplay: true,
+        autoplayButtonOutput: false,
+        mouseDrag: true,
+        gutter: 15,
+        nav: false,
+        controls: false,
+        responsive: {
+            0: {
+                items: 1,
+            },
+            540: {
+                items: 2,
+            },
+            768: {
+                items: 3,
+            },
+            992: {
+                items: 4,
+            },
+            1170: {
+                items: 6,
+            }
+        }
+    });
+
+    //======== Home Slider
+    var slider = new tns({
+        container: '.home-slider',
+        slideBy: 'page',
+        autoplay: false,
+        mouseDrag: true,
+        gutter: 0,
+        items: 1,
+        nav: true,
+        controls: false,
+        controlsText: [
+            '<i class="lni lni-arrow-left prev"></i>',
+            '<i class="lni lni-arrow-right next"></i>'
+        ],
+        responsive: {
+            1200: {
+                items: 1,
+            },
+            992: {
+                items: 1,
+            },
+            0: {
+                items: 1,
+            }
+
+        }
+    });
+
+    //======== Testimonial Slider
+    var slider = new tns({
+        container: '.testimonial-slider',
+        slideBy: 'page',
+        autoplay: false,
+        mouseDrag: true,
+        gutter: 0,
+        items: 1,
+        nav: true,
+        controls: false,
+        controlsText: [
+            '<i class="lni lni-arrow-left prev"></i>',
+            '<i class="lni lni-arrow-right next"></i>'
+        ],
+        responsive: {
+            1200: {
+                items: 2,
+            },
+            992: {
+                items: 1,
+            },
+            0: {
+                items: 1,
+            }
+
+        }
+    });
+
+    //============== isotope masonry js with imagesloaded
+    imagesLoaded('#container', function() {
+        var elem = document.querySelector('.grid');
+        var iso = new Isotope(elem, {
+            // options
+            itemSelector: '.grid-item',
+            masonry: {
+                // use outer width of grid-sizer for columnWidth
+                columnWidth: '.grid-item'
+            }
+        });
+
+        let filterButtons = document.querySelectorAll('.portfolio-btn-wrapper button');
+        filterButtons.forEach(e =>
+            e.addEventListener('click', () => {
+
+                let filterValue = event.target.getAttribute('data-filter');
+                iso.arrange({
+                    filter: filterValue
+                });
+            })
+        );
+    });
+    </script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script>
+    <script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
