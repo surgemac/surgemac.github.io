@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html class="no-js" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://surgemac.github.io/news/article-39406.htm" />
+    <meta charset="utf-8" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge" />
+    <title>MySQL必知必会</title>
+        <meta name="description" content="7.1 组合WHERE语句 and操作符：  &nbsp;or操作符：  SQL（像多数语言一样）在处理0R操作符前，优先处理AND操作符。 7.2 IN操作符 IN WHERE子句中用来指定要匹配值" />
+        <link rel="icon" href="/assets/website/img/surgemac/favicon.ico" type="image/x-icon"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!-- Web Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <!-- ========================= CSS here ========================= -->
+    <link rel="stylesheet" href="/assets/website/css/surgemac/bootstrap.min.css" />
+    <link rel="stylesheet" href="/assets/website/css/surgemac/LineIcons.2.0.css" />
+    <link rel="stylesheet" href="/assets/website/css/surgemac/animate.css" />
+    <link rel="stylesheet" href="/assets/website/css/surgemac/tiny-slider.css" />
+    <link rel="stylesheet" href="/assets/website/css/surgemac/glightbox.min.css" />
+    <link rel="stylesheet" href="/assets/website/css/surgemac/main.css" />
+    <link rel="stylesheet" href="/assets/website/css/surgemac/reset.css" />
+    <link rel="stylesheet" href="/assets/website/css/surgemac/responsive.css" />
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-BJBH6WP5S9"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-BJBH6WP5S9');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+    <!--[if lte IE 9]>
+      <p class="browserupgrade">
+        You are using an <strong>outdated</strong> browser. Please
+        <a href="https://browsehappy.com/">upgrade your browser</a> to improve
+        your experience and security.
+      </p>
+    <![endif]-->
+    <!-- Preloader -->
+    <div class="preloader">
+        <div class="preloader-inner">
+            <div class="preloader-icon">
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </div>
+    <!-- /End Preloader -->
+    <!-- ========================= header start ========================= -->
+    <header class="header navbar-area">
+
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-12">
+                    <div class="nav-inner">
+                        <nav class="navbar navbar-expand-lg">
+                                                        <a class="navbar-brand" href="/">
+                                Surge Mac
+                            </a>
+                                                        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                                <span class="toggler-icon"></span>
+                                <span class="toggler-icon"></span>
+                                <span class="toggler-icon"></span>
+                            </button>
+                            <div class="collapse navbar-collapse sub-menu-bar" id="navbarSupportedContent">
+                                <ul id="nav" class="navbar-nav ms-auto">
+                                                                        <li class="nav-item">
+                                        <a class="page-scroll" href="/">首页</a>
+                                    </li>
+                                                                        <li class="nav-item">
+                                        <a class="page-scroll" href="/free-nodes/">免费节点</a>
+                                    </li>
+                                                                        <li class="nav-item">
+                                        <a class="page-scroll" href="/paid-subscribe/">推荐机场</a>
+                                    </li>
+                                                                        <li class="nav-item">
+                                        <a class="page-scroll" href="/news/">新闻资讯</a>
+                                    </li>
+                                                                        <li class="nav-item">
+                                        <a href="#">关于</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="#">联系</a>
+                                    </li>
+                                </ul>
+                            </div> <!-- navbar collapse -->
+                        </nav> <!-- navbar -->
+                    </div>
+                </div>
+            </div> <!-- row -->
+        </div> <!-- container -->
+    </header>
+    <!-- ========================= header end ========================= -->
+    <!-- Start Breadcrumbs -->
+    <div class="breadcrumbs" data-stellar-background-ratio="0.5">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 col-md-6 col-12">
+                    <div class="breadcrumbs-content left">
+                        <h1 class="page-title">MySQL必知必会</h1>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-6 col-12">
+                    <div class="breadcrumbs-content right">
+                        <ul class="breadcrumb-nav">
+                            <li><a href="/">首页</a></li>
+                            <li><a href="/news/">新闻资讯</a></li>
+                            <li>正文</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End Breadcrumbs -->
+        <!-- Start Features Area -->
+    <section class="Features section">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-9">
+                                    <input type="hidden" id="share-website-info" data-name="Surge Node节点订阅站" data-url="https://surgenode.github.io">
+                  				  				  				<div id="content_views" class="htmledit_views"> </h1> <h2>7.1 组合WHERE语句</h2> <p><strong>and操作符：</strong></p> <p><img fetchpriority="high" decoding="async" alt="" height="350" src="http://img.555519.xyz/uploads3/20220823/6ec8c48338f8c82d344e46da30cd7b2f.jpg"></p> <p><strong>&nbsp;or操作符：</strong></p> <p><img decoding="async" alt="" height="159" src="http://img.555519.xyz/uploads3/20220823/43d2ecb4a677635082e70e26537dca10.jpg"></p> <p>SQL（像多数语言一样）在处理0R操作符前，优先处理AND操作符。</p> <h2>7.2 IN操作符</h2> <p>IN WHERE子句中用来指定要匹配值的清单的关键字，<strong>功能与OR相当</strong>。为什么要用IN？</p> <ul> <li>在使用长的合法选项清单时，IN操作符的语法更清楚且更直观。</li> <li>在使用IN时，计算的次序更容易管理（因为<strong>使用的操作符更少</strong>)。</li> <li>IN操作符一般比OR操作符清单执行更快。</li> <li><strong>IN的最大优点是可以包含其他SELECT语句,使得能够更动态地建立WHERE子句</strong>。</li> </ul> <p><img decoding="async" alt="" height="174" src="http://img.555519.xyz/uploads3/20220823/0942ae16aeee2b74576dea28b0d31123.jpg"></p> <h2>7.3 NOT操作符</h2> <p>MySQL中的NOT MySQL支持使用NOT对<strong>IN、BETWEEN和EXISTS</strong>子句取反。</p> <p><img loading="lazy" decoding="async" alt="" height="183" src="http://img.555519.xyz/uploads3/20220823/eb9ee3e4b93049d09a5ad9d695154996.jpg"></p> </h1> <p><strong>百分号(%)通配符：</strong>%表示任何字符出现任意次数。</p> <p><img loading="lazy" decoding="async" alt="" height="412" src="http://img.555519.xyz/uploads3/20220823/7694344abe7910fef2557505f68b948c.jpg"></p> <p>&nbsp;like后面的字符串里面是区分大小写的。</p> <p>另一个有用的通配符是<strong>下划线(_)</strong>。下划线的用途与%一样，但下划线只匹配单个字符而不是多个字符。</p> <p><img loading="lazy" decoding="async" alt="" height="146" src="http://img.555519.xyz/uploads3/20220823/daeab6793668cff1c9255bd8b13bf3ae.jpg"></p> <p>&nbsp;两个下划线匹配页面两个字。</p> </h1> <p>下面的语句检索列product_name包含文本页面的所有行：</p> <p><img loading="lazy" decoding="async" alt="" height="142" src="http://img.555519.xyz/uploads3/20220823/aabd15af8e7f04f66350b078385acfd5.jpg"></p> <p><strong>.</strong>是正则表达式语言中一个特殊的字符。它表示匹配任意一个字符。</p> <p><img loading="lazy" decoding="async" alt="" height="136" src="http://img.555519.xyz/uploads3/20220823/7898a3833f61688b7ae864d51f11ebcd.jpg"></p> <p><strong>进行or匹配：</strong></p> <p><img loading="lazy" decoding="async" alt="" height="157" src="http://img.555519.xyz/uploads3/20220823/5a4365308bacd0d09de6ac041b3022c6.jpg"></p> <p><strong>匹配几个字符之一：</strong></p> <p><img loading="lazy" decoding="async" alt="" height="171" src="http://img.555519.xyz/uploads3/20220823/06c0e4c5e60772a3c32d59057f47c4cf.jpg"></p> <p>正如所见，[ ]是另一种形式的OR语句。事实上,正则表达式<strong>[123]为[1|2|3]的缩写</strong>，也可以使用后者。</p> <p><strong>范围匹配：</strong></p> <p><img loading="lazy" decoding="async" alt="" height="187" src="http://img.555519.xyz/uploads3/20220823/80eb9dcbd3a78c16909cb9a6067fbb71.jpg"></p> <p><strong>&nbsp;匹配特殊字符</strong>：</p> <p><img loading="lazy" decoding="async" alt="" height="261" src="http://img.555519.xyz/uploads3/20220823/16b6c7c7f30b8c33eda785fdc8a14ead.jpg"></p> <p>&nbsp;匹配字符类：</p> <p><img loading="lazy" decoding="async" alt="" height="460" src="http://img.555519.xyz/uploads3/20220823/93f31a8e24f6e571519e0c4bfce08342.jpg"></p> </h1> <p><strong>拼接字段</strong>：解决办法是把两个列拼接起来。在MySQL的SELECT语句中，可使用<strong>Concat()函数</strong>来拼接两个列。</p> <p><img loading="lazy" decoding="async" alt="" height="201" src="http://img.555519.xyz/uploads3/20220823/6cf9422d6d2d9e61ede88e814b4f1a9b.jpg"></p> <p>在第8章中曾提到通过删除数据右侧多余的空格来整理数据，这可以使用MySQL的RTrim ()函数来完成。</p> <p><strong>使用别名：</strong></p> <p><img loading="lazy" decoding="async" alt="" height="184" src="http://img.555519.xyz/uploads3/20220823/2253e30dfe5828d203633eef53236fe5.jpg"></p> <p>执行算术运算：</p> <p><img loading="lazy" decoding="async" alt="" height="163" src="http://img.555519.xyz/uploads3/20220823/263c12e063e3161243043cdabd11079e.jpg"></p> <p><img loading="lazy" decoding="async" alt="" height="187" src="http://img.555519.xyz/uploads3/20220823/b06a71b4a90d4f2bb94626d0453f91a2.jpg"></p> </h1> <p><strong>文本处理函数</strong>：</p> <p><img loading="lazy" decoding="async" alt="" height="413" src="http://img.555519.xyz/uploads3/20220823/66699bf05433e0dbdadf1cc7927266c2.jpg"></p> <p><img loading="lazy" decoding="async" alt="" height="195" src="http://img.555519.xyz/uploads3/20220823/cc87724d7c5a701a94f3e0eb3c66a418.jpg"></p> <p><img loading="lazy" decoding="async" alt="" height="145" src="http://img.555519.xyz/uploads3/20220823/7234ddd3063b22b61e03791a586c9a66.jpg"></p> <p><strong>日期和时间处理函数：</strong></p> <p><img loading="lazy" decoding="async" alt="" height="544" src="http://img.555519.xyz/uploads3/20220823/91a465f7816e37d16ece2c7b5f65519e.jpg"></p> <p>WHERE order_date ='2005-09-01'可靠吗?order date的数据类型为datetime。这种类型存储日期及时间值。</p> <p>解决办法是指示MySQL仅将给出的日期与列中的日期部分进行比较，而不是将给出的日期与整个列值进行比较。为此，必须使用Date()函数。Date(order_date)指示MySQL仅提取列的日期部分。</p> <p><img loading="lazy" decoding="async" alt="" height="73" src="http://img.555519.xyz/uploads3/20220823/f21985a02ba173c6fa0881e97f2e002f.jpg"></p> <p><strong>数值处理函数：</strong></p> <p><img loading="lazy" decoding="async" alt="" height="271" src="http://img.555519.xyz/uploads3/20220823/9c3efb37d6f1c918668561b409442b2a.jpg"></p> </h1> <p><img loading="lazy" decoding="async" alt="" height="303" src="http://img.555519.xyz/uploads3/20220823/a81510074a42e9208fba77fc69358b95.jpg"></p> <p><strong>&nbsp;AVG()函数：</strong></p> <p><img loading="lazy" decoding="async" alt="" height="128" src="http://img.555519.xyz/uploads3/20220823/b13f10f3320083b6d1a0b2beb92a0ff3.jpg"></p> <p>&nbsp;AVG ()也可以用来确定特定列或行的平均值。</p> <p><img loading="lazy" decoding="async" alt="" height="144" src="http://img.555519.xyz/uploads3/20220823/33f01c2396ee85d1c2b32d41ad7e63ec.jpg"></p> <p><strong>COUNT()函数:</strong></p> <p>COUNT (*)对表中行的数目进行计数,不管表列中包含的是空值（(NULL）还是非空值。</p> <p>COUNT (column)对特定列中具有值的行进行计数，<strong>忽略NULL值</strong>。</p> <p><img loading="lazy" decoding="async" alt="" height="131" src="http://img.555519.xyz/uploads3/20220823/fc1f5cd13292df121c9c9d7710901827.jpg"></p> <p><strong>MAX()函数:</strong></p> <p>MAX()返回指定列中的最大值。MAX()要求指定列名：</p> <p><img loading="lazy" decoding="async" alt="" height="126" src="http://img.555519.xyz/uploads3/20220823/7664cd01829740205477d350a8382b97.jpg"></p> <p>MIN()的功能正好与MAX(）功能相反。</p> <p><strong>SUM()函数：</strong></p> <p>SUM()用来返回指定列值的和（总计)。</p> <p><img loading="lazy" decoding="async" alt="" height="122" src="http://img.555519.xyz/uploads3/20220823/6cbdbdaee1db6fa9438cf6633d308970.jpg"></p> <p><strong>聚集不同值：</strong></p> <p>对所有的行执行计算，指定ALL参数或不给参数(因为ALL是默认)。</p> <p>只包含不同的值，指定DISTINCT参数。</p> <p><img loading="lazy" decoding="async" alt="" height="132" src="http://img.555519.xyz/uploads3/20220823/82865d1dc534a9b5c81aeebe3c6446bb.jpg"></p> <p><strong>组合聚集函数：</strong></p> <p><img loading="lazy" decoding="async" alt="" height="184" src="http://img.555519.xyz/uploads3/20220823/cfbe00320cd88b5f4597749d8312a34a.jpg"></p> </div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-39405.htm">spark-sql使用hive的自定函数配置</a></p>
+                                        <p>下一个：<a href="/news/article-39926.htm">动物疫苗过敏打什么药好（动物疫苗过敏打什么药好呢）</a></p>
+                                    </div>
+                                </div>
+                <div class="col-md-3">
+                    <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/free-nodes/2024-11-3-surge-node-github.htm" title="11月3日 | Surge Mac每天更新18.6M/S免费节点订阅链接">11月3日 | Surge Mac每天更新18.6M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-10-18-surge-node.htm" title="10月18日 | Surge Mac每天更新19.4M/S免费节点订阅链接">10月18日 | Surge Mac每天更新19.4M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-10-22-today-surge-node.htm" title="10月22日 | Surge Mac每天更新18.9M/S免费节点订阅链接">10月22日 | Surge Mac每天更新18.9M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-4-free-surge-node.htm" title="12月4日 | Surge Mac每天更新18.5M/S免费节点订阅链接">12月4日 | Surge Mac每天更新18.5M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-25141.htm" title="JavaScript怎么比较数组元素是否相等">JavaScript怎么比较数组元素是否相等</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-10-25-free-node-subscribe-links.htm" title="10月25日 | Surge Mac每天更新22.5M/S免费节点订阅链接">10月25日 | Surge Mac每天更新22.5M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-33132.htm" title="动物医院的拼音怎么写（动物医院的英文怎么读）">动物医院的拼音怎么写（动物医院的英文怎么读）</a></li>
+                        <li class="py-2"><a href="/news/article-31729.htm" title="三国杀招式介绍（三国杀技能详解）">三国杀招式介绍（三国杀技能详解）</a></li>
+                        <li class="py-2"><a href="/news/article-28390.htm" title="动物疫病防控机构（动物疫病防控机构的服务不包括）">动物疫病防控机构（动物疫病防控机构的服务不包括）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-25-free-node-subscribe.htm" title="12月25日 | Surge Mac每天更新21.8M/S免费节点订阅链接">12月25日 | Surge Mac每天更新21.8M/S免费节点订阅链接</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">39</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">93</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">34</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">25</span> <a href="/date/2024-10/" title="2024-10 归档">2024-10</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- End Features Area -->
+        <!-- Start Footer Area -->
+    <footer class="footer">
+        <!-- Start Footer Bottom -->
+        <div class="footer-bottom">
+            <div class="container">
+                <div class="inner">
+                    <div class="row">
+                            <p>
+                                <a href="/">首页</a> | 
+                                <a href="/free-node/">免费节点</a> | 
+                                <a href="/news/">新闻资讯</a> |
+                                <a href="/about-us.htm">关于我们</a> |
+                                <a href="/disclaimer.htm">免责申明</a> |
+                                <a href="/privacy.htm">隐私申明</a> |
+                                <a href="/sitemap.xml">网站地图</a>
+                            </p>
+                        <p>Surge Mac免费节点分享站 版权所有 Powered by WordPress</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- End Footer Middle -->
+    </footer>
+    <!--/ End Footer Area -->
+    <!-- ========================= scroll-top ========================= -->
+    <a href="#" class="scroll-top btn-hover">
+        <i class="lni lni-chevron-up"></i>
+    </a>
+    <!-- ========================= JS here ========================= -->
+    <script src="/assets/website/js/frontend/surgemac/jquery.min.js"></script>
+    <script src="/assets/website/js/frontend/surgemac/bootstrap.min.js"></script>
+    <script src="/assets/website/js/frontend/surgemac/count-up.min.js"></script>
+    <script src="/assets/website/js/frontend/surgemac/wow.min.js"></script>
+    <script src="/assets/website/js/frontend/surgemac/tiny-slider.js"></script>
+    <script src="/assets/website/js/frontend/surgemac/glightbox.min.js"></script>
+    <script src="/assets/website/js/frontend/surgemac/imagesloaded.min.js"></script>
+    <script src="/assets/website/js/frontend/surgemac/isotope.min.js"></script>
+    <script src="/assets/website/js/frontend/surgemac/main.js"></script>
+    <script type="text/javascript">
+    //========= glightbox
+    GLightbox({
+        'href': '#',
+        'type': 'video',
+        'source': 'youtube', //vimeo, youtube or local
+        'width': 900,
+        'autoplayVideos': true,
+    });
+
+    //====== Clients Logo Slider
+    tns({
+        container: '.client-logo-carousel',
+        slideBy: 'page',
+        autoplay: true,
+        autoplayButtonOutput: false,
+        mouseDrag: true,
+        gutter: 15,
+        nav: false,
+        controls: false,
+        responsive: {
+            0: {
+                items: 1,
+            },
+            540: {
+                items: 2,
+            },
+            768: {
+                items: 3,
+            },
+            992: {
+                items: 4,
+            },
+            1170: {
+                items: 6,
+            }
+        }
+    });
+
+    //======== Home Slider
+    var slider = new tns({
+        container: '.home-slider',
+        slideBy: 'page',
+        autoplay: false,
+        mouseDrag: true,
+        gutter: 0,
+        items: 1,
+        nav: true,
+        controls: false,
+        controlsText: [
+            '<i class="lni lni-arrow-left prev"></i>',
+            '<i class="lni lni-arrow-right next"></i>'
+        ],
+        responsive: {
+            1200: {
+                items: 1,
+            },
+            992: {
+                items: 1,
+            },
+            0: {
+                items: 1,
+            }
+
+        }
+    });
+
+    //======== Testimonial Slider
+    var slider = new tns({
+        container: '.testimonial-slider',
+        slideBy: 'page',
+        autoplay: false,
+        mouseDrag: true,
+        gutter: 0,
+        items: 1,
+        nav: true,
+        controls: false,
+        controlsText: [
+            '<i class="lni lni-arrow-left prev"></i>',
+            '<i class="lni lni-arrow-right next"></i>'
+        ],
+        responsive: {
+            1200: {
+                items: 2,
+            },
+            992: {
+                items: 1,
+            },
+            0: {
+                items: 1,
+            }
+
+        }
+    });
+
+    //============== isotope masonry js with imagesloaded
+    imagesLoaded('#container', function() {
+        var elem = document.querySelector('.grid');
+        var iso = new Isotope(elem, {
+            // options
+            itemSelector: '.grid-item',
+            masonry: {
+                // use outer width of grid-sizer for columnWidth
+                columnWidth: '.grid-item'
+            }
+        });
+
+        let filterButtons = document.querySelectorAll('.portfolio-btn-wrapper button');
+        filterButtons.forEach(e =>
+            e.addEventListener('click', () => {
+
+                let filterValue = event.target.getAttribute('data-filter');
+                iso.arrange({
+                    filter: filterValue
+                });
+            })
+        );
+    });
+    </script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script>
+    <script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
