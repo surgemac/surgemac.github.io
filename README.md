@@ -1,4 +1,4 @@
-# 1月25日 | Surge Mac每天更新22.4M/S免费节点订阅链接  更新时间 2025-01-25 10:07:10
+# 1月28日 | Surge Mac每天更新23M/S免费节点订阅链接  更新时间 2025-01-28 09:48:32
 所有免费clash节点都爬取自网络，请勿用于非法用途 。节点地址：<a href="https://surgemac.github.io" target="_blank">点击跳转</a>
 
 ## clash使用教程：
@@ -9,23 +9,23 @@
 
 ### Clash订阅链接
 
-- https://surgemac.github.io/uploads/2025/01/0-20250125.yaml
-- https://surgemac.github.io/uploads/2025/01/1-20250125.yaml
-- https://surgemac.github.io/uploads/2025/01/2-20250125.yaml
-- https://surgemac.github.io/uploads/2025/01/3-20250125.yaml
-- https://surgemac.github.io/uploads/2025/01/4-20250125.yaml
+- https://surgemac.github.io/uploads/2025/01/0-20250128.yaml
+- https://surgemac.github.io/uploads/2025/01/1-20250128.yaml
+- https://surgemac.github.io/uploads/2025/01/2-20250128.yaml
+- https://surgemac.github.io/uploads/2025/01/3-20250128.yaml
+- https://surgemac.github.io/uploads/2025/01/4-20250128.yaml
 
 ### V2ray订阅链接
 
-- https://surgemac.github.io/uploads/2025/01/0-20250125.txt
-- https://surgemac.github.io/uploads/2025/01/1-20250125.txt
-- https://surgemac.github.io/uploads/2025/01/2-20250125.txt
-- https://surgemac.github.io/uploads/2025/01/3-20250125.txt
-- https://surgemac.github.io/uploads/2025/01/4-20250125.txt
+- https://surgemac.github.io/uploads/2025/01/0-20250128.txt
+- https://surgemac.github.io/uploads/2025/01/1-20250128.txt
+- https://surgemac.github.io/uploads/2025/01/2-20250128.txt
+- https://surgemac.github.io/uploads/2025/01/3-20250128.txt
+- https://surgemac.github.io/uploads/2025/01/4-20250128.txt
 
 ### Sing-box订阅链接
 
-- https://surgemac.github.io/uploads/2025/01/20250125.json
+- https://surgemac.github.io/uploads/2025/01/20250128.json
 
 ## 更多clash节点订阅 ：
 
