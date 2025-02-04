@@ -8,7 +8,36 @@
     <title>shell编程中for循环语句的实现过程及案例_linux shell_</title>
         <meta name="description" content="目录  前言 示例1：批量添加用户 示例2：根据IP地址检查主机状态 示例3：自动生成一个8位随机密码 取值范围大小写字母和数字 编写脚本应该注意的事项： 总结    前言 本篇是shell编程for" />
         <link rel="icon" href="/assets/website/img/surgemac/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="Surge Mac免费节点分享站">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://surgemac.github.io/news/article-34569.htm" />
+    <meta property="og:site_name" content="Surge Mac免费节点分享站" />
+    <meta property="og:title" content="shell编程中for循环语句的实现过程及案例_linux shell_" />
+    <meta property="og:image" content="https://surgemac.github.io/uploads/20240731-2/40b61480c312ace9e3ecb99700a0a582.webp" />
+        <meta property="og:release_date" content="2025-01-02T09:59:10" />
+    <meta property="og:updated_time" content="2025-01-02T09:59:10" />
+        <meta property="og:description" content="目录  前言 示例1：批量添加用户 示例2：根据IP地址检查主机状态 示例3：自动生成一个8位随机密码 取值范围大小写字母和数字 编写脚本应该注意的事项： 总结    前言 本篇是shell编程for" />
+        
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="shell编程中for循环语句的实现过程及案例_linux shell_">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+
     <!-- Web Font -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
     <!-- ========================= CSS here ========================= -->
@@ -137,16 +166,16 @@
     </div>
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
-                        <li class="py-2"><a href="/news/article-21445.htm" title="宠物救助站领养宠物猫（宠物救助站领养宠物要钱吗）">宠物救助站领养宠物猫（宠物救助站领养宠物要钱吗）</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-9-29-surge-node.htm" title="9月29日 | Surge Mac每天更新22.4M/S免费节点订阅链接">9月29日 | Surge Mac每天更新22.4M/S免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-8-14-free-subscribe-node.htm" title="8月14日 | Surge Mac每天更新19.9M/S免费节点订阅链接">8月14日 | Surge Mac每天更新19.9M/S免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/news/article-28390.htm" title="动物疫病防控机构（动物疫病防控机构的服务不包括）">动物疫病防控机构（动物疫病防控机构的服务不包括）</a></li>
-                        <li class="py-2"><a href="/news/article-30755.htm" title="深圳哪有免费领养狗狗的地方（深圳哪有免费领养狗狗的地方啊）">深圳哪有免费领养狗狗的地方（深圳哪有免费领养狗狗的地方啊）</a></li>
-                        <li class="py-2"><a href="/news/article-34087.htm" title="设计模式学习笔记责任链模式实现及在Filter中的应用详解">设计模式学习笔记责任链模式实现及在Filter中的应用详解</a></li>
-                        <li class="py-2"><a href="/news/article-27928.htm" title="基于SqlSugar的数据库访问处理的封装，支持.net FrameWork和.net core的项目调用 &#8211; 伍华聪 _在线工具">基于SqlSugar的数据库访问处理的封装，支持.net FrameWork和.net core的项目调用 &#8211; 伍华聪 _在线工具</a></li>
-                        <li class="py-2"><a href="/news/article-20989.htm" title="聊城宠物店洗澡收费标准（一般的宠物店洗澡多少钱）">聊城宠物店洗澡收费标准（一般的宠物店洗澡多少钱）</a></li>
-                        <li class="py-2"><a href="/news/article-34570.htm" title="让野猫挠了轻微出血有事吗 让野猫挠了轻微出血有事吗要***吗">让野猫挠了轻微出血有事吗 让野猫挠了轻微出血有事吗要***吗</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-10-31-free-surge-node.htm" title="10月31日 | Surge Mac每天更新22.5M/S免费节点订阅链接">10月31日 | Surge Mac每天更新22.5M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-30276.htm" title="什么地方卖动物疫苗药品 什么地方卖动物疫苗药品的">什么地方卖动物疫苗药品 什么地方卖动物疫苗药品的</a></li>
+                        <li class="py-2"><a href="/news/article-32661.htm" title="vue项目中引入js-base64方式_vue.js">vue项目中引入js-base64方式_vue.js</a></li>
+                        <li class="py-2"><a href="/news/article-47835.htm" title="怎样做宠物零食（如何制作宠物零食）">怎样做宠物零食（如何制作宠物零食）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-29-surge-windows.htm" title="12月29日 | Surge Mac每天更新22.2M/S免费节点订阅链接">12月29日 | Surge Mac每天更新22.2M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-42901.htm" title="被猫抓伤渗了一点血超过24小时没***会不会马上发作?（被猫抓了一下轻微破皮过了24小时怎么办）">被猫抓伤渗了一点血超过24小时没***会不会马上发作?（被猫抓了一下轻微破皮过了24小时怎么办）</a></li>
+                        <li class="py-2"><a href="/news/article-32662.htm" title="天津宠物领养中心电话多少号码（天津宠物救助站领养宠物）">天津宠物领养中心电话多少号码（天津宠物救助站领养宠物）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-16-free-high-speed-nodes.htm" title="12月16日 | Surge Mac每天更新20.3M/S免费节点订阅链接">12月16日 | Surge Mac每天更新20.3M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-35542.htm" title="淮北有领养宠物吗现在（淮北有领养宠物吗现在在哪里）">淮北有领养宠物吗现在（淮北有领养宠物吗现在在哪里）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-30-free-node-subscribe.htm" title="12月30日 | Surge Mac每天更新18.6M/S免费节点订阅链接">12月30日 | Surge Mac每天更新18.6M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-11-free-node-subscribe.htm" title="11月11日 | Surge Mac每天更新19.1M/S免费节点订阅链接">11月11日 | Surge Mac每天更新19.1M/S免费节点订阅链接</a></li>
                     </ul>
     </div>
 </div>
@@ -158,25 +187,16 @@
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
                         <li class="py-2">
-                <h4><span class="badge" style="float: right;">12</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+                <h4><span class="badge" style="float: right;">6</span> <a href="/date/2025-02/" title="2025-02 归档">2025-02</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">93</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
             </li>
                         <li class="py-2">
                 <h4><span class="badge" style="float: right;">93</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
             </li>
                         <li class="py-2">
-                <h4><span class="badge" style="float: right;">34</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
-            </li>
-                        <li class="py-2">
-                <h4><span class="badge" style="float: right;">31</span> <a href="/date/2024-10/" title="2024-10 归档">2024-10</a></h4>
-            </li>
-                        <li class="py-2">
-                <h4><span class="badge" style="float: right;">30</span> <a href="/date/2024-09/" title="2024-09 归档">2024-09</a></h4>
-            </li>
-                        <li class="py-2">
-                <h4><span class="badge" style="float: right;">31</span> <a href="/date/2024-08/" title="2024-08 归档">2024-08</a></h4>
-            </li>
-                        <li class="py-2">
-                <h4><span class="badge" style="float: right;">1</span> <a href="/date/2024-07/" title="2024-07 归档">2024-07</a></h4>
+                <h4><span class="badge" style="float: right;">30</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
             </li>
                     </ul>
     </div>

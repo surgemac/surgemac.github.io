@@ -8,7 +8,36 @@
     <title>设计模式学习笔记责任链模式实现及在Filter中的应用详解</title>
         <meta name="description" content="责任链模式（Chain Of Responsibility Design Pattern），也叫做职责链，是将请求的发送和接收解耦，让多个接收对象都有机会处理这个请求。当有请求发生时，可将请求沿着这条" />
         <link rel="icon" href="/assets/website/img/surgemac/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="Surge Mac免费节点分享站">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://surgemac.github.io/news/article-34087.htm" />
+    <meta property="og:site_name" content="Surge Mac免费节点分享站" />
+    <meta property="og:title" content="设计模式学习笔记责任链模式实现及在Filter中的应用详解" />
+    <meta property="og:image" content="https://surgemac.github.io/uploads/20240731-2/017bccee5bea669ee918c670d362ad4f.webp" />
+        <meta property="og:release_date" content="2025-01-01T06:39:30" />
+    <meta property="og:updated_time" content="2025-01-01T06:39:30" />
+        <meta property="og:description" content="责任链模式（Chain Of Responsibility Design Pattern），也叫做职责链，是将请求的发送和接收解耦，让多个接收对象都有机会处理这个请求。当有请求发生时，可将请求沿着这条" />
+        
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="设计模式学习笔记责任链模式实现及在Filter中的应用详解">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+
     <!-- Web Font -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
     <!-- ========================= CSS here ========================= -->
@@ -137,16 +166,16 @@
     </div>
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
-                        <li class="py-2"><a href="/free-nodes/2024-10-21-free-high-speed-nodes.htm" title="10月21日 | Surge Mac每天更新22.9M/S免费节点订阅链接">10月21日 | Surge Mac每天更新22.9M/S免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-11-12-free-high-speed-nodes.htm" title="11月12日 | Surge Mac每天更新21.6M/S免费节点订阅链接">11月12日 | Surge Mac每天更新21.6M/S免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/news/article-33609.htm" title="Spring Boot &#8211; RestTemplate在URL中转义字符问题">Spring Boot &#8211; RestTemplate在URL中转义字符问题</a></li>
-                        <li class="py-2"><a href="/news/article-20989.htm" title="聊城宠物店洗澡收费标准（一般的宠物店洗澡多少钱）">聊城宠物店洗澡收费标准（一般的宠物店洗澡多少钱）</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-12-21-today-surge-node.htm" title="12月21日 | Surge Mac每天更新21.5M/S免费节点订阅链接">12月21日 | Surge Mac每天更新21.5M/S免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-11-19-free-node-subscribe-links.htm" title="11月19日 | Surge Mac每天更新22M/S免费节点订阅链接">11月19日 | Surge Mac每天更新22M/S免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-8-29-latest-surge-node.htm" title="8月29日 | Surge Mac每天更新20.3M/S免费节点订阅链接">8月29日 | Surge Mac每天更新20.3M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-9-free-high-speed-nodes.htm" title="11月9日 | Surge Mac每天更新23M/S免费节点订阅链接">11月9日 | Surge Mac每天更新23M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-46366.htm" title="成都市免费领养狗狗地址 成都市免费领养狗狗地址在哪里">成都市免费领养狗狗地址 成都市免费领养狗狗地址在哪里</a></li>
+                        <li class="py-2"><a href="/news/article-25142.htm" title="猫不打疫苗危险吗视频（猫不打疫苗有啥危害）">猫不打疫苗危险吗视频（猫不打疫苗有啥危害）</a></li>
+                        <li class="py-2"><a href="/news/article-45882.htm" title="@Transactional 详解">@Transactional 详解</a></li>
                         <li class="py-2"><a href="/news/article-34089.htm" title="参观动物园心得300字（参观动物园心得体会80字）">参观动物园心得300字（参观动物园心得体会80字）</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-8-24-today-surge-node.htm" title="8月24日 | Surge Mac每天更新18.1M/S免费节点订阅链接">8月24日 | Surge Mac每天更新18.1M/S免费节点订阅链接</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-10-20-free-surge-node.htm" title="10月20日 | Surge Mac每天更新20.6M/S免费节点订阅链接">10月20日 | Surge Mac每天更新20.6M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-38431.htm" title="可以使用哪个MySQL函数找出字符串的长度（以位为单位）？">可以使用哪个MySQL函数找出字符串的长度（以位为单位）？</a></li>
+                        <li class="py-2"><a href="/news/article-35542.htm" title="淮北有领养宠物吗现在（淮北有领养宠物吗现在在哪里）">淮北有领养宠物吗现在（淮北有领养宠物吗现在在哪里）</a></li>
+                        <li class="py-2"><a href="/news/article-44878.htm" title="动物疫苗现状如何（动物疫苗研究进展）">动物疫苗现状如何（动物疫苗研究进展）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-13-surge-github.htm" title="12月13日 | Surge Mac每天更新21.5M/S免费节点订阅链接">12月13日 | Surge Mac每天更新21.5M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-1-node-share-links.htm" title="12月1日 | Surge Mac每天更新20.9M/S免费节点订阅链接">12月1日 | Surge Mac每天更新20.9M/S免费节点订阅链接</a></li>
                     </ul>
     </div>
 </div>
@@ -158,25 +187,16 @@
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
                         <li class="py-2">
-                <h4><span class="badge" style="float: right;">9</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+                <h4><span class="badge" style="float: right;">6</span> <a href="/date/2025-02/" title="2025-02 归档">2025-02</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">93</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
             </li>
                         <li class="py-2">
                 <h4><span class="badge" style="float: right;">93</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
             </li>
                         <li class="py-2">
-                <h4><span class="badge" style="float: right;">34</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
-            </li>
-                        <li class="py-2">
-                <h4><span class="badge" style="float: right;">31</span> <a href="/date/2024-10/" title="2024-10 归档">2024-10</a></h4>
-            </li>
-                        <li class="py-2">
-                <h4><span class="badge" style="float: right;">30</span> <a href="/date/2024-09/" title="2024-09 归档">2024-09</a></h4>
-            </li>
-                        <li class="py-2">
-                <h4><span class="badge" style="float: right;">31</span> <a href="/date/2024-08/" title="2024-08 归档">2024-08</a></h4>
-            </li>
-                        <li class="py-2">
-                <h4><span class="badge" style="float: right;">1</span> <a href="/date/2024-07/" title="2024-07 归档">2024-07</a></h4>
+                <h4><span class="badge" style="float: right;">30</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
             </li>
                     </ul>
     </div>
