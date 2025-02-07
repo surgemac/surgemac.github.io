@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html class="no-js" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://surgemac.github.io/news/article-51396.htm" />
+    <meta charset="utf-8" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge" />
+    <title>ASP.NET Core使用Swagger/OpenAPI规范_实用技巧</title>
+        <meta name="description" content="目录  1.什么是Swagger/OpenAPI？ 2.NET Swagger实现 3.Swashbuckle主要组成部分 4.什么是REST? 5.配置Swagger中间件 6.XML注释 7.数据" />
+        <link rel="icon" href="/assets/website/img/surgemac/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="Surge Mac免费节点分享站">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://surgemac.github.io/news/article-51396.htm" />
+    <meta property="og:site_name" content="Surge Mac免费节点分享站" />
+    <meta property="og:title" content="ASP.NET Core使用Swagger/OpenAPI规范_实用技巧" />
+    <meta property="og:image" content="https://surgemac.github.io/uploads/20240731-2/017bccee5bea669ee918c670d362ad4f.webp" />
+        <meta property="og:release_date" content="2025-02-05T08:18:59" />
+    <meta property="og:updated_time" content="2025-02-05T08:18:59" />
+        <meta property="og:description" content="目录  1.什么是Swagger/OpenAPI？ 2.NET Swagger实现 3.Swashbuckle主要组成部分 4.什么是REST? 5.配置Swagger中间件 6.XML注释 7.数据" />
+        
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="ASP.NET Core使用Swagger/OpenAPI规范_实用技巧">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+
+    <!-- Web Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <!-- ========================= CSS here ========================= -->
+    <link rel="stylesheet" href="/assets/website/css/surgemac/bootstrap.min.css" />
+    <link rel="stylesheet" href="/assets/website/css/surgemac/LineIcons.2.0.css" />
+    <link rel="stylesheet" href="/assets/website/css/surgemac/animate.css" />
+    <link rel="stylesheet" href="/assets/website/css/surgemac/tiny-slider.css" />
+    <link rel="stylesheet" href="/assets/website/css/surgemac/glightbox.min.css" />
+    <link rel="stylesheet" href="/assets/website/css/surgemac/main.css" />
+    <link rel="stylesheet" href="/assets/website/css/surgemac/reset.css" />
+    <link rel="stylesheet" href="/assets/website/css/surgemac/responsive.css" />
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-BJBH6WP5S9"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-BJBH6WP5S9');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+    <!--[if lte IE 9]>
+      <p class="browserupgrade">
+        You are using an <strong>outdated</strong> browser. Please
+        <a href="https://browsehappy.com/">upgrade your browser</a> to improve
+        your experience and security.
+      </p>
+    <![endif]-->
+    <!-- Preloader -->
+    <div class="preloader">
+        <div class="preloader-inner">
+            <div class="preloader-icon">
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </div>
+    <!-- /End Preloader -->
+    <!-- ========================= header start ========================= -->
+    <header class="header navbar-area">
+
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-12">
+                    <div class="nav-inner">
+                        <nav class="navbar navbar-expand-lg">
+                            <a class="navbar-brand" href="/">
+                                                            <span>Surge Mac</span>
+                                                        </a>
+                            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                                <span class="toggler-icon"></span>
+                                <span class="toggler-icon"></span>
+                                <span class="toggler-icon"></span>
+                            </button>
+                            <div class="collapse navbar-collapse sub-menu-bar" id="navbarSupportedContent">
+                                <ul id="nav" class="navbar-nav ms-auto">
+                                                                        <li class="nav-item">
+                                        <a class="page-scroll" href="/">首页</a>
+                                    </li>
+                                                                        <li class="nav-item">
+                                        <a class="page-scroll" href="/free-nodes/">免费节点</a>
+                                    </li>
+                                                                        <li class="nav-item">
+                                        <a class="page-scroll" href="/paid-subscribe/">推荐机场</a>
+                                    </li>
+                                                                        <li class="nav-item">
+                                        <a class="page-scroll" href="/news/">新闻资讯</a>
+                                    </li>
+                                                                        <li class="nav-item">
+                                        <a href="#">关于</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="#">联系</a>
+                                    </li>
+                                </ul>
+                            </div> <!-- navbar collapse -->
+                        </nav> <!-- navbar -->
+                    </div>
+                </div>
+            </div> <!-- row -->
+        </div> <!-- container -->
+    </header>
+    <!-- ========================= header end ========================= -->
+    <!-- Start Breadcrumbs -->
+    <div class="breadcrumbs" data-stellar-background-ratio="0.5">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 col-md-6 col-12">
+                    <div class="breadcrumbs-content left">
+                        <h1 class="page-title">ASP.NET Core使用Swagger/OpenAPI规范_实用技巧</h1>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-6 col-12">
+                    <div class="breadcrumbs-content right">
+                        <ul class="breadcrumb-nav">
+                            <li><a href="/">首页</a></li>
+                            <li><a href="/news/">新闻资讯</a></li>
+                            <li>正文</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End Breadcrumbs -->
+        <!-- Start Features Area -->
+    <section class="Features section">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-9">
+                                    <input type="hidden" id="share-website-info" data-name="Surge Node节点订阅站" data-url="https://surgenode.github.io">
+                  				  				  				<div id="navCategory"> <h5 class="catalogue">目录</h5> <ul class="first_class_ul"> <li><a href="#_label0" rel="nofollow">1.什么是Swagger/OpenAPI？</a></li> <li><a href="#_label1" rel="nofollow">2.NET Swagger实现</a></li> <li><a href="#_label2" rel="nofollow">3.Swashbuckle主要组成部分</a></li> <li><a href="#_label3" rel="nofollow">4.什么是REST?</a></li> <li><a href="#_label4" rel="nofollow">5.配置Swagger中间件</a></li> <li><a href="#_label5" rel="nofollow">6.XML注释</a></li> <li><a href="#_label6" rel="nofollow">7.数据注释</a></li> </ul> </div> <p class="maodian"><a name="_label0" rel="nofollow"></a></p> <h2>1.什么是Swagger/OpenAPI？</h2> <p>Swagger是一个与语言无关的规范，用于描述REST API。因为Swagger项目已捐赠给OpenAPI计划，所以也叫OpenAPI。它允许计算机和人员了解服务的功能，可以直接在线访问测试API方法。而Swagger UI提供了基于Web的UI，它使用生成的Swagger规范提供有关服务API的信息。Swashbuckle和NSwag均包含Swagger UI的嵌入式版本，因此可使用中间件注册调用将该嵌入式版本托管在ASP.NET Core应用程序当中。Swagger的核心是Swagger规范，默认情况下是名为swagger.json的文档。它由Swagger工具链（或其第三方实现）根据你的服务生成。它描述了API的功能以及使用HTTP对其进行访问的方式。它驱动Swagger UI，并由工具链用来启用发现和客户端代码生成。</p> <p class="maodian"><a name="_label1" rel="nofollow"></a></p> <h2>2.NET Swagger实现</h2> <p>NET Swagger实现分为两大分类：</p> <ul> <li>Swashbuckle.AspNetCore是一个开源项目，用于生成ASP.NET Core Web API的Swagger文档。</li> <li>NSwag是另一个用于生成Swagger文档并将Swagger UI或ReDoc集成到ASP.NET Core Web API中的开源项目。此外，NSwag 还提供了为API生成C#和TypeScript客户端代码的方法。</li> </ul> <p>但是由于工作比较忙，我就不打算两个类型都讲了，我只选择Swashbuckle.AspNetCore来讲解和演示。</p> <p class="maodian"><a name="_label2" rel="nofollow"></a></p> <h2>3.Swashbuckle主要组成部分</h2> <p>Swashbuckle有三个主要组成部分：</p> <ul> <li>Swashbuckle.AspNetCore.Swagger：将SwaggerDocument对象公开为JSON终结点的Swagger对象模型和中间件。</li> <li>Swashbuckle.AspNetCore.SwaggerGen：从路由、控制器和模型直接生成SwaggerDocument对象的Swagger生成器。它通常与Swagger终结点中间件结合，以自动公开Swagger JSON。</li> <li>Swashbuckle.AspNetCore.SwaggerUI：Swagger UI工具的嵌入式版本。它解释Swagger JSON以构建描述Web API功能的可自定义的丰富体验，它包括针对公共方法的内置测试工具。</li> </ul> <p>安装Swashbuckle组件方法有两种：</p> <div class="ay1code"> <pre class="brush:ps;">--PowerShell  Install-Package Swashbuckle.AspNetCore -Version 5.0.0</pre> </div> <p>or</p> <div class="ay1code"> <pre class="brush:ps;">--.NET Core CLI  dotnet add TodoApi.csproj package Swashbuckle.AspNetCore -v 5.0.0</pre> </div> <p class="maodian"><a name="_label3" rel="nofollow"></a></p> <h2>4.什么是REST?</h2> <p>我百度一下，度娘解释是：REST是（Representational State Transfer）“表现层状态转移”的缩写，它是由罗伊·菲尔丁（Roy Fielding）提出的，是用来描述创建HTTP API的标准方法，他发现这四种常用的行为“查看（view），创建（create），编辑（edit）和删除（delete）”都可以直接映射到HTTP中已实现的GET、POST、PUT和DELETE方法。</p> <p class="maodian"><a name="_label4" rel="nofollow"></a></p> <h2>5.配置Swagger中间件</h2> <p>将Swagger生成器添加到Startup.ConfigureServices方法中的服务集合中：</p> <div class="ay1code"> <pre class="brush:csharp;">//注册Swagger生成器，定义一个或多个Swagger文档.  services.AddSwaggerGen(c =&gt;  {      c.SwaggerDoc("v1", new OpenApiInfo { Title = "My API", Version = "v1", Description = "测试描述" });  });</pre> </div> <p>OpenApiInfo对象是用来标识Swagger文档信息（诸如作者、许可证和说明的信息），您还可以自定义您的主题的信息显示在UI上，详情配置，我就不多说，大家可以看官网描述，如上述OpenApilnfo信息配置示例图：</p> <p style="text-align:center"><img decoding="async" alt="" src="http://img.555519.xyz/uploads3/20220424/073a52474a0573946ca4b65175bc3018.jpg"></p> <p>而在启动应用程序后并导航到http://localhost:&lt;port&gt;/swagger/v1/swagger.json。生成的描述终结点的文档显示在Swagger规范（swagger.json）中：</p> <p style="text-align:center"><img decoding="async" alt="" src="http://img.555519.xyz/uploads3/20220424/202b79c59a4a1f66ecb4482bf5d56919.jpg"></p> <p>在Startup.Configure方法中，启用中间件为生成的JSON文档和Swagger UI提供服务：</p> <div class="ay1code"> <pre class="brush:csharp;">//使中间件能够将生成的Swagger用作JSON端点.  app.UseSwagger();  //允许中间件为swagger ui（HTML、JS、CSS等）提供服务，指定swagger JSON端点.  app.UseSwaggerUI(c =&gt;  {      c.SwaggerEndpoint("/swagger/v1/swagger.json", "My API V1");  });</pre> </div> <p>根据上述配置就能够启用swagger测试API服务接口了，如下图所示：</p> <p style="text-align:center"><img decoding="async" alt="" src="http://img.555519.xyz/uploads3/20220424/c638e12e6c1a1bd0d4723b5bff7dbbee.jpg"></p> <p class="maodian"><a name="_label5" rel="nofollow"></a></p> <h2>6.XML注释</h2> <p>swagger还可以把服务API中对应方法名称，实体属性注释给在UI上显示出来，让您更加直观了解每个方法使用信息，并对没有注释每个方法进行警告提示，具体启用XML注释操作在“解决方案资源管理器”中右键单击该项目，然后选择“编辑&lt;project_name&gt;.csproj”，手动将突出显示的行添加到.csproj 文件：</p> <div class="ay1code"> <pre class="brush:xml;">&lt;PropertyGroup&gt;    &lt;GenerateDocumentationFile&gt;true&lt;/GenerateDocumentationFile&gt;  &lt;/PropertyGroup&gt;</pre> </div> <p>在启用了XML注释后，swagger只会针对没有添加注释每个方法进行警告提示，而添加了注释的方法则不会进行警告提示：</p> <p style="text-align:center"><img decoding="async" alt="" src="http://img.555519.xyz/uploads3/20220424/f491ee5be2727f46a1f08279ac4f699b.jpg"></p> <p>而每个添加了注释的方法会通过在Startup.ConfigureServices/services.AddSwaggerGen中设置Swagger JSON和UI的注释路径后：</p> <div class="ay1code"> <pre class="brush:csharp;">//设置Swagger JSON和UI的注释路径.  var xmlFile = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";  var xmlPath = Path.Combine(AppContext.BaseDirectory, xmlFile);  c.IncludeXmlComments(xmlPath);</pre> </div> <p>会在项目根目录生成的一个对应项目文件名的XML文件，而文件里面就包含所有已注释的方法，用于UI上显示：</p> <p style="text-align:center"><img decoding="async" alt="" src="http://img.555519.xyz/uploads3/20220424/c4989fbad211873786d3b74a36a69ac9.jpg"></p> <p style="text-align:center"><img decoding="async" alt="" src="http://img.555519.xyz/uploads3/20220424/74e06d895a8b514a453a8a849f4f0d46.jpg"></p> <p style="text-align:center"><img decoding="async" alt="" src="http://img.555519.xyz/uploads3/20220424/f0a4f873b31d2929c5af6e71d0419236.jpg"></p> <p style="text-align:center"><img decoding="async" alt="" src="http://img.555519.xyz/uploads3/20220424/cb97519d44da303681b68892424aa2fa.jpg"></p> <p>在启动应用程序后，我们会看到每个有注释方法在左侧会有一行文字描述，效果如下图所示：</p> <p style="text-align:center"><img decoding="async" alt="" src="http://img.555519.xyz/uploads3/20220424/a8cc70bca3d8a578b1d8059797313151.jpg"></p> <p>如果某个方法或者类下面所有方法不想警告提示，可以通过加入#pragma warning disable声明屏蔽警告提示：</p> <p style="text-align:center"><img decoding="async" alt="" src="http://img.555519.xyz/uploads3/20220424/2388908f3d5563b249e7f90ca6fce7d1.jpg"></p> <p>加入声明之后，大家会看到警告提示消失了。</p> <p class="maodian"><a name="_label6" rel="nofollow"></a></p> <h2>7.数据注释</h2> <p>可以使用System.ComponentModel.DataAnnotations命名空间中的属性来标记模型实体，以帮助驱动Swagger UI 组件。将[Required]属性添加到TodoItem类的Name属性：</p> <div class="ay1code"> <pre class="brush:csharp;">namespace TodoApi.Models  {      public class TodoItem      {          public long Id { get; set; }          [Required]          public string Name { get; set; }          [DefaultValue(false)]          public bool IsComplete { get; set; }      }  }</pre> </div> <p>此属性的状态会更改掉基础JSON架构：</p> <p style="text-align:center"><img decoding="async" alt="" src="http://img.555519.xyz/uploads3/20220424/bd4da8ecd895011cbb16a9ace0a679a4.jpg"></p> <p>而将[Produces("application/json")]属性添加到API控制器去，这样做的目的是声明控制器的操作支持application/json的响应内容类型：</p> <div class="ay1code"> <pre class="brush:csharp;">[Produces("application/json")]  [Route("api/[controller]")]  [ApiController]  public class ValuesController : ControllerBase  {      /// &lt;summary&gt;      /// 获取值      /// &lt;/summary&gt;      /// &lt;returns&gt;&lt;/returns&gt;      // GET api/values      [HttpGet]      public async Task&lt;ActionResult&lt;IEnumerable&lt;string&gt;&gt;&gt; Get()      {          var result = await new GitHubApi().GetUser();          return new string[] { result.id.Value.ToString(), result.login };      }  }</pre> </div> <p>“响应内容类型”下拉列表选此内容类型作为控制器的默认GET操作：</p> <p style="text-align:center"><img decoding="async" alt="" src="http://img.555519.xyz/uploads3/20220424/3acfc7b6a8d49aa9a2b2ac2c296f5afb.jpg"></p> <p>Swagger/OpenAPI出现，大大减少开发者调试时间，增加开发者开发效率，让开发者更加方便调试跟直观了解对应服务方法。</p> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-50870.htm">合肥哪里能领养宠物（合肥哪里有领养宠物的地方）</a></p>
+                                        <p>下一个：<a href="/news/article-51397.htm">宠物店连锁品牌排行（宠物连锁店排名）</a></p>
+                                    </div>
+                                </div>
+                <div class="col-md-3">
+                    <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/news/article-51926.htm" title="QQ截图工具截取">QQ截图工具截取</a></li>
+                        <li class="py-2"><a href="/news/article-23749.htm" title="动物疫苗企业名单公示（动物疫苗行业龙头）">动物疫苗企业名单公示（动物疫苗行业龙头）</a></li>
+                        <li class="py-2"><a href="/news/article-20990.htm" title="请多多无货源店怎么开（拼多多无货源店怎么开）">请多多无货源店怎么开（拼多多无货源店怎么开）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-8-node-share-links.htm" title="11月8日 | Surge Mac每天更新22.5M/S免费节点订阅链接">11月8日 | Surge Mac每天更新22.5M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-42391.htm" title="使用 Eslint +  husky + lint-staged + Prettier 提高前端项目质量、统一项目代码风格">使用 Eslint +  husky + lint-staged + Prettier 提高前端项目质量、统一项目代码风格</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-8-today-surge-node.htm" title="12月8日 | Surge Mac每天更新21.3M/S免费节点订阅链接">12月8日 | Surge Mac每天更新21.3M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-52458.htm" title="宠物粮商标取名大全四个字 宠物粮商标取名大全四个字的名字">宠物粮商标取名大全四个字 宠物粮商标取名大全四个字的名字</a></li>
+                        <li class="py-2"><a href="/news/article-43391.htm" title="java初始时间_java日期时间详解">java初始时间_java日期时间详解</a></li>
+                        <li class="py-2"><a href="/news/article-34087.htm" title="设计模式学习笔记责任链模式实现及在Filter中的应用详解">设计模式学习笔记责任链模式实现及在Filter中的应用详解</a></li>
+                        <li class="py-2"><a href="/news/article-38938.htm" title="给牲畜打疫苗的重要性（牲畜注射疫苗简报）">给牲畜打疫苗的重要性（牲畜注射疫苗简报）</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">21</span> <a href="/date/2025-02/" title="2025-02 归档">2025-02</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">93</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">93</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">30</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- End Features Area -->
+        <!-- Start Footer Area -->
+    <footer class="footer">
+        <!-- Start Footer Bottom -->
+        <div class="footer-bottom">
+            <div class="container">
+                <div class="inner">
+                    <div class="row">
+                            <p>
+                                <a href="/">首页</a> | 
+                                <a href="/free-node/">免费节点</a> | 
+                                <a href="/news/">新闻资讯</a> |
+                                <a href="/about-us.htm">关于我们</a> |
+                                <a href="/disclaimer.htm">免责申明</a> |
+                                <a href="/privacy.htm">隐私申明</a> |
+                                <a href="/sitemap.xml">网站地图</a>
+                            </p>
+                        <p>Surge Mac免费节点分享站 版权所有 Powered by WordPress</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- End Footer Middle -->
+    </footer>
+    <!--/ End Footer Area -->
+    <!-- ========================= scroll-top ========================= -->
+    <a href="#" class="scroll-top btn-hover">
+        <i class="lni lni-chevron-up"></i>
+    </a>
+    <!-- ========================= JS here ========================= -->
+    <script src="/assets/website/js/frontend/surgemac/jquery.min.js"></script>
+    <script src="/assets/website/js/frontend/surgemac/bootstrap.min.js"></script>
+    <script src="/assets/website/js/frontend/surgemac/count-up.min.js"></script>
+    <script src="/assets/website/js/frontend/surgemac/wow.min.js"></script>
+    <script src="/assets/website/js/frontend/surgemac/tiny-slider.js"></script>
+    <script src="/assets/website/js/frontend/surgemac/glightbox.min.js"></script>
+    <script src="/assets/website/js/frontend/surgemac/imagesloaded.min.js"></script>
+    <script src="/assets/website/js/frontend/surgemac/isotope.min.js"></script>
+    <script src="/assets/website/js/frontend/surgemac/main.js"></script>
+    <script type="text/javascript">
+    //========= glightbox
+    GLightbox({
+        'href': '#',
+        'type': 'video',
+        'source': 'youtube', //vimeo, youtube or local
+        'width': 900,
+        'autoplayVideos': true,
+    });
+
+    //====== Clients Logo Slider
+    tns({
+        container: '.client-logo-carousel',
+        slideBy: 'page',
+        autoplay: true,
+        autoplayButtonOutput: false,
+        mouseDrag: true,
+        gutter: 15,
+        nav: false,
+        controls: false,
+        responsive: {
+            0: {
+                items: 1,
+            },
+            540: {
+                items: 2,
+            },
+            768: {
+                items: 3,
+            },
+            992: {
+                items: 4,
+            },
+            1170: {
+                items: 6,
+            }
+        }
+    });
+
+    //======== Home Slider
+    var slider = new tns({
+        container: '.home-slider',
+        slideBy: 'page',
+        autoplay: false,
+        mouseDrag: true,
+        gutter: 0,
+        items: 1,
+        nav: true,
+        controls: false,
+        controlsText: [
+            '<i class="lni lni-arrow-left prev"></i>',
+            '<i class="lni lni-arrow-right next"></i>'
+        ],
+        responsive: {
+            1200: {
+                items: 1,
+            },
+            992: {
+                items: 1,
+            },
+            0: {
+                items: 1,
+            }
+
+        }
+    });
+
+    //======== Testimonial Slider
+    var slider = new tns({
+        container: '.testimonial-slider',
+        slideBy: 'page',
+        autoplay: false,
+        mouseDrag: true,
+        gutter: 0,
+        items: 1,
+        nav: true,
+        controls: false,
+        controlsText: [
+            '<i class="lni lni-arrow-left prev"></i>',
+            '<i class="lni lni-arrow-right next"></i>'
+        ],
+        responsive: {
+            1200: {
+                items: 2,
+            },
+            992: {
+                items: 1,
+            },
+            0: {
+                items: 1,
+            }
+
+        }
+    });
+
+    //============== isotope masonry js with imagesloaded
+    imagesLoaded('#container', function() {
+        var elem = document.querySelector('.grid');
+        var iso = new Isotope(elem, {
+            // options
+            itemSelector: '.grid-item',
+            masonry: {
+                // use outer width of grid-sizer for columnWidth
+                columnWidth: '.grid-item'
+            }
+        });
+
+        let filterButtons = document.querySelectorAll('.portfolio-btn-wrapper button');
+        filterButtons.forEach(e =>
+            e.addEventListener('click', () => {
+
+                let filterValue = event.target.getAttribute('data-filter');
+                iso.arrange({
+                    filter: filterValue
+                });
+            })
+        );
+    });
+    </script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script>
+    <script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>

@@ -4622,3 +4622,6 @@ blockquote h4 {
 ========================================*/
 
 .navbar-brand, .navbar-brand h1 {font-size: 2.5rem;font-weight: bold;}
+
+.xcblog-blog-list .item {margin-bottom: 1.5rem;}
+.xcblog-blog-list .item h3 {font-size: 1.5rem;}
