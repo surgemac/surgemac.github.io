@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html class="no-js" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://surgemac.github.io/news/article-58632.htm" />
+    <meta charset="utf-8" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge" />
+    <title>pip命令详解</title>
+        <meta name="description" content="首先，强调一下：pip命令只能用在命令行中；但是不能用在python命令行中。 文章的开始，给出一个查找命令的简易方式：直接在命令行中输入pip，就可以得到一个pip主要命令表单。  命令的简易化 特" />
+        <link rel="icon" href="/assets/website/img/surgemac/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="Surge Mac免费节点分享站">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://surgemac.github.io/news/article-58632.htm" />
+    <meta property="og:site_name" content="Surge Mac免费节点分享站" />
+    <meta property="og:title" content="pip命令详解" />
+    <meta property="og:image" content="https://surgemac.github.io/uploads/20240731-2/69eba7f5cb08fc0387752d0670a3ee2c.webp" />
+        <meta property="og:release_date" content="2025-02-18T09:44:29" />
+    <meta property="og:updated_time" content="2025-02-18T09:44:29" />
+        <meta property="og:description" content="首先，强调一下：pip命令只能用在命令行中；但是不能用在python命令行中。 文章的开始，给出一个查找命令的简易方式：直接在命令行中输入pip，就可以得到一个pip主要命令表单。  命令的简易化 特" />
+        
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="pip命令详解">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+
+    <!-- Web Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <!-- ========================= CSS here ========================= -->
+    <link rel="stylesheet" href="/assets/website/css/surgemac/bootstrap.min.css" />
+    <link rel="stylesheet" href="/assets/website/css/surgemac/LineIcons.2.0.css" />
+    <link rel="stylesheet" href="/assets/website/css/surgemac/animate.css" />
+    <link rel="stylesheet" href="/assets/website/css/surgemac/tiny-slider.css" />
+    <link rel="stylesheet" href="/assets/website/css/surgemac/glightbox.min.css" />
+    <link rel="stylesheet" href="/assets/website/css/surgemac/main.css" />
+    <link rel="stylesheet" href="/assets/website/css/surgemac/reset.css" />
+    <link rel="stylesheet" href="/assets/website/css/surgemac/responsive.css" />
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-BJBH6WP5S9"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-BJBH6WP5S9');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+    <!--[if lte IE 9]>
+      <p class="browserupgrade">
+        You are using an <strong>outdated</strong> browser. Please
+        <a href="https://browsehappy.com/">upgrade your browser</a> to improve
+        your experience and security.
+      </p>
+    <![endif]-->
+    <!-- Preloader -->
+    <div class="preloader">
+        <div class="preloader-inner">
+            <div class="preloader-icon">
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </div>
+    <!-- /End Preloader -->
+    <!-- ========================= header start ========================= -->
+    <header class="header navbar-area">
+
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-12">
+                    <div class="nav-inner">
+                        <nav class="navbar navbar-expand-lg">
+                            <a class="navbar-brand" href="/">
+                                                            <span>Surge Mac</span>
+                                                        </a>
+                            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                                <span class="toggler-icon"></span>
+                                <span class="toggler-icon"></span>
+                                <span class="toggler-icon"></span>
+                            </button>
+                            <div class="collapse navbar-collapse sub-menu-bar" id="navbarSupportedContent">
+                                <ul id="nav" class="navbar-nav ms-auto">
+                                                                        <li class="nav-item">
+                                        <a class="page-scroll" href="/">首页</a>
+                                    </li>
+                                                                        <li class="nav-item">
+                                        <a class="page-scroll" href="/free-nodes/">免费节点</a>
+                                    </li>
+                                                                        <li class="nav-item">
+                                        <a class="page-scroll" href="/paid-subscribe/">推荐机场</a>
+                                    </li>
+                                                                        <li class="nav-item">
+                                        <a class="page-scroll" href="/client.htm">客户端</a>
+                                    </li>
+                                                                        <li class="nav-item">
+                                        <a class="page-scroll" href="/news/">新闻资讯</a>
+                                    </li>
+                                                                    </ul>
+                            </div> <!-- navbar collapse -->
+                        </nav> <!-- navbar -->
+                    </div>
+                </div>
+            </div> <!-- row -->
+        </div> <!-- container -->
+    </header>
+    <!-- ========================= header end ========================= -->
+    <!-- Start Breadcrumbs -->
+    <div class="breadcrumbs" data-stellar-background-ratio="0.5">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 col-md-6 col-12">
+                    <div class="breadcrumbs-content left">
+                        <h1 class="page-title">pip命令详解</h1>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-6 col-12">
+                    <div class="breadcrumbs-content right">
+                        <ul class="breadcrumb-nav">
+                            <li><a href="/">首页</a></li>
+                            <li><a href="/news/">新闻资讯</a></li>
+                            <li>正文</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End Breadcrumbs -->
+        <!-- Start Features Area -->
+    <section class="Features section">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-9">
+                                    <input type="hidden" id="share-website-info" data-name="Surge Node节点订阅站" data-url="https://surgenode.github.io">
+                  				  				  				<div id="content_views" class="markdown_views prism-atom-one-dark"> <p>首先，强调一下：pip命令只能用在命令行中；但是不能用在python命令行中。</p> <p>文章的开始，给出一个查找命令的简易方式：<font color="red">直接在命令行中输入pip</font>，就可以得到一个pip主要命令表单。<img decoding="async" src="http://img.555519.xyz/uploads/20230113/9eb5708c99f097fb689d5ef986ffbc6b.jpg" alt="pip命令详解"></p> <h2> <a id="_4" rel="nofollow"></a>命令的简易化</h2> <p>特此强调，所有的官方文档中的pip命令，在pip前都加了 <code>py -m</code> 。例如，安装命令<code>pip install matplot</code> 采用官方文档的形式都为<code>py -m pip install matplot</code>。大家对这一点留一点儿印象就好，万一在某台机器中简易命令无法正确运行，试一试官方文档中的命令。</p> <h2> <a id="pip_7" rel="nofollow"></a>安装pip</h2> <p>检查是否安装了pip，否则你无法使用pip命令。<br /><strong>1.Windows 环境下：</strong><br /> 使用<code>py -m pip --version</code>检查是否安装pip。<br /><img decoding="async" src="http://img.555519.xyz/uploads/20230113/b3e255eb15210b7de2d61a40a8b1c896.jpg" alt="pip命令详解"><br /> 至于安装，首先使用命令行获得一个python文件：<code>curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py</code><br /> 然后，在命令行中使用cd命令导航到此 .py 文件所在的文件夹，使用：<code>py get-pip.py</code>即可安全安装。<br /> （<font color="red">注</font>：此文写于2020/12/14，如果若干年以后此url失效，请参<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://pip.pypa.io/en/stable/#"  rel="nofollow">pip官方网站</a>）</p> <p><strong>2.Linux环境下：</strong><br /> 使用<code>python -m pip --version</code>检查是否安装pip。<br /><img decoding="async" src="http://img.555519.xyz/uploads/20230113/494af912dd8f25072fc3dba284d92435.jpg" alt="pip命令详解"></p> <h2> <a id="install__20" rel="nofollow"></a>install 命令</h2> <p>顾名思义，install命令使用来安装一些类库/包的。</p> <p>1.默认安装：<code>pip install packagemane</code><br /> 2.安装指定版本：<code>pip install --version packagename</code><br /> 2.从网址安装指定文件：<code>pip install http://my.package.repo/SomePackage-1.0.4.zip</code></p> <h2> <a id="_27" rel="nofollow"></a>换源安装</h2> <p>pip默认是从 <a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://pypi.org/"  rel="nofollow">PyPI</a><br /> 1.从指定源安装：<code>pip install --index-url http://my.package.repo/simple/ packagename</code><br /> 2.安装时搜索额外的源:<code>pip install --extra-index-url http://my.package.repo/simple packagename</code></p> <h2> <a id="_33" rel="nofollow"></a>查询类库/包的信息</h2> <p>1.查询主要信息：<code>pip show packagename</code><br /> 2.查询包的所有信息：<code>pip show --verbose packagename</code></p> <h2> <a id="_37" rel="nofollow"></a>查询安装的类库/包</h2> <p>1.查询所有安装的包：<code>pip list</code><br /> 2.查询版本过时的安装包：<code>pip list --o</code><br /> 3.查询指定路径下的安装包：<code>pip list --path 指定路径</code> (必须指定到直接存放包的文件)</p> <p>最后，附上pip的官方网址：<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://pip.pypa.io/en/stable/"  rel="nofollow">https://pip.pypa.io/en/stable/</a></p> </p></div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-57970.htm">一家宠物店每月给购买猫粮5kg以上的顾客（宠物店一个月卖几只）</a></p>
+                                        <p>下一个：<a href="/news/article-58633.htm">昆明免费领养宠物的地方（昆明免费领养宠物的地方在哪里）</a></p>
+                                    </div>
+                                </div>
+                <div class="col-md-3">
+                    <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/free-nodes/2024-11-17-surge-node.htm" title="11月17日 | Surge Mac每天更新22.4M/S免费节点订阅链接">11月17日 | Surge Mac每天更新22.4M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-21907.htm" title="小奶猫10元一只（小奶猫10元一只正常吗）">小奶猫10元一只（小奶猫10元一只正常吗）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-29-surge-windows.htm" title="12月29日 | Surge Mac每天更新22.2M/S免费节点订阅链接">12月29日 | Surge Mac每天更新22.2M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-2-2-surge-node-share.htm" title="2月2日 | Surge Mac每天更新21.7M/S免费节点订阅链接">2月2日 | Surge Mac每天更新21.7M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-20-free-surge-node.htm" title="11月20日 | Surge Mac每天更新21.4M/S免费节点订阅链接">11月20日 | Surge Mac每天更新21.4M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-34089.htm" title="参观动物园心得300字（参观动物园心得体会80字）">参观动物园心得300字（参观动物园心得体会80字）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-22-surge-node.htm" title="12月22日 | Surge Mac每天更新21.8M/S免费节点订阅链接">12月22日 | Surge Mac每天更新21.8M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-23747.htm" title="最简颗粒狗粮制作方法是什么（颗粒狗粮制作方法配方大全）">最简颗粒狗粮制作方法是什么（颗粒狗粮制作方法配方大全）</a></li>
+                        <li class="py-2"><a href="/news/article-36479.htm" title="国内宠物食品企业排名（国内宠物食品行业最大的本土品牌公司）">国内宠物食品企业排名（国内宠物食品行业最大的本土品牌公司）</a></li>
+                        <li class="py-2"><a href="/news/article-22826.htm" title="宠物驱虫药哪个品牌好猫咪（宠物猫驱虫药什么牌子好）">宠物驱虫药哪个品牌好猫咪（宠物猫驱虫药什么牌子好）</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">57</span> <a href="/date/2025-02/" title="2025-02 归档">2025-02</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">93</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">93</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">30</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- End Features Area -->
+        <!-- Start Footer Area -->
+    <footer class="footer">
+        <!-- Start Footer Bottom -->
+        <div class="footer-bottom">
+            <div class="container">
+                <div class="inner">
+                    <div class="row">
+                            <p>
+                                <a href="/">首页</a> | 
+                                <a href="/free-node/">免费节点</a> | 
+                                <a href="/news/">新闻资讯</a> |
+                                <a href="/about-us.htm">关于我们</a> |
+                                <a href="/disclaimer.htm">免责申明</a> |
+                                <a href="/privacy.htm">隐私申明</a> |
+                                <a href="/sitemap.xml">网站地图</a>
+                            </p>
+                        <p>Surge Mac免费节点分享站 版权所有 Powered by WordPress</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- End Footer Middle -->
+    </footer>
+    <!--/ End Footer Area -->
+    <!-- ========================= scroll-top ========================= -->
+    <a href="#" class="scroll-top btn-hover">
+        <i class="lni lni-chevron-up"></i>
+    </a>
+    <!-- ========================= JS here ========================= -->
+    <script src="/assets/website/js/frontend/surgemac/jquery.min.js"></script>
+    <script src="/assets/website/js/frontend/surgemac/bootstrap.min.js"></script>
+    <script src="/assets/website/js/frontend/surgemac/count-up.min.js"></script>
+    <script src="/assets/website/js/frontend/surgemac/wow.min.js"></script>
+    <script src="/assets/website/js/frontend/surgemac/tiny-slider.js"></script>
+    <script src="/assets/website/js/frontend/surgemac/glightbox.min.js"></script>
+    <script src="/assets/website/js/frontend/surgemac/imagesloaded.min.js"></script>
+    <script src="/assets/website/js/frontend/surgemac/isotope.min.js"></script>
+    <script src="/assets/website/js/frontend/surgemac/main.js"></script>
+    <script type="text/javascript">
+    //========= glightbox
+    GLightbox({
+        'href': '#',
+        'type': 'video',
+        'source': 'youtube', //vimeo, youtube or local
+        'width': 900,
+        'autoplayVideos': true,
+    });
+
+    //====== Clients Logo Slider
+    tns({
+        container: '.client-logo-carousel',
+        slideBy: 'page',
+        autoplay: true,
+        autoplayButtonOutput: false,
+        mouseDrag: true,
+        gutter: 15,
+        nav: false,
+        controls: false,
+        responsive: {
+            0: {
+                items: 1,
+            },
+            540: {
+                items: 2,
+            },
+            768: {
+                items: 3,
+            },
+            992: {
+                items: 4,
+            },
+            1170: {
+                items: 6,
+            }
+        }
+    });
+
+    //======== Home Slider
+    var slider = new tns({
+        container: '.home-slider',
+        slideBy: 'page',
+        autoplay: false,
+        mouseDrag: true,
+        gutter: 0,
+        items: 1,
+        nav: true,
+        controls: false,
+        controlsText: [
+            '<i class="lni lni-arrow-left prev"></i>',
+            '<i class="lni lni-arrow-right next"></i>'
+        ],
+        responsive: {
+            1200: {
+                items: 1,
+            },
+            992: {
+                items: 1,
+            },
+            0: {
+                items: 1,
+            }
+
+        }
+    });
+
+    //======== Testimonial Slider
+    var slider = new tns({
+        container: '.testimonial-slider',
+        slideBy: 'page',
+        autoplay: false,
+        mouseDrag: true,
+        gutter: 0,
+        items: 1,
+        nav: true,
+        controls: false,
+        controlsText: [
+            '<i class="lni lni-arrow-left prev"></i>',
+            '<i class="lni lni-arrow-right next"></i>'
+        ],
+        responsive: {
+            1200: {
+                items: 2,
+            },
+            992: {
+                items: 1,
+            },
+            0: {
+                items: 1,
+            }
+
+        }
+    });
+
+    //============== isotope masonry js with imagesloaded
+    imagesLoaded('#container', function() {
+        var elem = document.querySelector('.grid');
+        var iso = new Isotope(elem, {
+            // options
+            itemSelector: '.grid-item',
+            masonry: {
+                // use outer width of grid-sizer for columnWidth
+                columnWidth: '.grid-item'
+            }
+        });
+
+        let filterButtons = document.querySelectorAll('.portfolio-btn-wrapper button');
+        filterButtons.forEach(e =>
+            e.addEventListener('click', () => {
+
+                let filterValue = event.target.getAttribute('data-filter');
+                iso.arrange({
+                    filter: filterValue
+                });
+            })
+        );
+    });
+    </script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script>
+    <script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
