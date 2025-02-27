@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html class="no-js" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://surgemac.github.io/news/article-63226.htm" />
+    <meta charset="utf-8" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge" />
+    <title>rancher安装redis集群</title>
+        <meta name="description" content="基于上一篇：docker安装rancher_RT_0114的博客-CSDN博客 之前也安装过redis集群只不过是用docker单机装的。docker搭建redis集群_RT_0114的博客-CSDN" />
+        <link rel="icon" href="/assets/website/img/surgemac/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="Surge Mac免费节点分享站">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://surgemac.github.io/news/article-63226.htm" />
+    <meta property="og:site_name" content="Surge Mac免费节点分享站" />
+    <meta property="og:title" content="rancher安装redis集群" />
+    <meta property="og:image" content="https://surgemac.github.io/uploads/20240731-2/156937973a6c1fdd92946f007fb83416.webp" />
+        <meta property="og:release_date" content="2025-02-26T08:33:41" />
+    <meta property="og:updated_time" content="2025-02-26T08:33:41" />
+        <meta property="og:description" content="基于上一篇：docker安装rancher_RT_0114的博客-CSDN博客 之前也安装过redis集群只不过是用docker单机装的。docker搭建redis集群_RT_0114的博客-CSDN" />
+        
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="rancher安装redis集群">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+
+    <!-- Web Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <!-- ========================= CSS here ========================= -->
+    <link rel="stylesheet" href="/assets/website/css/surgemac/bootstrap.min.css" />
+    <link rel="stylesheet" href="/assets/website/css/surgemac/LineIcons.2.0.css" />
+    <link rel="stylesheet" href="/assets/website/css/surgemac/animate.css" />
+    <link rel="stylesheet" href="/assets/website/css/surgemac/tiny-slider.css" />
+    <link rel="stylesheet" href="/assets/website/css/surgemac/glightbox.min.css" />
+    <link rel="stylesheet" href="/assets/website/css/surgemac/main.css" />
+    <link rel="stylesheet" href="/assets/website/css/surgemac/reset.css" />
+    <link rel="stylesheet" href="/assets/website/css/surgemac/responsive.css" />
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-BJBH6WP5S9"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-BJBH6WP5S9');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+    <!--[if lte IE 9]>
+      <p class="browserupgrade">
+        You are using an <strong>outdated</strong> browser. Please
+        <a href="https://browsehappy.com/">upgrade your browser</a> to improve
+        your experience and security.
+      </p>
+    <![endif]-->
+    <!-- Preloader -->
+    <div class="preloader">
+        <div class="preloader-inner">
+            <div class="preloader-icon">
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </div>
+    <!-- /End Preloader -->
+    <!-- ========================= header start ========================= -->
+    <header class="header navbar-area">
+
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-12">
+                    <div class="nav-inner">
+                        <nav class="navbar navbar-expand-lg">
+                            <a class="navbar-brand" href="/">
+                                                            <span>Surge Mac</span>
+                                                        </a>
+                            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                                <span class="toggler-icon"></span>
+                                <span class="toggler-icon"></span>
+                                <span class="toggler-icon"></span>
+                            </button>
+                            <div class="collapse navbar-collapse sub-menu-bar" id="navbarSupportedContent">
+                                <ul id="nav" class="navbar-nav ms-auto">
+                                                                        <li class="nav-item">
+                                        <a class="page-scroll" href="/">首页</a>
+                                    </li>
+                                                                        <li class="nav-item">
+                                        <a class="page-scroll" href="/free-nodes/">免费节点</a>
+                                    </li>
+                                                                        <li class="nav-item">
+                                        <a class="page-scroll" href="/paid-subscribe/">推荐机场</a>
+                                    </li>
+                                                                        <li class="nav-item">
+                                        <a class="page-scroll" href="/client.htm">客户端</a>
+                                    </li>
+                                                                        <li class="nav-item">
+                                        <a class="page-scroll" href="/news/">新闻资讯</a>
+                                    </li>
+                                                                    </ul>
+                            </div> <!-- navbar collapse -->
+                        </nav> <!-- navbar -->
+                    </div>
+                </div>
+            </div> <!-- row -->
+        </div> <!-- container -->
+    </header>
+    <!-- ========================= header end ========================= -->
+    <!-- Start Breadcrumbs -->
+    <div class="breadcrumbs" data-stellar-background-ratio="0.5">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 col-md-6 col-12">
+                    <div class="breadcrumbs-content left">
+                        <h1 class="page-title">rancher安装redis集群</h1>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-6 col-12">
+                    <div class="breadcrumbs-content right">
+                        <ul class="breadcrumb-nav">
+                            <li><a href="/">首页</a></li>
+                            <li><a href="/news/">新闻资讯</a></li>
+                            <li>正文</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End Breadcrumbs -->
+        <!-- Start Features Area -->
+    <section class="Features section">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-9">
+                                    <input type="hidden" id="share-website-info" data-name="Surge Node节点订阅站" data-url="https://surgenode.github.io">
+                  				  				  				<div id="content_views" class="htmledit_views"> <p>基于上一篇：<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://blog.csdn.net/Smy_0114/article/details/117410695"  rel="nofollow">docker安装rancher_RT_0114的博客-CSDN博客</a></p> <p>之前也安装过redis集群只不过是用docker单机装的。<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://blog.csdn.net/Smy_0114/article/details/116800727"  rel="nofollow">docker搭建redis集群_RT_0114的博客-CSDN博客</a></p> <p>来，记录一下rancher安装redis集群。机器防火墙全部是关闭的。</p> <p>对还是三台机器，master、mode1、node2，master不部署redis只是用来共享redis的配置文件，node1和node2分别部署3台redis共计6台redis。</p> <blockquote> <p>进入master主机创建文件夹：</p> </blockquote> <pre><code class="language-bash">mkdir -p /water/runfile/docker_volume/redis_cluster/7001/data mkdir -p /water/runfile/docker_volume/redis_cluster/7002/data mkdir -p /water/runfile/docker_volume/redis_cluster/7003/data mkdir -p /water/runfile/docker_volume/redis_cluster/7004/data mkdir -p /water/runfile/docker_volume/redis_cluster/7005/data mkdir -p /water/runfile/docker_volume/redis_cluster/7006/data</code></pre> <blockquote> <p>在master上安装nfs：</p> </blockquote> <pre><code>cd /water/runfile/docker_volume/redis_cluster rpc.nfsd 8 rpc.mountd  exportfs -r #使配置生效  exportfs #可以查看到已经ok</code></pre> <blockquote> <p>执行过程：</p> </blockquote> <pre><code class="language-bash">[root@CSS-app-SG1 7006]# cd /water/runfile/docker_volume/redis_cluster [root@CSS-app-SG1 redis_cluster]# exportfs /water/runfile/docker_volume                 172.21.168.195/24 [root@CSS-app-SG1 redis_cluster]#</code></pre> <blockquote> <p>创建配置文件：</p> </blockquote> <pre><code>vi /water/runfile/docker_volume/redis_cluster/7001/redis.conf vi /water/runfile/docker_volume/redis_cluster/7002/redis.conf vi /water/runfile/docker_volume/redis_cluster/7003/redis.conf vi /water/runfile/docker_volume/redis_cluster/7004/redis.conf vi /water/runfile/docker_volume/redis_cluster/7005/redis.conf vi /water/runfile/docker_volume/redis_cluster/7006/redis.conf</code></pre> <blockquote> <p>修改：6个文件只是端口不一样其他都一样</p> </blockquote> <pre><code>#bind 127.0.0.1 port 7001  #端口 cluster-enabled yes #启用集群模式 cluster-config-file /data/nodes.conf cluster-node-timeout 5000 #超时时间 logfile "/data/redis.log" #输出日志 appendonly yes daemonize no #是否后台运行，这里不能改成yes，不然docker运行就关闭了 protected-mode no #非保护模式 pidfile  /var/run/redis.pid</code></pre> <blockquote> <p>在default空间下创建pv</p> </blockquote> <blockquote> <p>nfs-redisclutser-pv<br /> NFS-Share 10<br /> /water/runfile/docker_volume 172.21.168.195<br /> 是否只读：否<br /> 多主机读写</p> </blockquote> <p><img fetchpriority="high" decoding="async" alt="" height="340" src="http://img.555519.xyz/uploads3/20220609/ffa5048c4c4abe2c377d1703330a5385.jpg"></p> <blockquote> <p>过程：</p> </blockquote> <p><img decoding="async" alt="" height="557" src="http://img.555519.xyz/uploads3/20220609/3405d7074d19e948e81cb2645c4550c3.jpg"></p> <blockquote> <p>在default空间下创建pvc</p> </blockquote> <blockquote> <p>工作负载-负载均衡-服务发现-PVC(勾)-流水线<br /> 选择添加pvc<br /> nfs-redisclutser-pvc 命名空间:选择刚创建的redis-cluster<br /> 持久卷(PV) 选择：nfs-redisclutser-pv<br /> 自定义： 多主机读写</p> </blockquote> <p><img decoding="async" alt="" height="336" src="http://img.555519.xyz/uploads3/20220609/6fd99f3f46518f4274ae204af01d4e75.jpg"></p> <blockquote> <p>过程：</p> </blockquote> <p><img loading="lazy" decoding="async" alt="" height="576" src="http://img.555519.xyz/uploads3/20220609/ce85bee579cf22185400ffa66594da76.jpg"></p> <blockquote> <p>部署redis：先手动拉取redis镜像。</p> </blockquote> <p><img loading="lazy" decoding="async" alt="" height="503" src="http://img.555519.xyz/uploads3/20220609/84c205976699ec3363a55d0b44be1f0b.jpg"></p> <blockquote> <p>主机调度：指定</p> </blockquote> <p><img loading="lazy" decoding="async" alt="" height="218" src="http://img.555519.xyz/uploads3/20220609/50fd76573411abbc019fa85760a8977d.jpg"></p> <blockquote> <p>数据卷：pvc里面配置到了/water/runfile/docker_volume因此下面配置的时候只需要配置下级目录即可</p> </blockquote> <p><img loading="lazy" decoding="async" alt="" height="471" src="http://img.555519.xyz/uploads3/20220609/42e5027e20a423a647683b23793e16b7.jpg"></p> <blockquote> <p>入口/命令：</p> </blockquote> <p><img loading="lazy" decoding="async" alt="" height="480" src="http://img.555519.xyz/uploads3/20220609/e8c4b817a9af05321d0c3fb69898a34c.jpg"></p> <blockquote> <p>网络：</p> </blockquote> <p><img loading="lazy" decoding="async" alt="" height="339" src="http://img.555519.xyz/uploads3/20220609/48e3a0db7ed532e94504c88e912b1c28.jpg"></p> <blockquote> <p>点记确定即可。</p> </blockquote> <blockquote> <p>再复制5份，分别把端口和数据卷的端口文件夹改一下，调度的主机也改一下一台机器3台redis。</p> </blockquote> <p><img loading="lazy" decoding="async" alt="" height="449" src="http://img.555519.xyz/uploads3/20220609/da0e827e780f364d20be2b776900c6ca.jpg"></p> <blockquote> <p>进入任意一台redis：</p> </blockquote> <blockquote> <p>执行：点击yes，完成，3主3从。</p> </blockquote> <pre><code>redis-cli --cluster create 172.21.168.197:7001 172.21.168.197:7002 172.21.168.197:7005 172.21.168.199:7003 172.21.168.199:7004 172.21.168.199:7006 --cluster-replicas 1</code></pre> <blockquote> <p>cluster nodes &nbsp;查看集群节点</p> </blockquote> <p><img loading="lazy" decoding="async" alt="" height="174" src="http://img.555519.xyz/uploads3/20220609/eea88e8925e9b809b822a6b15604118e.jpg"></p> <blockquote> <p>cluster info:查看集群信息</p> </blockquote> <p><img loading="lazy" decoding="async" alt="" height="305" src="http://img.555519.xyz/uploads3/20220609/d707e89b832264fb34812152fb5ff0ab.jpg"></p> <blockquote> <p>尝试用一下：就这简单不，搞一遍就会了，没什么难度。</p> </blockquote> <p><img loading="lazy" decoding="async" alt="" height="337" src="http://img.555519.xyz/uploads3/20220609/a8179f2ea3b1be976b668ed1b487bec0.jpg"></p> </div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-62634.htm">宠物领养合同违约金3000元合法吗知乎文章（宠物领养合同属于合同法吗）</a></p>
+                                        <p>下一个：<a href="/news/article-63227.htm">兽用疫苗放一晚上还能用吗有效果吗视频（兽用疫苗打开后能放置多久）</a></p>
+                                    </div>
+                                </div>
+                <div class="col-md-3">
+                    <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/free-nodes/2025-1-7-free-node-subscribe-links.htm" title="1月7日 | Surge Mac每天更新18.8M/S免费节点订阅链接">1月7日 | Surge Mac每天更新18.8M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-19620.htm" title="宠物粮十大品牌排行 宠物粮十大品牌排行榜">宠物粮十大品牌排行 宠物粮十大品牌排行榜</a></li>
+                        <li class="py-2"><a href="/news/article-25141.htm" title="JavaScript怎么比较数组元素是否相等">JavaScript怎么比较数组元素是否相等</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-4-free-surge-node.htm" title="12月4日 | Surge Mac每天更新18.5M/S免费节点订阅链接">12月4日 | Surge Mac每天更新18.5M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-26-free-node-subscribe.htm" title="11月26日 | Surge Mac每天更新18.7M/S免费节点订阅链接">11月26日 | Surge Mac每天更新18.7M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-18-latest-surge-node.htm" title="12月18日 | Surge Mac每天更新22.5M/S免费节点订阅链接">12月18日 | Surge Mac每天更新22.5M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-50869.htm" title="宠物领养赠送平台有哪些 宠物赠送/领养都在哪个网站">宠物领养赠送平台有哪些 宠物赠送/领养都在哪个网站</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-30-free-node-subscribe.htm" title="12月30日 | Surge Mac每天更新18.6M/S免费节点订阅链接">12月30日 | Surge Mac每天更新18.6M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-16-latest-surge-node.htm" title="1月16日 | Surge Mac每天更新19M/S免费节点订阅链接">1月16日 | Surge Mac每天更新19M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-36952.htm" title="动物诊疗许可申请表在哪里拿（动物诊疗许可申请表在哪里拿到）">动物诊疗许可申请表在哪里拿（动物诊疗许可申请表在哪里拿到）</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">81</span> <a href="/date/2025-02/" title="2025-02 归档">2025-02</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">93</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">93</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">30</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- End Features Area -->
+        <!-- Start Footer Area -->
+    <footer class="footer">
+        <!-- Start Footer Bottom -->
+        <div class="footer-bottom">
+            <div class="container">
+                <div class="inner">
+                    <div class="row">
+                            <p>
+                                <a href="/">首页</a> | 
+                                <a href="/free-node/">免费节点</a> | 
+                                <a href="/news/">新闻资讯</a> |
+                                <a href="/about-us.htm">关于我们</a> |
+                                <a href="/disclaimer.htm">免责申明</a> |
+                                <a href="/privacy.htm">隐私申明</a> |
+                                <a href="/sitemap.xml">网站地图</a>
+                            </p>
+                        <p>Surge Mac免费节点分享站 版权所有 Powered by WordPress</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- End Footer Middle -->
+    </footer>
+    <!--/ End Footer Area -->
+    <!-- ========================= scroll-top ========================= -->
+    <a href="#" class="scroll-top btn-hover">
+        <i class="lni lni-chevron-up"></i>
+    </a>
+    <!-- ========================= JS here ========================= -->
+    <script src="/assets/website/js/frontend/surgemac/jquery.min.js"></script>
+    <script src="/assets/website/js/frontend/surgemac/bootstrap.min.js"></script>
+    <script src="/assets/website/js/frontend/surgemac/count-up.min.js"></script>
+    <script src="/assets/website/js/frontend/surgemac/wow.min.js"></script>
+    <script src="/assets/website/js/frontend/surgemac/tiny-slider.js"></script>
+    <script src="/assets/website/js/frontend/surgemac/glightbox.min.js"></script>
+    <script src="/assets/website/js/frontend/surgemac/imagesloaded.min.js"></script>
+    <script src="/assets/website/js/frontend/surgemac/isotope.min.js"></script>
+    <script src="/assets/website/js/frontend/surgemac/main.js"></script>
+    <script type="text/javascript">
+    //========= glightbox
+    GLightbox({
+        'href': '#',
+        'type': 'video',
+        'source': 'youtube', //vimeo, youtube or local
+        'width': 900,
+        'autoplayVideos': true,
+    });
+
+    //====== Clients Logo Slider
+    tns({
+        container: '.client-logo-carousel',
+        slideBy: 'page',
+        autoplay: true,
+        autoplayButtonOutput: false,
+        mouseDrag: true,
+        gutter: 15,
+        nav: false,
+        controls: false,
+        responsive: {
+            0: {
+                items: 1,
+            },
+            540: {
+                items: 2,
+            },
+            768: {
+                items: 3,
+            },
+            992: {
+                items: 4,
+            },
+            1170: {
+                items: 6,
+            }
+        }
+    });
+
+    //======== Home Slider
+    var slider = new tns({
+        container: '.home-slider',
+        slideBy: 'page',
+        autoplay: false,
+        mouseDrag: true,
+        gutter: 0,
+        items: 1,
+        nav: true,
+        controls: false,
+        controlsText: [
+            '<i class="lni lni-arrow-left prev"></i>',
+            '<i class="lni lni-arrow-right next"></i>'
+        ],
+        responsive: {
+            1200: {
+                items: 1,
+            },
+            992: {
+                items: 1,
+            },
+            0: {
+                items: 1,
+            }
+
+        }
+    });
+
+    //======== Testimonial Slider
+    var slider = new tns({
+        container: '.testimonial-slider',
+        slideBy: 'page',
+        autoplay: false,
+        mouseDrag: true,
+        gutter: 0,
+        items: 1,
+        nav: true,
+        controls: false,
+        controlsText: [
+            '<i class="lni lni-arrow-left prev"></i>',
+            '<i class="lni lni-arrow-right next"></i>'
+        ],
+        responsive: {
+            1200: {
+                items: 2,
+            },
+            992: {
+                items: 1,
+            },
+            0: {
+                items: 1,
+            }
+
+        }
+    });
+
+    //============== isotope masonry js with imagesloaded
+    imagesLoaded('#container', function() {
+        var elem = document.querySelector('.grid');
+        var iso = new Isotope(elem, {
+            // options
+            itemSelector: '.grid-item',
+            masonry: {
+                // use outer width of grid-sizer for columnWidth
+                columnWidth: '.grid-item'
+            }
+        });
+
+        let filterButtons = document.querySelectorAll('.portfolio-btn-wrapper button');
+        filterButtons.forEach(e =>
+            e.addEventListener('click', () => {
+
+                let filterValue = event.target.getAttribute('data-filter');
+                iso.arrange({
+                    filter: filterValue
+                });
+            })
+        );
+    });
+    </script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script>
+    <script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>

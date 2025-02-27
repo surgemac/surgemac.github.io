@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html class="no-js" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://surgemac.github.io/news/article-62633.htm" />
+    <meta charset="utf-8" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge" />
+    <title>vue跳转方式及传参 (包括打开新窗口)</title>
+        <meta name="description" content="本文实例讲述了vue跳转方式（打开新页面）及传参操作。分享给大家供大家参考，具体如下： 1. router-link跳转 // 直接写上跳转的地址&lt;router-linkto="/detail/" />
+        <link rel="icon" href="/assets/website/img/surgemac/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="Surge Mac免费节点分享站">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://surgemac.github.io/news/article-62633.htm" />
+    <meta property="og:site_name" content="Surge Mac免费节点分享站" />
+    <meta property="og:title" content="vue跳转方式及传参 (包括打开新窗口)" />
+    <meta property="og:image" content="https://surgemac.github.io/uploads/20240731-2/7d97fe0288646424b311151af9deeea2.webp" />
+        <meta property="og:release_date" content="2025-02-25T04:59:03" />
+    <meta property="og:updated_time" content="2025-02-25T04:59:03" />
+        <meta property="og:description" content="本文实例讲述了vue跳转方式（打开新页面）及传参操作。分享给大家供大家参考，具体如下： 1. router-link跳转 // 直接写上跳转的地址&lt;router-linkto="/detail/" />
+        
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="vue跳转方式及传参 (包括打开新窗口)">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+
+    <!-- Web Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <!-- ========================= CSS here ========================= -->
+    <link rel="stylesheet" href="/assets/website/css/surgemac/bootstrap.min.css" />
+    <link rel="stylesheet" href="/assets/website/css/surgemac/LineIcons.2.0.css" />
+    <link rel="stylesheet" href="/assets/website/css/surgemac/animate.css" />
+    <link rel="stylesheet" href="/assets/website/css/surgemac/tiny-slider.css" />
+    <link rel="stylesheet" href="/assets/website/css/surgemac/glightbox.min.css" />
+    <link rel="stylesheet" href="/assets/website/css/surgemac/main.css" />
+    <link rel="stylesheet" href="/assets/website/css/surgemac/reset.css" />
+    <link rel="stylesheet" href="/assets/website/css/surgemac/responsive.css" />
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-BJBH6WP5S9"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-BJBH6WP5S9');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+    <!--[if lte IE 9]>
+      <p class="browserupgrade">
+        You are using an <strong>outdated</strong> browser. Please
+        <a href="https://browsehappy.com/">upgrade your browser</a> to improve
+        your experience and security.
+      </p>
+    <![endif]-->
+    <!-- Preloader -->
+    <div class="preloader">
+        <div class="preloader-inner">
+            <div class="preloader-icon">
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </div>
+    <!-- /End Preloader -->
+    <!-- ========================= header start ========================= -->
+    <header class="header navbar-area">
+
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-12">
+                    <div class="nav-inner">
+                        <nav class="navbar navbar-expand-lg">
+                            <a class="navbar-brand" href="/">
+                                                            <span>Surge Mac</span>
+                                                        </a>
+                            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                                <span class="toggler-icon"></span>
+                                <span class="toggler-icon"></span>
+                                <span class="toggler-icon"></span>
+                            </button>
+                            <div class="collapse navbar-collapse sub-menu-bar" id="navbarSupportedContent">
+                                <ul id="nav" class="navbar-nav ms-auto">
+                                                                        <li class="nav-item">
+                                        <a class="page-scroll" href="/">首页</a>
+                                    </li>
+                                                                        <li class="nav-item">
+                                        <a class="page-scroll" href="/free-nodes/">免费节点</a>
+                                    </li>
+                                                                        <li class="nav-item">
+                                        <a class="page-scroll" href="/paid-subscribe/">推荐机场</a>
+                                    </li>
+                                                                        <li class="nav-item">
+                                        <a class="page-scroll" href="/client.htm">客户端</a>
+                                    </li>
+                                                                        <li class="nav-item">
+                                        <a class="page-scroll" href="/news/">新闻资讯</a>
+                                    </li>
+                                                                    </ul>
+                            </div> <!-- navbar collapse -->
+                        </nav> <!-- navbar -->
+                    </div>
+                </div>
+            </div> <!-- row -->
+        </div> <!-- container -->
+    </header>
+    <!-- ========================= header end ========================= -->
+    <!-- Start Breadcrumbs -->
+    <div class="breadcrumbs" data-stellar-background-ratio="0.5">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 col-md-6 col-12">
+                    <div class="breadcrumbs-content left">
+                        <h1 class="page-title">vue跳转方式及传参 (包括打开新窗口)</h1>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-6 col-12">
+                    <div class="breadcrumbs-content right">
+                        <ul class="breadcrumb-nav">
+                            <li><a href="/">首页</a></li>
+                            <li><a href="/news/">新闻资讯</a></li>
+                            <li>正文</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End Breadcrumbs -->
+        <!-- Start Features Area -->
+    <section class="Features section">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-9">
+                                    <input type="hidden" id="share-website-info" data-name="Surge Node节点订阅站" data-url="https://surgenode.github.io">
+                  				  				  				<div id="content_views" class="markdown_views prism-atom-one-dark"> <p>本文实例讲述了vue跳转方式（打开新页面）及传参操作。分享给大家供大家参考，具体如下：</p> <h2><a id="1_routerlink_2" rel="nofollow"></a>1. router-link跳转</h2> <pre><code class="prism language-html">// 直接写上跳转的地址<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>router-link</span><span class="token attr-name">to</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>/detail/one<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>span</span><span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>spanfour<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>link跳转<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>span</span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>router-link</span><span class="token punctuation">&gt;</span></span> // 添加参数<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>router-link</span><span class="token attr-name">:to</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>{path:<span class="token punctuation">'</span>/detail/two<span class="token punctuation">'</span>, query:{id:1，name:<span class="token punctuation">'</span>vue<span class="token punctuation">'</span>}}<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>router-link</span><span class="token punctuation">&gt;</span></span> // 参数获取 id = this.$route.query.id // 新窗口打开<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>router-link</span><span class="token attr-name">:to</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>{path:<span class="token punctuation">'</span>/detail/three<span class="token punctuation">'</span>, query:{id:1，name:<span class="token punctuation">'</span>vue<span class="token punctuation">'</span>}}<span class="token punctuation">"</span></span><span class="token attr-name">target</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>_blank<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>router-link</span><span class="token punctuation">&gt;</span></span></code></pre> <h2><a id="2_thisrouterpush_17" rel="nofollow"></a>2. this.$router.push跳转</h2> <pre><code class="prism language-javascript"><span class="token function">toDeail</span><span class="token punctuation">(</span>e<span class="token punctuation">)</span><span class="token punctuation">{<!-- --></span><span class="token keyword">this</span><span class="token punctuation">.</span>$router<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span><span class="token punctuation">{<!-- --></span>path<span class="token punctuation">:</span><span class="token string">"/detail"</span><span class="token punctuation">,</span> query<span class="token punctuation">:</span><span class="token punctuation">{<!-- --></span>id<span class="token punctuation">:</span> e<span class="token punctuation">}</span><span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">}</span><span class="token comment">// 参数获取</span> id<span class="token operator">=</span><span class="token keyword">this</span><span class="token punctuation">.</span>$route<span class="token punctuation">.</span>query<span class="token punctuation">.</span>id<span class="token function">toDeail</span><span class="token punctuation">(</span>e<span class="token punctuation">)</span><span class="token punctuation">{<!-- --></span><span class="token keyword">this</span><span class="token punctuation">.</span>$router<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span><span class="token punctuation">{<!-- --></span>name<span class="token punctuation">:</span><span class="token string">"/detail"</span><span class="token punctuation">,</span> params<span class="token punctuation">:</span><span class="token punctuation">{<!-- --></span>id<span class="token punctuation">:</span> e<span class="token punctuation">}</span><span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">}</span><span class="token comment">// 注意地址需写在 name后面</span><span class="token comment">//用params传参时 要填router的name 不能用path</span><span class="token comment">//参数获取，params和query区别，query参数在地址栏显示，params的参数不在地址栏显示</span> id<span class="token operator">=</span><span class="token keyword">this</span><span class="token punctuation">.</span>$route<span class="token punctuation">.</span>params<span class="token punctuation">.</span>id</code></pre> <h2><a id="3_thisrouterreplace_32" rel="nofollow"></a>3. this.$router.replace跳转</h2> <pre><code class="prism language-javascript"><span class="token comment">//和push的区别，push有记录一个history，replace没有</span><span class="token function">toDeail</span><span class="token punctuation">(</span>e<span class="token punctuation">)</span><span class="token punctuation">{<!-- --></span><span class="token keyword">this</span><span class="token punctuation">.</span>$router<span class="token punctuation">.</span><span class="token function">replace</span><span class="token punctuation">(</span><span class="token punctuation">{<!-- --></span>name<span class="token punctuation">:</span><span class="token string">'/detail'</span><span class="token punctuation">,</span> params<span class="token punctuation">:</span><span class="token punctuation">{<!-- --></span>id<span class="token punctuation">:</span> e<span class="token punctuation">}</span><span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">}</span></code></pre> <h2><a id="4_resolve_39" rel="nofollow"></a>4. resolve跳转</h2> <pre><code class="prism language-javascript"><span class="token comment">//resolve页面跳转可用新页面打开</span><span class="token comment">//2.1.0版本后，使用路由对象的resolve方法解析路由，可以得到location、router、href等目标路由的信息。得到href就可以使用window.open开新窗口了（这边应用：https://segmentfault.com/q/1010000009557100下的一个回答）</span><span class="token function">toDeail</span><span class="token punctuation">(</span>e<span class="token punctuation">)</span><span class="token punctuation">{<!-- --></span><span class="token keyword">const</span><span class="token keyword">new</span><span class="token operator">=</span><span class="token keyword">this</span><span class="token punctuation">.</span>$router<span class="token punctuation">.</span><span class="token function">resolve</span><span class="token punctuation">(</span><span class="token punctuation">{<!-- --></span>name<span class="token punctuation">:</span><span class="token string">'/detail'</span><span class="token punctuation">,</span> params<span class="token punctuation">:</span><span class="token punctuation">{<!-- --></span>id<span class="token punctuation">:</span> e<span class="token punctuation">}</span><span class="token punctuation">}</span><span class="token punctuation">)</span>   window<span class="token punctuation">.</span><span class="token function">open</span><span class="token punctuation">(</span><span class="token keyword">new</span><span class="token punctuation">.</span>href<span class="token punctuation">,</span><span class="token string">'_blank'</span><span class="token punctuation">)</span><span class="token punctuation">}</span></code></pre> <pre><code class="prism language-javascript">接收方怎么接收参数<span class="token keyword">this</span><span class="token punctuation">.</span>$route<span class="token punctuation">.</span>query<span class="token punctuation">.</span>serid和<span class="token keyword">this</span><span class="token punctuation">.</span>$route<span class="token punctuation">.</span>params<span class="token punctuation">.</span>setid，以下举一个接收的例子 注意接收参数时是 $route 不是 $router<span class="token operator">&lt;</span>template<span class="token operator">&gt;</span><span class="token operator">&lt;</span>div<span class="token operator">&gt;</span>     testDemo<span class="token punctuation">{<!-- --></span><span class="token punctuation">{<!-- --></span><span class="token keyword">this</span><span class="token punctuation">.</span>$route<span class="token punctuation">.</span>query<span class="token punctuation">.</span>setid<span class="token punctuation">}</span><span class="token punctuation">}</span><span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">&gt;</span><span class="token operator">&lt;</span><span class="token operator">/</span>template<span class="token operator">&gt;</span>  接收的参数<span class="token punctuation">:</span><span class="token operator">&lt;</span>template<span class="token operator">&gt;</span><span class="token operator">&lt;</span>div<span class="token operator">&gt;</span>userlist<span class="token operator">--</span><span class="token punctuation">{<!-- --></span><span class="token punctuation">{<!-- --></span>mallCode<span class="token punctuation">}</span><span class="token punctuation">}</span><span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">&gt;</span><span class="token operator">&lt;</span><span class="token operator">/</span>template<span class="token operator">&gt;</span><span class="token operator">&lt;</span>script<span class="token operator">&gt;</span><span class="token keyword">export</span><span class="token keyword">default</span><span class="token punctuation">{<!-- --></span>   name<span class="token punctuation">:</span><span class="token string">"UserList"</span><span class="token punctuation">,</span>   date<span class="token punctuation">:</span><span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{<!-- --></span><span class="token keyword">return</span><span class="token punctuation">{<!-- --></span><span class="token string">"mallCode"</span><span class="token punctuation">:</span>mallCode<span class="token punctuation">}</span><span class="token punctuation">}</span><span class="token punctuation">,</span><span class="token function">created</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{<!-- --></span><span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">getParams</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">}</span><span class="token punctuation">,</span>   methods<span class="token punctuation">:</span><span class="token punctuation">{<!-- --></span><span class="token function">getParams</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{<!-- --></span><span class="token comment">// 取到路由带过来的参数</span><span class="token keyword">const</span> routerParams<span class="token operator">=</span><span class="token keyword">this</span><span class="token punctuation">.</span>$route<span class="token punctuation">.</span>query<span class="token punctuation">.</span>mallCode<span class="token punctuation">;</span><span class="token keyword">this</span><span class="token punctuation">.</span>mallCode<span class="token operator">=</span> routerParams<span class="token punctuation">;</span>     console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>$route<span class="token punctuation">.</span>query<span class="token punctuation">)</span><span class="token punctuation">;</span><span class="token comment">// 将数据放在当前组件的数据内</span><span class="token comment">//this.mallInfo.searchMap.mallCode = routerParams;</span><span class="token comment">//this.keyupMallName()</span><span class="token punctuation">}</span><span class="token punctuation">}</span><span class="token punctuation">}</span><span class="token operator">&lt;</span><span class="token operator">/</span>script<span class="token operator">&gt;</span><span class="token operator">&lt;</span>style scoped<span class="token operator">&gt;</span><span class="token operator">&lt;</span><span class="token operator">/</span>style<span class="token operator">&gt;</span></code></pre> <p>希望本文所述对大家vue.js程序设计有所帮助。</p> </div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-62031.htm">宠物粮食怎么销售的 宠物粮食怎么销售的呢</a></p>
+                                        <p>下一个：<a href="/news/article-62634.htm">宠物领养合同违约金3000元合法吗知乎文章（宠物领养合同属于合同法吗）</a></p>
+                                    </div>
+                                </div>
+                <div class="col-md-3">
+                    <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/free-nodes/2025-2-16-today-surge-node.htm" title="2月16日 | Surge Mac每天更新23M/S免费节点订阅链接">2月16日 | Surge Mac每天更新23M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-36050.htm" title="hibernate框架使用详解一">hibernate框架使用详解一</a></li>
+                        <li class="py-2"><a href="/news/article-39927.htm" title="什么乒乓球拍比较好(什么乒乓球拍比较好用)">什么乒乓球拍比较好(什么乒乓球拍比较好用)</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-3-surge-windows.htm" title="1月3日 | Surge Mac每天更新20.7M/S免费节点订阅链接">1月3日 | Surge Mac每天更新20.7M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-60855.htm" title="金吉拉宠物猫多少钱（金吉拉猫多少钱一个）">金吉拉宠物猫多少钱（金吉拉猫多少钱一个）</a></li>
+                        <li class="py-2"><a href="/news/article-59116.htm" title="孕妇让猫抓破了流血了（孕妇让猫抓破了流了一点点血）">孕妇让猫抓破了流血了（孕妇让猫抓破了流了一点点血）</a></li>
+                        <li class="py-2"><a href="/news/article-43914.htm" title="广州领养狗狗的网站（广州领养宠物在哪里）">广州领养狗狗的网站（广州领养宠物在哪里）</a></li>
+                        <li class="py-2"><a href="/news/article-28390.htm" title="动物疫病防控机构（动物疫病防控机构的服务不包括）">动物疫病防控机构（动物疫病防控机构的服务不包括）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-2-19-surge-node.htm" title="2月19日 | Surge Mac每天更新21.6M/S免费节点订阅链接">2月19日 | Surge Mac每天更新21.6M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-52457.htm" title="猫咪打猫瘟针多少钱（猫咪打猫瘟针多少钱一次）">猫咪打猫瘟针多少钱（猫咪打猫瘟针多少钱一次）</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">81</span> <a href="/date/2025-02/" title="2025-02 归档">2025-02</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">93</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">93</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">30</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- End Features Area -->
+        <!-- Start Footer Area -->
+    <footer class="footer">
+        <!-- Start Footer Bottom -->
+        <div class="footer-bottom">
+            <div class="container">
+                <div class="inner">
+                    <div class="row">
+                            <p>
+                                <a href="/">首页</a> | 
+                                <a href="/free-node/">免费节点</a> | 
+                                <a href="/news/">新闻资讯</a> |
+                                <a href="/about-us.htm">关于我们</a> |
+                                <a href="/disclaimer.htm">免责申明</a> |
+                                <a href="/privacy.htm">隐私申明</a> |
+                                <a href="/sitemap.xml">网站地图</a>
+                            </p>
+                        <p>Surge Mac免费节点分享站 版权所有 Powered by WordPress</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- End Footer Middle -->
+    </footer>
+    <!--/ End Footer Area -->
+    <!-- ========================= scroll-top ========================= -->
+    <a href="#" class="scroll-top btn-hover">
+        <i class="lni lni-chevron-up"></i>
+    </a>
+    <!-- ========================= JS here ========================= -->
+    <script src="/assets/website/js/frontend/surgemac/jquery.min.js"></script>
+    <script src="/assets/website/js/frontend/surgemac/bootstrap.min.js"></script>
+    <script src="/assets/website/js/frontend/surgemac/count-up.min.js"></script>
+    <script src="/assets/website/js/frontend/surgemac/wow.min.js"></script>
+    <script src="/assets/website/js/frontend/surgemac/tiny-slider.js"></script>
+    <script src="/assets/website/js/frontend/surgemac/glightbox.min.js"></script>
+    <script src="/assets/website/js/frontend/surgemac/imagesloaded.min.js"></script>
+    <script src="/assets/website/js/frontend/surgemac/isotope.min.js"></script>
+    <script src="/assets/website/js/frontend/surgemac/main.js"></script>
+    <script type="text/javascript">
+    //========= glightbox
+    GLightbox({
+        'href': '#',
+        'type': 'video',
+        'source': 'youtube', //vimeo, youtube or local
+        'width': 900,
+        'autoplayVideos': true,
+    });
+
+    //====== Clients Logo Slider
+    tns({
+        container: '.client-logo-carousel',
+        slideBy: 'page',
+        autoplay: true,
+        autoplayButtonOutput: false,
+        mouseDrag: true,
+        gutter: 15,
+        nav: false,
+        controls: false,
+        responsive: {
+            0: {
+                items: 1,
+            },
+            540: {
+                items: 2,
+            },
+            768: {
+                items: 3,
+            },
+            992: {
+                items: 4,
+            },
+            1170: {
+                items: 6,
+            }
+        }
+    });
+
+    //======== Home Slider
+    var slider = new tns({
+        container: '.home-slider',
+        slideBy: 'page',
+        autoplay: false,
+        mouseDrag: true,
+        gutter: 0,
+        items: 1,
+        nav: true,
+        controls: false,
+        controlsText: [
+            '<i class="lni lni-arrow-left prev"></i>',
+            '<i class="lni lni-arrow-right next"></i>'
+        ],
+        responsive: {
+            1200: {
+                items: 1,
+            },
+            992: {
+                items: 1,
+            },
+            0: {
+                items: 1,
+            }
+
+        }
+    });
+
+    //======== Testimonial Slider
+    var slider = new tns({
+        container: '.testimonial-slider',
+        slideBy: 'page',
+        autoplay: false,
+        mouseDrag: true,
+        gutter: 0,
+        items: 1,
+        nav: true,
+        controls: false,
+        controlsText: [
+            '<i class="lni lni-arrow-left prev"></i>',
+            '<i class="lni lni-arrow-right next"></i>'
+        ],
+        responsive: {
+            1200: {
+                items: 2,
+            },
+            992: {
+                items: 1,
+            },
+            0: {
+                items: 1,
+            }
+
+        }
+    });
+
+    //============== isotope masonry js with imagesloaded
+    imagesLoaded('#container', function() {
+        var elem = document.querySelector('.grid');
+        var iso = new Isotope(elem, {
+            // options
+            itemSelector: '.grid-item',
+            masonry: {
+                // use outer width of grid-sizer for columnWidth
+                columnWidth: '.grid-item'
+            }
+        });
+
+        let filterButtons = document.querySelectorAll('.portfolio-btn-wrapper button');
+        filterButtons.forEach(e =>
+            e.addEventListener('click', () => {
+
+                let filterValue = event.target.getAttribute('data-filter');
+                iso.arrange({
+                    filter: filterValue
+                });
+            })
+        );
+    });
+    </script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script>
+    <script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
