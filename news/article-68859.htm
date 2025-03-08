@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html class="no-js" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://surgemac.github.io/news/article-68859.htm" />
+    <meta charset="utf-8" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge" />
+    <title>MySQL 保存日期，用哪种数据类型合适？datetime？timestamp？还是 int？</title>
+        <meta name="description" content="日期算是我们在日常开发中经常用到的数据类型，一般来说一张表都有 createTime 和 updateTime 字段，MySQL 中针对日期也提供了很多种不同的数据类型，如：   datetime  " />
+        <link rel="icon" href="/assets/website/img/surgemac/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="Surge Mac免费节点分享站">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://surgemac.github.io/news/article-68859.htm" />
+    <meta property="og:site_name" content="Surge Mac免费节点分享站" />
+    <meta property="og:title" content="MySQL 保存日期，用哪种数据类型合适？datetime？timestamp？还是 int？" />
+    <meta property="og:image" content="https://surgemac.github.io/uploads/20240731-2/5e604d7a5617fac2dd1cce3c868525ef.webp" />
+        <meta property="og:release_date" content="2025-03-07T06:35:00" />
+    <meta property="og:updated_time" content="2025-03-07T06:35:00" />
+        <meta property="og:description" content="日期算是我们在日常开发中经常用到的数据类型，一般来说一张表都有 createTime 和 updateTime 字段，MySQL 中针对日期也提供了很多种不同的数据类型，如：   datetime  " />
+        
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="MySQL 保存日期，用哪种数据类型合适？datetime？timestamp？还是 int？">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+
+    <!-- Web Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <!-- ========================= CSS here ========================= -->
+    <link rel="stylesheet" href="/assets/website/css/surgemac/bootstrap.min.css" />
+    <link rel="stylesheet" href="/assets/website/css/surgemac/LineIcons.2.0.css" />
+    <link rel="stylesheet" href="/assets/website/css/surgemac/animate.css" />
+    <link rel="stylesheet" href="/assets/website/css/surgemac/tiny-slider.css" />
+    <link rel="stylesheet" href="/assets/website/css/surgemac/glightbox.min.css" />
+    <link rel="stylesheet" href="/assets/website/css/surgemac/main.css" />
+    <link rel="stylesheet" href="/assets/website/css/surgemac/reset.css" />
+    <link rel="stylesheet" href="/assets/website/css/surgemac/responsive.css" />
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-BJBH6WP5S9"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-BJBH6WP5S9');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+    <!--[if lte IE 9]>
+      <p class="browserupgrade">
+        You are using an <strong>outdated</strong> browser. Please
+        <a href="https://browsehappy.com/">upgrade your browser</a> to improve
+        your experience and security.
+      </p>
+    <![endif]-->
+    <!-- Preloader -->
+    <div class="preloader">
+        <div class="preloader-inner">
+            <div class="preloader-icon">
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </div>
+    <!-- /End Preloader -->
+    <!-- ========================= header start ========================= -->
+    <header class="header navbar-area">
+
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-12">
+                    <div class="nav-inner">
+                        <nav class="navbar navbar-expand-lg">
+                            <a class="navbar-brand" href="/">
+                                                            <span>Surge Mac</span>
+                                                        </a>
+                            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                                <span class="toggler-icon"></span>
+                                <span class="toggler-icon"></span>
+                                <span class="toggler-icon"></span>
+                            </button>
+                            <div class="collapse navbar-collapse sub-menu-bar" id="navbarSupportedContent">
+                                <ul id="nav" class="navbar-nav ms-auto">
+                                                                        <li class="nav-item">
+                                        <a class="page-scroll" href="/">首页</a>
+                                    </li>
+                                                                        <li class="nav-item">
+                                        <a class="page-scroll" href="/free-nodes/">免费节点</a>
+                                    </li>
+                                                                        <li class="nav-item">
+                                        <a class="page-scroll" href="/paid-subscribe/">推荐机场</a>
+                                    </li>
+                                                                        <li class="nav-item">
+                                        <a class="page-scroll" href="/client.htm">客户端</a>
+                                    </li>
+                                                                        <li class="nav-item">
+                                        <a class="page-scroll" href="/news/">新闻资讯</a>
+                                    </li>
+                                                                    </ul>
+                            </div> <!-- navbar collapse -->
+                        </nav> <!-- navbar -->
+                    </div>
+                </div>
+            </div> <!-- row -->
+        </div> <!-- container -->
+    </header>
+    <!-- ========================= header end ========================= -->
+    <!-- Start Breadcrumbs -->
+    <div class="breadcrumbs" data-stellar-background-ratio="0.5">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 col-md-6 col-12">
+                    <div class="breadcrumbs-content left">
+                        <h1 class="page-title">MySQL 保存日期，用哪种数据类型合适？datetime？timestamp？还是 int？</h1>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-6 col-12">
+                    <div class="breadcrumbs-content right">
+                        <ul class="breadcrumb-nav">
+                            <li><a href="/">首页</a></li>
+                            <li><a href="/news/">新闻资讯</a></li>
+                            <li>正文</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End Breadcrumbs -->
+        <!-- Start Features Area -->
+    <section class="Features section">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-9">
+                                    <input type="hidden" id="share-website-info" data-name="Surge Node节点订阅站" data-url="https://surgenode.github.io">
+                  				  				  				<div id="content_views" class="htmledit_views"> <p>日期算是我们在日常开发中经常用到的数据类型，一般来说一张表都有 createTime 和 updateTime 字段，MySQL 中针对日期也提供了很多种不同的数据类型，如：</p> <ul> <li> <p>datetime</p> </li> <li> <p>timestamp</p> </li> <li> <p>int</p> </li> </ul> <p>等等。甚至也有人直接将日期存为字符串的。</p> <p>那么到底该用哪种类型来保存日期呢？</p> <h2>1. 字符串</h2> <p>在这些类型中，首先应该排除掉的就是字符串了，很多新手小伙伴爱用字符串存储日期，但实际上这并不是一个很好的方案。</p> <p>使用字符串存储日期，第一个显而易见的问题就是无法使用 MySQL 中提供的日期函数，这会为很多查询带来不便。</p> <p>❝</p> <p>例如用户表中有一个字段 birthday，表示用户的生日，现在想要查询 2001 出生的所有用户，如果 birthday 是 日期类型，就可以使用 YEAR 函数，但是如果 birthday 是字符串类型，这个问题就不太好处理了。</p> <p>使用字符串存储日期的第二个问题就是占用空间较大，例如存储如下时间：</p> <p><code>2021-01-01 00:00:00</code></p> <ul> <li> <p>如果使用字符串，需要 19 个字节。</p> </li> <li> <p>如果使用 datetime 需要 8 个字节。</p> </li> <li> <p>如果使用 timestamp 需要 4 个字节。</p> </li> </ul> <p>所以首先排除掉字符串。</p> <h2>2. DATETIME VS TIMESTAMEP</h2> <h3>2.1 占用空间</h3> <p>DATETIME 在数据库中存储的形式为：<code>YYYY-MM-DD hh:mm:ss</code>&nbsp;，至于占用的字节数，则看情况，我们来看一段来自 MySQL 官网的内容：</p> <p class="img-center"><img decoding="async" alt="" src="http://img.555519.xyz/uploads3/20220602/0527e7ce0dc9ea377b5858df240cff73.jpg"></p> <p>可以看到，MySQL5.6.4 是一个分水岭：</p> <ul> <li> <p>在 MySQL5.6.4 之前，DATETIME 固定占用 8 个字节。</p> </li> <li> <p>从 MySQL5.6.4 开始，DATETIME 类型开始支持毫秒，DATETIME(N) 中的 N 表示毫秒的精度，例如，DATETIME(6) 表示可以存储 6 位的毫秒值，那么此时，DATETIME 占用的字节数，就跟后面的毫秒数有关了，如果 DATETIME 没有详细到毫秒，那么占用 5 个字节，如果详细到毫秒了，那就看情况，根据毫秒的精度，占用不同的空间，毫秒精度小于等于 2 时，总共占用 6 个字节；毫秒精度小于等于 4 时，总共占用 7 个字节；毫秒精度小于等于 6 时，总共占用 8 个字节。</p> </li> </ul> <p>同样，由上图我们也可以看出，在 MySQL5.6.4 之前，TIMESTAMEP 固定占用 4 个字节，从 MySQL5.6.4 开始，依据毫秒的精度，TIMESTAMEP 占用的字节数介于 4 到 7 之间。</p> <p>所以无论是 TIMESTAMEP，还是 DATETIME，都是比字符串节省空间的。</p> <h3>2.2 存储范围</h3> <p>DATETIME 的存储范围介于<code>1000-01-01 00:00:00</code>&nbsp;到<code>9999-12-31 23:59:59</code>&nbsp;之间。</p> <p>TIMESTAMP 的存储范围则介于<code>1970-01-01 00:00:01</code>&nbsp;UTC 到<code>2038-01-19 03:14:07</code>&nbsp;UTC 之间。</p> <p>很明显 DATETIME 的存储范围要更大一些。</p> <h3>2.3 底层存储</h3> <p>TIMESTAMP 类型最大的优势在于自带时区属性，因为它本质上是从毫秒转化而来。如果你的业务需要对应不同的国家时区，那么类型 TIMESTAMP 是一种不错的选择，TIMESTAMP 类型字段的值会随着服务器时区的变化而变化，自动换算成相应的时间，说简单点就是在不同时区，查询到同一个条记录此字段的值会不一样。</p> <p>举个 TIMESTAMP 的使用场景例子：</p> <p>新闻类的业务，通常用户想知道这篇新闻发布时对应的自己国家时间，那么 TIMESTAMP 是一种不错的选择。</p> <p>TIMESTAMP 会随着时区的变化而自动调整，而 DATETIME 不会。</p> <p>我举个例子：假设我数据库目前的时区是<code>Asia/Shanghai</code>&nbsp;：</p> <p class="img-center"><img decoding="async" alt="" src="http://img.555519.xyz/uploads3/20220602/f391267210bb460afc2c28248241f185.jpg"></p> <p>现在有一个 user 表，数据如下：</p> <p class="img-center"><img decoding="async" alt="" src="http://img.555519.xyz/uploads3/20220602/7bacd845563c9c475ba31fb3a7c5a6bd.jpg"></p> <p>其中，createTime 字段是 DATETIME，而 updateTime 是 TIMESTAMP，现在我修改一下数据库时区，我们再来查看：</p> <p class="img-center"><img decoding="async" alt="" src="http://img.555519.xyz/uploads3/20220602/4b6821a3ebaaf0bd7122f78bd6902dc1.jpg"></p> <p>小伙伴们可以看到，我把时区设置为东京，东京比我们快一个小时，此时 updateTime 自动变了，而 DATETIME 不变。</p> <p>时区的问题一定要谨慎，不过时区问题也并非一定要在数据库中解决，也可以在前端或者服务端用代码处理下。</p> <h3>2.4 性能比较</h3> <p>从毫秒数转换到 TIMESTAMP 并不费事，但是当要进行时区转换的时候，需要调用操作系统底层系统函数，而这个函数需要额外的加锁操作，以确保这时操作系统时区没有修改，一加锁，效率就低了。</p> <p>对于这个问题，只存在于 TIMESTAMP 中，因为 DATETIME 不存在时区转化问题。</p> <p>对于 TIMESTAMP，建议使用显式的时区，而不是操作系统时区。</p> <h2>3. int</h2> <p>字符串费空间，TIMESTAMP 和 DATETIME 如果没有吃透则总感觉乱乱的，所以也有人存时间戳，存一个 int 类型的数值，用一个时间戳来表示时间。</p> <p>用 int 保存时间的话，当我们需要进行日期排序以及按照日期范围查询的时候，就变成了普通的数字比较了，那么效率肯定是杠杠滴。</p> <p>不过 int 有一个致命的问题就是可读性太差，所以用不用 int 就要仔细斟酌看情况了。</p> <p>好啦，小伙伴们留言说说你日常开发日期用的哪种类型呢？出于什么样的考虑用了该类型？</p> </div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-68212.htm">三国杀新品武将（三国杀新品武将推荐）</a></p>
+                                        <p>下一个：<a href="/news/article-68860.htm">牛羊兽药厂家排名前十强（专做牛羊药的兽药厂家）</a></p>
+                                    </div>
+                                </div>
+                <div class="col-md-3">
+                    <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/news/article-57408.htm" title="宠物医院治疗猫癣费用（宠物医院治疗猫癣大概多少钱）">宠物医院治疗猫癣费用（宠物医院治疗猫癣大概多少钱）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-2-18-today-surge-node.htm" title="2月18日 | Surge Mac每天更新19.6M/S免费节点订阅链接">2月18日 | Surge Mac每天更新19.6M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-10-surge-windows.htm" title="1月10日 | Surge Mac每天更新21.4M/S免费节点订阅链接">1月10日 | Surge Mac每天更新21.4M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-59115.htm" title="SpringBoot.13.SpringBoot将web项目打包成war包部署到外部Tomcat">SpringBoot.13.SpringBoot将web项目打包成war包部署到外部Tomcat</a></li>
+                        <li class="py-2"><a href="/news/article-50352.htm" title="重庆宠物狗领养贴吧群（重庆 宠物领养）">重庆宠物狗领养贴吧群（重庆 宠物领养）</a></li>
+                        <li class="py-2"><a href="/news/article-51396.htm" title="ASP.NET Core使用Swagger/OpenAPI规范_实用技巧">ASP.NET Core使用Swagger/OpenAPI规范_实用技巧</a></li>
+                        <li class="py-2"><a href="/news/article-46365.htm" title="中国最好的兽药厂家 中国最好的兽药厂家排名">中国最好的兽药厂家 中国最好的兽药厂家排名</a></li>
+                        <li class="py-2"><a href="/news/article-38431.htm" title="可以使用哪个MySQL函数找出字符串的长度（以位为单位）？">可以使用哪个MySQL函数找出字符串的长度（以位为单位）？</a></li>
+                        <li class="py-2"><a href="/news/article-69506.htm" title="宠物粮食批发厂家价格表大全及图片（宠物粮食批发网站）">宠物粮食批发厂家价格表大全及图片（宠物粮食批发网站）</a></li>
+                        <li class="py-2"><a href="/news/article-51926.htm" title="QQ截图工具截取">QQ截图工具截取</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">24</span> <a href="/date/2025-03/" title="2025-03 归档">2025-03</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">84</span> <a href="/date/2025-02/" title="2025-02 归档">2025-02</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">84</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- End Features Area -->
+        <!-- Start Footer Area -->
+    <footer class="footer">
+        <!-- Start Footer Bottom -->
+        <div class="footer-bottom">
+            <div class="container">
+                <div class="inner">
+                    <div class="row">
+                            <p>
+                                <a href="/">首页</a> | 
+                                <a href="/free-node/">免费节点</a> | 
+                                <a href="/news/">新闻资讯</a> |
+                                <a href="/about-us.htm">关于我们</a> |
+                                <a href="/disclaimer.htm">免责申明</a> |
+                                <a href="/privacy.htm">隐私申明</a> |
+                                <a href="/sitemap.xml">网站地图</a>
+                            </p>
+                        <p>Surge Mac免费节点分享站 版权所有 Powered by WordPress</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- End Footer Middle -->
+    </footer>
+    <!--/ End Footer Area -->
+    <!-- ========================= scroll-top ========================= -->
+    <a href="#" class="scroll-top btn-hover">
+        <i class="lni lni-chevron-up"></i>
+    </a>
+    <!-- ========================= JS here ========================= -->
+    <script src="/assets/website/js/frontend/surgemac/jquery.min.js"></script>
+    <script src="/assets/website/js/frontend/surgemac/bootstrap.min.js"></script>
+    <script src="/assets/website/js/frontend/surgemac/count-up.min.js"></script>
+    <script src="/assets/website/js/frontend/surgemac/wow.min.js"></script>
+    <script src="/assets/website/js/frontend/surgemac/tiny-slider.js"></script>
+    <script src="/assets/website/js/frontend/surgemac/glightbox.min.js"></script>
+    <script src="/assets/website/js/frontend/surgemac/imagesloaded.min.js"></script>
+    <script src="/assets/website/js/frontend/surgemac/isotope.min.js"></script>
+    <script src="/assets/website/js/frontend/surgemac/main.js"></script>
+    <script type="text/javascript">
+    //========= glightbox
+    GLightbox({
+        'href': '#',
+        'type': 'video',
+        'source': 'youtube', //vimeo, youtube or local
+        'width': 900,
+        'autoplayVideos': true,
+    });
+
+    //====== Clients Logo Slider
+    tns({
+        container: '.client-logo-carousel',
+        slideBy: 'page',
+        autoplay: true,
+        autoplayButtonOutput: false,
+        mouseDrag: true,
+        gutter: 15,
+        nav: false,
+        controls: false,
+        responsive: {
+            0: {
+                items: 1,
+            },
+            540: {
+                items: 2,
+            },
+            768: {
+                items: 3,
+            },
+            992: {
+                items: 4,
+            },
+            1170: {
+                items: 6,
+            }
+        }
+    });
+
+    //======== Home Slider
+    var slider = new tns({
+        container: '.home-slider',
+        slideBy: 'page',
+        autoplay: false,
+        mouseDrag: true,
+        gutter: 0,
+        items: 1,
+        nav: true,
+        controls: false,
+        controlsText: [
+            '<i class="lni lni-arrow-left prev"></i>',
+            '<i class="lni lni-arrow-right next"></i>'
+        ],
+        responsive: {
+            1200: {
+                items: 1,
+            },
+            992: {
+                items: 1,
+            },
+            0: {
+                items: 1,
+            }
+
+        }
+    });
+
+    //======== Testimonial Slider
+    var slider = new tns({
+        container: '.testimonial-slider',
+        slideBy: 'page',
+        autoplay: false,
+        mouseDrag: true,
+        gutter: 0,
+        items: 1,
+        nav: true,
+        controls: false,
+        controlsText: [
+            '<i class="lni lni-arrow-left prev"></i>',
+            '<i class="lni lni-arrow-right next"></i>'
+        ],
+        responsive: {
+            1200: {
+                items: 2,
+            },
+            992: {
+                items: 1,
+            },
+            0: {
+                items: 1,
+            }
+
+        }
+    });
+
+    //============== isotope masonry js with imagesloaded
+    imagesLoaded('#container', function() {
+        var elem = document.querySelector('.grid');
+        var iso = new Isotope(elem, {
+            // options
+            itemSelector: '.grid-item',
+            masonry: {
+                // use outer width of grid-sizer for columnWidth
+                columnWidth: '.grid-item'
+            }
+        });
+
+        let filterButtons = document.querySelectorAll('.portfolio-btn-wrapper button');
+        filterButtons.forEach(e =>
+            e.addEventListener('click', () => {
+
+                let filterValue = event.target.getAttribute('data-filter');
+                iso.arrange({
+                    filter: filterValue
+                });
+            })
+        );
+    });
+    </script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script>
+    <script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
