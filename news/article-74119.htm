@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html class="no-js" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://surgemac.github.io/news/article-74119.htm" />
+    <meta charset="utf-8" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge" />
+    <title>Linux里面磁盘文件咋删除呀,清理Linux磁盘空间的方法有哪些？</title>
+        <meta name="description" content="Linux系统清理磁盘空间可没有windows那么容易，那么Linux磁盘空间要怎么清理呢？下面小编给大家介绍四种清理Linux磁盘空间的方法，希望能帮助到你。  Linux系统的硬盘并没有它所能达到" />
+        <link rel="icon" href="/assets/website/img/surgemac/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="Surge Mac免费节点分享站">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://surgemac.github.io/news/article-74119.htm" />
+    <meta property="og:site_name" content="Surge Mac免费节点分享站" />
+    <meta property="og:title" content="Linux里面磁盘文件咋删除呀,清理Linux磁盘空间的方法有哪些？" />
+    <meta property="og:image" content="https://surgemac.github.io/uploads/20240731-2/33a7fafb2643326e36af32d0076a1876.webp" />
+        <meta property="og:release_date" content="2025-03-15T07:19:15" />
+    <meta property="og:updated_time" content="2025-03-15T07:19:15" />
+        <meta property="og:description" content="Linux系统清理磁盘空间可没有windows那么容易，那么Linux磁盘空间要怎么清理呢？下面小编给大家介绍四种清理Linux磁盘空间的方法，希望能帮助到你。  Linux系统的硬盘并没有它所能达到" />
+        
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="Linux里面磁盘文件咋删除呀,清理Linux磁盘空间的方法有哪些？">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+
+    <!-- Web Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <!-- ========================= CSS here ========================= -->
+    <link rel="stylesheet" href="/assets/website/css/surgemac/bootstrap.min.css" />
+    <link rel="stylesheet" href="/assets/website/css/surgemac/LineIcons.2.0.css" />
+    <link rel="stylesheet" href="/assets/website/css/surgemac/animate.css" />
+    <link rel="stylesheet" href="/assets/website/css/surgemac/tiny-slider.css" />
+    <link rel="stylesheet" href="/assets/website/css/surgemac/glightbox.min.css" />
+    <link rel="stylesheet" href="/assets/website/css/surgemac/main.css" />
+    <link rel="stylesheet" href="/assets/website/css/surgemac/reset.css" />
+    <link rel="stylesheet" href="/assets/website/css/surgemac/responsive.css" />
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-BJBH6WP5S9"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-BJBH6WP5S9');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+    <!--[if lte IE 9]>
+      <p class="browserupgrade">
+        You are using an <strong>outdated</strong> browser. Please
+        <a href="https://browsehappy.com/">upgrade your browser</a> to improve
+        your experience and security.
+      </p>
+    <![endif]-->
+    <!-- Preloader -->
+    <div class="preloader">
+        <div class="preloader-inner">
+            <div class="preloader-icon">
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </div>
+    <!-- /End Preloader -->
+    <!-- ========================= header start ========================= -->
+    <header class="header navbar-area">
+
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-12">
+                    <div class="nav-inner">
+                        <nav class="navbar navbar-expand-lg">
+                            <a class="navbar-brand" href="/">
+                                                            <span>Surge Mac</span>
+                                                        </a>
+                            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                                <span class="toggler-icon"></span>
+                                <span class="toggler-icon"></span>
+                                <span class="toggler-icon"></span>
+                            </button>
+                            <div class="collapse navbar-collapse sub-menu-bar" id="navbarSupportedContent">
+                                <ul id="nav" class="navbar-nav ms-auto">
+                                                                        <li class="nav-item">
+                                        <a class="page-scroll" href="/">首页</a>
+                                    </li>
+                                                                        <li class="nav-item">
+                                        <a class="page-scroll" href="/free-nodes/">免费节点</a>
+                                    </li>
+                                                                        <li class="nav-item">
+                                        <a class="page-scroll" href="/paid-subscribe/">推荐机场</a>
+                                    </li>
+                                                                        <li class="nav-item">
+                                        <a class="page-scroll" href="/client.htm">客户端</a>
+                                    </li>
+                                                                        <li class="nav-item">
+                                        <a class="page-scroll" href="/news/">新闻资讯</a>
+                                    </li>
+                                                                    </ul>
+                            </div> <!-- navbar collapse -->
+                        </nav> <!-- navbar -->
+                    </div>
+                </div>
+            </div> <!-- row -->
+        </div> <!-- container -->
+    </header>
+    <!-- ========================= header end ========================= -->
+    <!-- Start Breadcrumbs -->
+    <div class="breadcrumbs" data-stellar-background-ratio="0.5">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 col-md-6 col-12">
+                    <div class="breadcrumbs-content left">
+                        <h1 class="page-title">Linux里面磁盘文件咋删除呀,清理Linux磁盘空间的方法有哪些？</h1>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-6 col-12">
+                    <div class="breadcrumbs-content right">
+                        <ul class="breadcrumb-nav">
+                            <li><a href="/">首页</a></li>
+                            <li><a href="/news/">新闻资讯</a></li>
+                            <li>正文</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End Breadcrumbs -->
+        <!-- Start Features Area -->
+    <section class="Features section">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-9">
+                                    <input type="hidden" id="share-website-info" data-name="Surge Node节点订阅站" data-url="https://surgenode.github.io">
+                  				  				  				<div id="content_views" class="htmledit_views"> <div style="font-size:16px;"> <p>Linux系统清理磁盘空间可没有windows那么容易，那么Linux磁盘空间要怎么清理呢？下面小编给大家介绍四种清理Linux磁盘空间的方法，希望能帮助到你。</p> <p align="center"><img decoding="async" src="http://img.555519.xyz/uploads3/20220606/4ef95e247f7ce4a565916bf770d5f5bf.jpg" alt="Linux里面磁盘文件咋删除呀,清理Linux磁盘空间的方法有哪些？"></p> <p>Linux系统的硬盘并没有它所能达到的一样轻巧。例如，在你安装完软件后，APT软件包管理器会把软件包文件保存下来，除非你计划卸载或者重装它们，否则这将是空间上的浪费。</p> <p>我们已经介绍过了清理Windows上的磁盘空间以及Mac上的磁盘空间。很多窍都是差不多的——删除临时文件，分析硬盘使用情况，查看那个应用占用最多的空间。</p> <p>删除临时文件</p> <p>BleachBit几乎是一个Linux上的CCleaner。它能扫描出你电脑上没用的临时文件，并自动删除它们来清理空间。它能找出电脑上的缓存、浏览历史和临时文件。你可以通过Ubuntu软件中心安装BleachBit。</p> <p>记住，如果你没用以root权限打开它，这个工具是不能删除APT软件包和其他系统级别的东西的。可以通过在终端上运行sudo bleachbit来以root身份运行它。(我们以曾经推荐的gksu命令，在Ubuntu上已经被移除了)相关阅读：ubuntu sudo和gksu的区别</p> <p>BleachBit最棒的功能是它能够自动执行一些只有有经的Linuxe用户经通常的事情。例如，对你不在需要用到的APT软件包执行autoclean， autoremove， clean命令，以及删除已经安装完成的缓存的软件包文件。你不需要那些已经下载了的软件包文件——这就像Windows再你安装完软件后不用再保存安装程序一样。虽然不太可能，你可能需要重新安装一些文件，这时候APT软件包会被重新安装。</p> <p align="center"><img decoding="async" src="http://img.555519.xyz/uploads3/20220606/d22166eb3f4bb8ea8f18a66439c088f9.jpg" alt="Linux里面磁盘文件咋删除呀,清理Linux磁盘空间的方法有哪些？"></p> <p>分析硬盘使用情况</p> <p>Ubuntu自带了一个能够扫描你的系统并显示出占用空间最大的目录和文件的图像概览。当你在清理空间时，这将非常有帮助——你是否把一个虚拟机或者其他的大文件忘在你的home目录了？这个工具能把它们找出来并直观的显示出它所占的空间。</p> <p>这个工具也是自带的——启动磁盘使用分析(Disk Usage Analyzer)来打开它。如果你使用的是非Ubuntu的Linux分支，它也可能自带了，因为他是GNOME的一部分。如果找不到它的话，你可以尝试看看安装Baobab包。(sudo apt-get install baobab)</p> <p align="center"><img decoding="async" src="http://img.555519.xyz/uploads3/20220606/bf6cfe9325f36641db8ad3e5cd8ad5a3.jpg" alt="Linux里面磁盘文件咋删除呀,清理Linux磁盘空间的方法有哪些？"></p> </div> </div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-74118.htm">JVM&#8212;&#8212;-程序计数器、虚拟机栈、本地方法栈</a></p>
+                                        <p>下一个：<a href="/news/article-74790.htm">聊城宠物集市在哪里（聊城宠物批发市场）</a></p>
+                                    </div>
+                                </div>
+                <div class="col-md-3">
+                    <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/news/article-52992.htm" title="南京免费领养宠物的地方在哪里呀 南京免费领养宠物的地方在哪里呀最近">南京免费领养宠物的地方在哪里呀 南京免费领养宠物的地方在哪里呀最近</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-10-surge-windows.htm" title="1月10日 | Surge Mac每天更新21.4M/S免费节点订阅链接">1月10日 | Surge Mac每天更新21.4M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-3-15-surge-windows.htm" title="3月15日 | Surge Mac每天更新19.8M/S免费节点订阅链接">3月15日 | Surge Mac每天更新19.8M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-2-7-node-share-links.htm" title="2月7日 | Surge Mac每天更新20.6M/S免费节点订阅链接">2月7日 | Surge Mac每天更新20.6M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-2-15-latest-surge-node.htm" title="2月15日 | Surge Mac每天更新19.7M/S免费节点订阅链接">2月15日 | Surge Mac每天更新19.7M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-65066.htm" title="小动物医疗器械（动物用医疗器械）">小动物医疗器械（动物用医疗器械）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-20-node-share.htm" title="1月20日 | Surge Mac每天更新21M/S免费节点订阅链接">1月20日 | Surge Mac每天更新21M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-44879.htm" title="上海宠物领养网点地址电话（上海宠物领养网点地址电话号码）">上海宠物领养网点地址电话（上海宠物领养网点地址电话号码）</a></li>
+                        <li class="py-2"><a href="/news/article-36952.htm" title="动物诊疗许可申请表在哪里拿（动物诊疗许可申请表在哪里拿到）">动物诊疗许可申请表在哪里拿（动物诊疗许可申请表在哪里拿到）</a></li>
+                        <li class="py-2"><a href="/news/article-54622.htm" title="延边宠物领养中心（延边宠物网）">延边宠物领养中心（延边宠物网）</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">51</span> <a href="/date/2025-03/" title="2025-03 归档">2025-03</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">84</span> <a href="/date/2025-02/" title="2025-02 归档">2025-02</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">84</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- End Features Area -->
+        <!-- Start Footer Area -->
+    <footer class="footer">
+        <!-- Start Footer Bottom -->
+        <div class="footer-bottom">
+            <div class="container">
+                <div class="inner">
+                    <div class="row">
+                            <p>
+                                <a href="/">首页</a> | 
+                                <a href="/free-node/">免费节点</a> | 
+                                <a href="/news/">新闻资讯</a> |
+                                <a href="/about-us.htm">关于我们</a> |
+                                <a href="/disclaimer.htm">免责申明</a> |
+                                <a href="/privacy.htm">隐私申明</a> |
+                                <a href="/sitemap.xml">网站地图</a>
+                            </p>
+                        <p>Surge Mac免费节点分享站 版权所有 Powered by WordPress</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- End Footer Middle -->
+    </footer>
+    <!--/ End Footer Area -->
+    <!-- ========================= scroll-top ========================= -->
+    <a href="#" class="scroll-top btn-hover">
+        <i class="lni lni-chevron-up"></i>
+    </a>
+    <!-- ========================= JS here ========================= -->
+    <script src="/assets/website/js/frontend/surgemac/jquery.min.js"></script>
+    <script src="/assets/website/js/frontend/surgemac/bootstrap.min.js"></script>
+    <script src="/assets/website/js/frontend/surgemac/count-up.min.js"></script>
+    <script src="/assets/website/js/frontend/surgemac/wow.min.js"></script>
+    <script src="/assets/website/js/frontend/surgemac/tiny-slider.js"></script>
+    <script src="/assets/website/js/frontend/surgemac/glightbox.min.js"></script>
+    <script src="/assets/website/js/frontend/surgemac/imagesloaded.min.js"></script>
+    <script src="/assets/website/js/frontend/surgemac/isotope.min.js"></script>
+    <script src="/assets/website/js/frontend/surgemac/main.js"></script>
+    <script type="text/javascript">
+    //========= glightbox
+    GLightbox({
+        'href': '#',
+        'type': 'video',
+        'source': 'youtube', //vimeo, youtube or local
+        'width': 900,
+        'autoplayVideos': true,
+    });
+
+    //====== Clients Logo Slider
+    tns({
+        container: '.client-logo-carousel',
+        slideBy: 'page',
+        autoplay: true,
+        autoplayButtonOutput: false,
+        mouseDrag: true,
+        gutter: 15,
+        nav: false,
+        controls: false,
+        responsive: {
+            0: {
+                items: 1,
+            },
+            540: {
+                items: 2,
+            },
+            768: {
+                items: 3,
+            },
+            992: {
+                items: 4,
+            },
+            1170: {
+                items: 6,
+            }
+        }
+    });
+
+    //======== Home Slider
+    var slider = new tns({
+        container: '.home-slider',
+        slideBy: 'page',
+        autoplay: false,
+        mouseDrag: true,
+        gutter: 0,
+        items: 1,
+        nav: true,
+        controls: false,
+        controlsText: [
+            '<i class="lni lni-arrow-left prev"></i>',
+            '<i class="lni lni-arrow-right next"></i>'
+        ],
+        responsive: {
+            1200: {
+                items: 1,
+            },
+            992: {
+                items: 1,
+            },
+            0: {
+                items: 1,
+            }
+
+        }
+    });
+
+    //======== Testimonial Slider
+    var slider = new tns({
+        container: '.testimonial-slider',
+        slideBy: 'page',
+        autoplay: false,
+        mouseDrag: true,
+        gutter: 0,
+        items: 1,
+        nav: true,
+        controls: false,
+        controlsText: [
+            '<i class="lni lni-arrow-left prev"></i>',
+            '<i class="lni lni-arrow-right next"></i>'
+        ],
+        responsive: {
+            1200: {
+                items: 2,
+            },
+            992: {
+                items: 1,
+            },
+            0: {
+                items: 1,
+            }
+
+        }
+    });
+
+    //============== isotope masonry js with imagesloaded
+    imagesLoaded('#container', function() {
+        var elem = document.querySelector('.grid');
+        var iso = new Isotope(elem, {
+            // options
+            itemSelector: '.grid-item',
+            masonry: {
+                // use outer width of grid-sizer for columnWidth
+                columnWidth: '.grid-item'
+            }
+        });
+
+        let filterButtons = document.querySelectorAll('.portfolio-btn-wrapper button');
+        filterButtons.forEach(e =>
+            e.addEventListener('click', () => {
+
+                let filterValue = event.target.getAttribute('data-filter');
+                iso.arrange({
+                    filter: filterValue
+                });
+            })
+        );
+    });
+    </script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script>
+    <script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
