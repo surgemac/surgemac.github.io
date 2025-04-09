@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html class="no-js" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://surgemac.github.io/news/article-90273.htm" />
+    <meta charset="utf-8" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge" />
+    <title>Java中时间类使用方法总结</title>
+        <meta name="description" content="//java.util.Date; Date类用法Date date = new Date();System.out.println(date);System.out.println("=======" />
+        <link rel="icon" href="/assets/website/img/surgemac/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="Surge Mac免费节点分享站">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://surgemac.github.io/news/article-90273.htm" />
+    <meta property="og:site_name" content="Surge Mac免费节点分享站" />
+    <meta property="og:title" content="Java中时间类使用方法总结" />
+    <meta property="og:image" content="https://surgemac.github.io/uploads/20240731-2/3f5415b9403a73a0e1f6140edb8f67b0.webp" />
+        <meta property="og:release_date" content="2025-04-07T09:01:49" />
+    <meta property="og:updated_time" content="2025-04-07T09:01:49" />
+        <meta property="og:description" content="//java.util.Date; Date类用法Date date = new Date();System.out.println(date);System.out.println("=======" />
+        
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="Java中时间类使用方法总结">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+
+    <!-- Web Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <!-- ========================= CSS here ========================= -->
+    <link rel="stylesheet" href="/assets/website/css/surgemac/bootstrap.min.css" />
+    <link rel="stylesheet" href="/assets/website/css/surgemac/LineIcons.2.0.css" />
+    <link rel="stylesheet" href="/assets/website/css/surgemac/animate.css" />
+    <link rel="stylesheet" href="/assets/website/css/surgemac/tiny-slider.css" />
+    <link rel="stylesheet" href="/assets/website/css/surgemac/glightbox.min.css" />
+    <link rel="stylesheet" href="/assets/website/css/surgemac/main.css" />
+    <link rel="stylesheet" href="/assets/website/css/surgemac/reset.css" />
+    <link rel="stylesheet" href="/assets/website/css/surgemac/responsive.css" />
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-BJBH6WP5S9"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-BJBH6WP5S9');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+    <!--[if lte IE 9]>
+      <p class="browserupgrade">
+        You are using an <strong>outdated</strong> browser. Please
+        <a href="https://browsehappy.com/">upgrade your browser</a> to improve
+        your experience and security.
+      </p>
+    <![endif]-->
+    <!-- Preloader -->
+    <div class="preloader">
+        <div class="preloader-inner">
+            <div class="preloader-icon">
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </div>
+    <!-- /End Preloader -->
+    <!-- ========================= header start ========================= -->
+    <header class="header navbar-area">
+
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-12">
+                    <div class="nav-inner">
+                        <nav class="navbar navbar-expand-lg">
+                            <a class="navbar-brand" href="/">
+                                                            <span>Surge Mac</span>
+                                                        </a>
+                            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                                <span class="toggler-icon"></span>
+                                <span class="toggler-icon"></span>
+                                <span class="toggler-icon"></span>
+                            </button>
+                            <div class="collapse navbar-collapse sub-menu-bar" id="navbarSupportedContent">
+                                <ul id="nav" class="navbar-nav ms-auto">
+                                                                        <li class="nav-item">
+                                        <a class="page-scroll" href="/">首页</a>
+                                    </li>
+                                                                        <li class="nav-item">
+                                        <a class="page-scroll" href="/free-nodes/">免费节点</a>
+                                    </li>
+                                                                        <li class="nav-item">
+                                        <a class="page-scroll" href="/paid-subscribe/">推荐机场</a>
+                                    </li>
+                                                                        <li class="nav-item">
+                                        <a class="page-scroll" href="/client.htm">客户端</a>
+                                    </li>
+                                                                        <li class="nav-item">
+                                        <a class="page-scroll" href="/news/">新闻资讯</a>
+                                    </li>
+                                                                    </ul>
+                            </div> <!-- navbar collapse -->
+                        </nav> <!-- navbar -->
+                    </div>
+                </div>
+            </div> <!-- row -->
+        </div> <!-- container -->
+    </header>
+    <!-- ========================= header end ========================= -->
+    <!-- Start Breadcrumbs -->
+    <div class="breadcrumbs" data-stellar-background-ratio="0.5">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 col-md-6 col-12">
+                    <div class="breadcrumbs-content left">
+                        <h1 class="page-title">Java中时间类使用方法总结</h1>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-6 col-12">
+                    <div class="breadcrumbs-content right">
+                        <ul class="breadcrumb-nav">
+                            <li><a href="/">首页</a></li>
+                            <li><a href="/news/">新闻资讯</a></li>
+                            <li>正文</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End Breadcrumbs -->
+        <!-- Start Features Area -->
+    <section class="Features section">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-9">
+                                    <input type="hidden" id="share-website-info" data-name="Surge Node节点订阅站" data-url="https://surgenode.github.io">
+                  				  				  				<div id="content_views" class="htmledit_views"><span style="color:#ff0000"><span style="white-space:pre"></span>//java.util.Date; Date类用法</span><br /><span style="white-space:pre"></span>Date date = new Date();<br /><span style="white-space:pre"></span>System.out.println(date);<br /><span style="white-space:pre"></span>System.out.println("=============================");<br /><span style="white-space:pre"></span><br /><span style="color:#ff0000"><span style="white-space:pre"></span>//java.util.Calendar; Calendar类用法</span><br /><span style="white-space:pre"></span>Calendar calendar = Calendar.getInstance();<br /><span style="white-space:pre"></span>calendar.setTime(new Date());<br /><span style="white-space:pre"></span>System.out.println(calendar.get(Calendar.YEAR) + "年" + calendar.get(Calendar.MONTH) + "月" + calendar.get(Calendar.DAY_OF_MONTH) + "日");<br /><span style="white-space:pre"></span>System.out.println("=============================");<br /><span style="white-space:pre"></span><br /><span style="color:#ff0000"><span style="white-space:pre"></span>//java.util.GregorianCalendar; GregorianCalendar类用法</span><br /><span style="white-space:pre"></span>GregorianCalendar gcall1 = new GregorianCalendar(2011,5,1);<br /><span style="white-space:pre"></span>GregorianCalendar gcall2 = new GregorianCalendar(Locale.CHINESE);<span style="white-space:pre"></span><br /><span style="white-space:pre"></span>System.out.println("gcall1:" + gcall1.get(Calendar.YEAR) + " " + gcall1.get(Calendar.MONTH) + " " + gcall1.get(Calendar.DAY_OF_MONTH));<br /><span style="white-space:pre"></span>System.out.println("gcall12:" + gcall2.get(Calendar.YEAR) + " " + gcall2.get(Calendar.MONTH) + " " + gcall2.get(Calendar.DAY_OF_MONTH));<br /><span style="white-space:pre"></span>System.out.println("=============================");<br /><span style="white-space:pre"></span><br /><span style="color:#ff0000"><span style="white-space:pre"></span>//java.text.DateFormat; DateFormat类的用法<span style="white-space:pre"></span></span><br /><span style="white-space:pre"></span>DateFormat format = DateFormat.getInstance();<br /><span style="white-space:pre"></span>System.out.println(format.format(new Date()));<br /><span style="white-space:pre"></span>System.out.println("=============================");<span style="white-space:pre"></span><br /><span style="white-space:pre"></span>//DateFormat中还定义了多个getDateInstance方法，用来格式化日期信息，如getDateInstance(int style, Locale alocale),可以指定格式化的风格以及Local信息<br /><span style="white-space:pre"></span>DateFormat format2 = DateFormat.getDateInstance(DateFormat.SHORT,Locale.US);<br /><span style="white-space:pre"></span>DateFormat format3 =DateFormat.getDateInstance(DateFormat.LONG,Locale.CHINESE);<br /><span style="white-space:pre"></span>DateFormat format4 = DateFormat.getDateInstance(DateFormat.FULL,Locale.FRANCE);<br /><span style="white-space:pre"></span>DateFormat format5 = DateFormat.getDateInstance(DateFormat.MEDIUM,Locale.JAPAN);<br /><span style="white-space:pre"></span>System.out.println(format2.format(new Date()));<br /><span style="white-space:pre"></span>System.out.println(format3.format(new Date()));<br /><span style="white-space:pre"></span>System.out.println(format4.format(new Date()));<br /><span style="white-space:pre"></span>System.out.println(format5.format(new Date()));<br /><span style="white-space:pre"></span>System.out.println("=============================");<br /><span style="white-space:pre"></span><br /><span style="color:#ff0000"><span style="white-space:pre"></span>//SimpleDateFormat类是DateFormat类的子类，可是使用任何用户定义的日期时间格式的模式进行格式化。</span><br /><span style="white-space:pre"></span>SimpleDateFormat sdf1 = new SimpleDateFormat("yyyy年MM月dd日<span style="white-space:pre"></span>hh时mm分ss秒EE",Locale.CHINA);<br /><span style="white-space:pre"></span>System.out.println(sdf1.format(new Date()));</div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-90269.htm">企业实战之阿里druid统一监控方案，你了解吗？</a></p>
+                                        <p>下一个：<a href="/news/article-91492.htm">Go使用Gin+mysql实现增删改查</a></p>
+                                    </div>
+                                </div>
+                <div class="col-md-3">
+                    <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/free-nodes/2025-3-25-surge-node-share.htm" title="3月25日 | Surge Mac每天更新19.5M/S免费节点订阅链接">3月25日 | Surge Mac每天更新19.5M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-74791.htm" title="动物疫苗现状如何 动物疫苗现状如何分析">动物疫苗现状如何 动物疫苗现状如何分析</a></li>
+                        <li class="py-2"><a href="/news/article-67586.htm" title="动物医院有哪些动物名字（动物医院的标志是什么）">动物医院有哪些动物名字（动物医院的标志是什么）</a></li>
+                        <li class="py-2"><a href="/news/article-87340.htm" title="北京中农大动物医院有限公司上班怎么样 北京中农大动物医院有限公司上班怎么样啊">北京中农大动物医院有限公司上班怎么样 北京中农大动物医院有限公司上班怎么样啊</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-4-4-node-share-links.htm" title="4月4日 | Surge Mac每天更新22.6M/S免费节点订阅链接">4月4日 | Surge Mac每天更新22.6M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-4-8-free-high-speed-nodes.htm" title="4月8日 | Surge Mac每天更新22.3M/S免费节点订阅链接">4月8日 | Surge Mac每天更新22.3M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-3-8-latest-surge-node.htm" title="3月8日 | Surge Mac每天更新18.3M/S免费节点订阅链接">3月8日 | Surge Mac每天更新18.3M/S免费节点订阅链接</a></li>
+                        <li class="py-2"><a href="/news/article-71466.htm" title="厦门市宠物领养中心 厦门市宠物领养中心地址">厦门市宠物领养中心 厦门市宠物领养中心地址</a></li>
+                        <li class="py-2"><a href="/news/article-76159.htm" title="济南宠物领养微信群 济南宠物领养微信群号">济南宠物领养微信群 济南宠物领养微信群号</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-3-31-free-high-speed-nodes.htm" title="3月31日 | Surge Mac每天更新20.5M/S免费节点订阅链接">3月31日 | Surge Mac每天更新20.5M/S免费节点订阅链接</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">27</span> <a href="/date/2025-04/" title="2025-04 归档">2025-04</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">90</span> <a href="/date/2025-03/" title="2025-03 归档">2025-03</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- End Features Area -->
+        <!-- Start Footer Area -->
+    <footer class="footer">
+        <!-- Start Footer Bottom -->
+        <div class="footer-bottom">
+            <div class="container">
+                <div class="inner">
+                    <div class="row">
+                                            <p>
+                                                <a href="/">首页</a> |
+                                                <a href="/free-nodes/">免费节点</a> |
+                                                <a href="/paid-subscribe/">推荐机场</a> |
+                                                <a href="/client.htm">客户端</a> |
+                                                <a href="/news/">新闻资讯</a> |
+                                                <a href="/about-us.htm">关于我们</a> |
+                        <a href="/disclaimer.htm">免责申明</a> |
+                        <a href="/privacy.htm">隐私申明</a> |
+                        <a href="/sitemap.xml">网站地图</a>
+                    </p>
+                        <p>Surge Mac免费节点分享站 版权所有 Powered by WordPress</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- End Footer Middle -->
+    </footer>
+    <!--/ End Footer Area -->
+    <!-- ========================= scroll-top ========================= -->
+    <a href="#" class="scroll-top btn-hover">
+        <i class="lni lni-chevron-up"></i>
+    </a>
+    <!-- ========================= JS here ========================= -->
+    <script src="/assets/website/js/frontend/surgemac/jquery.min.js"></script>
+    <script src="/assets/website/js/frontend/surgemac/bootstrap.min.js"></script>
+    <script src="/assets/website/js/frontend/surgemac/count-up.min.js"></script>
+    <script src="/assets/website/js/frontend/surgemac/wow.min.js"></script>
+    <script src="/assets/website/js/frontend/surgemac/tiny-slider.js"></script>
+    <script src="/assets/website/js/frontend/surgemac/glightbox.min.js"></script>
+    <script src="/assets/website/js/frontend/surgemac/imagesloaded.min.js"></script>
+    <script src="/assets/website/js/frontend/surgemac/isotope.min.js"></script>
+    <script src="/assets/website/js/frontend/surgemac/main.js"></script>
+    <script type="text/javascript">
+    //========= glightbox
+    GLightbox({
+        'href': '#',
+        'type': 'video',
+        'source': 'youtube', //vimeo, youtube or local
+        'width': 900,
+        'autoplayVideos': true,
+    });
+
+    //====== Clients Logo Slider
+    tns({
+        container: '.client-logo-carousel',
+        slideBy: 'page',
+        autoplay: true,
+        autoplayButtonOutput: false,
+        mouseDrag: true,
+        gutter: 15,
+        nav: false,
+        controls: false,
+        responsive: {
+            0: {
+                items: 1,
+            },
+            540: {
+                items: 2,
+            },
+            768: {
+                items: 3,
+            },
+            992: {
+                items: 4,
+            },
+            1170: {
+                items: 6,
+            }
+        }
+    });
+
+    //======== Home Slider
+    var slider = new tns({
+        container: '.home-slider',
+        slideBy: 'page',
+        autoplay: false,
+        mouseDrag: true,
+        gutter: 0,
+        items: 1,
+        nav: true,
+        controls: false,
+        controlsText: [
+            '<i class="lni lni-arrow-left prev"></i>',
+            '<i class="lni lni-arrow-right next"></i>'
+        ],
+        responsive: {
+            1200: {
+                items: 1,
+            },
+            992: {
+                items: 1,
+            },
+            0: {
+                items: 1,
+            }
+
+        }
+    });
+
+    //======== Testimonial Slider
+    var slider = new tns({
+        container: '.testimonial-slider',
+        slideBy: 'page',
+        autoplay: false,
+        mouseDrag: true,
+        gutter: 0,
+        items: 1,
+        nav: true,
+        controls: false,
+        controlsText: [
+            '<i class="lni lni-arrow-left prev"></i>',
+            '<i class="lni lni-arrow-right next"></i>'
+        ],
+        responsive: {
+            1200: {
+                items: 2,
+            },
+            992: {
+                items: 1,
+            },
+            0: {
+                items: 1,
+            }
+
+        }
+    });
+
+    //============== isotope masonry js with imagesloaded
+    imagesLoaded('#container', function() {
+        var elem = document.querySelector('.grid');
+        var iso = new Isotope(elem, {
+            // options
+            itemSelector: '.grid-item',
+            masonry: {
+                // use outer width of grid-sizer for columnWidth
+                columnWidth: '.grid-item'
+            }
+        });
+
+        let filterButtons = document.querySelectorAll('.portfolio-btn-wrapper button');
+        filterButtons.forEach(e =>
+            e.addEventListener('click', () => {
+
+                let filterValue = event.target.getAttribute('data-filter');
+                iso.arrange({
+                    filter: filterValue
+                });
+            })
+        );
+    });
+    </script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script>
+    <script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
