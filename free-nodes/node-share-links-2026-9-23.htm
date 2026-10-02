@@ -290,29 +290,9 @@ ShadowRocket是一款深受技术用户青睐的多协议支持科学上网工�
     </div>
 <h4>FAQ</h4>
 <div class="panel panel-default">
-    <div class="panel-heading"><h5>SSR 协议如何提高节点隐蔽性？</h5></div>
-    <div class="panel-body">
-        SSR 可通过选择协议和混淆方式伪装流量，降低被 DPI 检测和封锁风险。合理配置可增强节点隐蔽性和长期稳定性，保证科学上网体验顺畅可靠。<hr />    </div>
-</div>
-<div class="panel panel-default">
-    <div class="panel-heading"><h5>Nekobox 是否支持多客户端节点管理？</h5></div>
-    <div class="panel-body">
-        支持。Nekobox 与 Shadowsocks、Clash 等客户端独立运行，互不干扰。用户可通过策略组灵活管理节点，实现多客户端分流和网络优化。<hr />    </div>
-</div>
-<div class="panel panel-default">
     <div class="panel-heading"><h5>Trojan 的连接失败常见原因有哪些？</h5></div>
     <div class="panel-body">
         Trojan 连接失败可能由于伪装域名错误、TLS 证书过期、防火墙阻挡端口或服务器不可达。通过查看客户端日志可以定位具体原因，并对症下药解决问题。<hr />    </div>
-</div>
-<div class="panel panel-default">
-    <div class="panel-heading"><h5>Nekobox 是否可以与 Shadowsocks 客户端共存？</h5></div>
-    <div class="panel-body">
-        可以。Nekobox 配置独立，不影响其他客户端运行。用户可以同时使用 Shadowsocks、Clash 等客户端，通过策略组或分流规则选择合适节点，互不干扰。<hr />    </div>
-</div>
-<div class="panel panel-default">
-    <div class="panel-heading"><h5>Netch 如何在 Windows 上加速游戏？</h5></div>
-    <div class="panel-body">
-        Netch 使用 TUN/TAP 模式将特定进程流量通过代理转发，常用于游戏加速。用户只需将游戏进程添加到列表，选择合适的代理节点，即可降低延迟并绕过地理限制。<hr />    </div>
 </div>
 <div class="panel panel-default">
     <div class="panel-heading"><h5>Matsuri 日志太多如何调整日志级别？</h5></div>
@@ -320,9 +300,19 @@ ShadowRocket是一款深受技术用户青睐的多协议支持科学上网工�
         在 Matsuri 或其内核配置中修改日志级别参数（如从 debug 降为 info 或 warning），同时限制日志轮转与最大文件大小。生产环境建议关闭 debug 日志以减少磁盘 I/O 与性能影响。<hr />    </div>
 </div>
 <div class="panel panel-default">
+    <div class="panel-heading"><h5>VLESS 在高封锁环境下的优势是什么？</h5></div>
+    <div class="panel-body">
+        VLESS 去掉了内置加密，依赖 TLS 层安全，减少被 DPI 检测的特征。结合 XTLS 或 Reality 模式，可以更好地隐藏流量，提高在高封锁网络中的稳定性与隐蔽性。<hr />    </div>
+</div>
+<div class="panel panel-default">
     <div class="panel-heading"><h5>Mihomo 的 Rule-Set 与 Clash Premium 是否兼容？</h5></div>
     <div class="panel-body">
         Mihomo 完全兼容 Clash Premium 的 Rule-Set 格式，支持相同的远程规则订阅与策略分组。用户可直接迁移原 Clash 配置，无需额外修改或转换。<hr />    </div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading"><h5>SSR 协议如何提高节点隐蔽性？</h5></div>
+    <div class="panel-body">
+        SSR 可通过选择协议和混淆方式伪装流量，降低被 DPI 检测和封锁风险。合理配置可增强节点隐蔽性和长期稳定性，保证科学上网体验顺畅可靠。<hr />    </div>
 </div>
 <div class="panel panel-default">
     <div class="panel-heading"><h5>Potatso Lite 支持手动和二维码导入节点吗？</h5></div>
@@ -335,9 +325,19 @@ ShadowRocket是一款深受技术用户青睐的多协议支持科学上网工�
         XTLS 模式减少握手次数和加密开销，适合高延迟或不稳定移动网络。结合策略组和节点切换，可提高网页浏览、视频播放和游戏连接的稳定性和流畅度。<hr />    </div>
 </div>
 <div class="panel panel-default">
-    <div class="panel-heading"><h5>VLESS 在高封锁环境下的优势是什么？</h5></div>
+    <div class="panel-heading"><h5>Nekobox 是否可以与 Shadowsocks 客户端共存？</h5></div>
     <div class="panel-body">
-        VLESS 去掉了内置加密，依赖 TLS 层安全，减少被 DPI 检测的特征。结合 XTLS 或 Reality 模式，可以更好地隐藏流量，提高在高封锁网络中的稳定性与隐蔽性。    </div>
+        可以。Nekobox 配置独立，不影响其他客户端运行。用户可以同时使用 Shadowsocks、Clash 等客户端，通过策略组或分流规则选择合适节点，互不干扰。<hr />    </div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading"><h5>Nekobox 是否支持多客户端节点管理？</h5></div>
+    <div class="panel-body">
+        支持。Nekobox 与 Shadowsocks、Clash 等客户端独立运行，互不干扰。用户可通过策略组灵活管理节点，实现多客户端分流和网络优化。<hr />    </div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading"><h5>Netch 如何在 Windows 上加速游戏？</h5></div>
+    <div class="panel-body">
+        Netch 使用 TUN/TAP 模式将特定进程流量通过代理转发，常用于游戏加速。用户只需将游戏进程添加到列表，选择合适的代理节点，即可降低延迟并绕过地理限制。    </div>
 </div>
 <div class="panel panel-default mt-5">
     <div class="panel-heading">
@@ -385,16 +385,16 @@ ShadowRocket是一款深受技术用户青睐的多协议支持科学上网工�
     </div>
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
-                        <li class="py-2"><a href="/free-nodes/2026-9-20-surge-github.htm" title="9月20日 | Surge Mac每天更新20.2M/S免费节点订阅链接">9月20日 | Surge Mac每天更新20.2M/S免费节点订阅链接</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/2026-8-22-free-node-subscribe.htm" title="8月22日 | Surge Mac每天更新19.1M/S免费节点订阅链接">8月22日 | Surge Mac每天更新19.1M/S免费节点订阅链接</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/2026-9-2-today-surge-node.htm" title="9月2日 | Surge Mac每天更新18.2M/S免费节点订阅链接">9月2日 | Surge Mac每天更新18.2M/S免费节点订阅链接</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/node-share-links-2026-9-23.htm" title="9月23日 | Surge Mac每天更新20.9M/S免费节点订阅链接">9月23日 | Surge Mac每天更新20.9M/S免费节点订阅链接</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/2026-9-28-free-surge-node.htm" title="9月28日 | Surge Mac每天更新19.2M/S免费节点订阅链接">9月28日 | Surge Mac每天更新19.2M/S免费节点订阅链接</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/2026-9-24-today-surge-node.htm" title="9月24日 | Surge Mac每天更新21.3M/S免费节点订阅链接">9月24日 | Surge Mac每天更新21.3M/S免费节点订阅链接</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/2026-9-10-free-subscribe-node.htm" title="9月10日 | Surge Mac每天更新22M/S免费节点订阅链接">9月10日 | Surge Mac每天更新22M/S免费节点订阅链接</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/node-share-links-2026-10-1.htm" title="10月1日 | Surge Mac每天更新19.8M/S免费节点订阅链接">10月1日 | Surge Mac每天更新19.8M/S免费节点订阅链接</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/2026-9-16-surge-github.htm" title="9月16日 | Surge Mac每天更新22.6M/S免费节点订阅链接">9月16日 | Surge Mac每天更新22.6M/S免费节点订阅链接</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/node-share-links-2026-9-27.htm" title="9月27日 | Surge Mac每天更新20.9M/S免费节点订阅链接">9月27日 | Surge Mac每天更新20.9M/S免费节点订阅链接</a><hr /></li>
                         <li class="py-2"><a href="/free-nodes/node-share-links-2026-9-9.htm" title="9月9日 | Surge Mac每天更新20M/S免费节点订阅链接">9月9日 | Surge Mac每天更新20M/S免费节点订阅链接</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/2026-8-20-today-surge-node.htm" title="8月20日 | Surge Mac每天更新21M/S免费节点订阅链接">8月20日 | Surge Mac每天更新21M/S免费节点订阅链接</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/free-node-subscribe-links-2026-9-15.htm" title="9月15日 | Surge Mac每天更新22M/S免费节点订阅链接">9月15日 | Surge Mac每天更新22M/S免费节点订阅链接</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/free-node-subscribe-links-2026-8-29.htm" title="8月29日 | Surge Mac每天更新19.6M/S免费节点订阅链接">8月29日 | Surge Mac每天更新19.6M/S免费节点订阅链接</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/2026-9-8-free-node-subscribe.htm" title="9月8日 | Surge Mac每天更新20.6M/S免费节点订阅链接">9月8日 | Surge Mac每天更新20.6M/S免费节点订阅链接</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/2026-8-30-today-surge-node.htm" title="8月30日 | Surge Mac每天更新20.5M/S免费节点订阅链接">8月30日 | Surge Mac每天更新20.5M/S免费节点订阅链接</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/2026-8-14-surge-github.htm" title="8月14日 | Surge Mac每天更新19M/S免费节点订阅链接">8月14日 | Surge Mac每天更新19M/S免费节点订阅链接</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/latest-surge-node-2026-8-15.htm" title="8月15日 | Surge Mac每天更新19.1M/S免费节点订阅链接">8月15日 | Surge Mac每天更新19.1M/S免费节点订阅链接</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/node-share-links-2026-9-11.htm" title="9月11日 | Surge Mac每天更新19M/S免费节点订阅链接">9月11日 | Surge Mac每天更新19M/S免费节点订阅链接</a><hr /></li>
                     </ul>
     </div>
 </div>
@@ -406,10 +406,10 @@ ShadowRocket是一款深受技术用户青睐的多协议支持科学上网工�
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
                         <li class="py-2">
-                <h4><span class="badge" style="float: right;">25</span> <a href="/date/2026-09/" title="2026-09 归档">2026-09</a></h4>
+                <h4><span class="badge" style="float: right;">2</span> <a href="/date/2026-10/" title="2026-10 归档">2026-10</a></h4>
             </li>
                         <li class="py-2">
-                <h4><span class="badge" style="float: right;">26</span> <a href="/date/2026-08/" title="2026-08 归档">2026-08</a></h4>
+                <h4><span class="badge" style="float: right;">29</span> <a href="/date/2026-09/" title="2026-09 归档">2026-09</a></h4>
             </li>
                     </ul>
     </div>
