@@ -184,14 +184,9 @@ IPLC、IEPL中转，点对点专线连接。高速冲浪，科学上网不二选
     </div>
 <h4>FAQ</h4>
 <div class="panel panel-default">
-    <div class="panel-heading"><h5>V2RayN 与 WinXray 哪个更易用？</h5></div>
+    <div class="panel-heading"><h5>如何将 Windows 上的 V2Ray 与 WSL 环境联合调试？</h5></div>
     <div class="panel-body">
-        V2RayN 界面更简洁，功能更稳定，而 WinXray 提供了更现代的界面和自动测速功能。对于初学者来说，V2RayN 上手更快；而追求高级功能的用户可能更喜欢 WinXray。<hr />    </div>
-</div>
-<div class="panel panel-default">
-    <div class="panel-heading"><h5>Surfboard 策略组如何提升在线视频体验？</h5></div>
-    <div class="panel-body">
-        Surfboard 可通过策略组将视频流量分配到低延迟、高带宽节点，自动切换到最佳节点，减少缓冲和卡顿，提高在线视频播放的流畅性和整体网络体验。<hr />    </div>
+        在 WSL 内运行需要的调试工具并通过 localhost 或将 V2Ray 监听地址绑定为 0.0.0.0，然后在 Windows 与 WSL 之间配置端口映射。注意 Windows 防火墙规则需允许 WSL 与 Windows 进程通信。<hr />    </div>
 </div>
 <div class="panel panel-default">
     <div class="panel-heading"><h5>Potatso Lite 是否支持手动节点管理？</h5></div>
@@ -199,9 +194,14 @@ IPLC、IEPL中转，点对点专线连接。高速冲浪，科学上网不二选
         支持。用户可手动输入节点信息或扫描二维码导入节点，并可进行修改或删除。虽然不支持自动订阅更新，但足以满足轻量用户对节点管理和流量分流的需求。<hr />    </div>
 </div>
 <div class="panel panel-default">
-    <div class="panel-heading"><h5>如何安全地在服务器上部署 V2Ray（最小权限原则）？</h5></div>
+    <div class="panel-heading"><h5>Mellow 如何通过配置实现多出口分流？</h5></div>
     <div class="panel-body">
-        使用独立非 root 用户运行 V2Ray，限制服务访问端口并仅开放必要端口；配置防火墙规则与 Fail2ban 限制暴力登录；定期更新内核与 V2Ray 版本，并关闭不必要的系统服务以减少攻击面。<hr />    </div>
+        Mellow 可在配置文件中定义多个 outbound，并结合 routing 规则实现按域名、IP 或策略组分流。这样不同类型的流量可走不同节点，提高使用体验。<hr />    </div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading"><h5>Netch 如何结合节点测速实现自动分流？</h5></div>
+    <div class="panel-body">
+        Netch 可以结合节点延迟检测和策略组，将不同类型的流量分配到低延迟节点。提高网页、视频和游戏访问速度及稳定性，优化整体网络体验。<hr />    </div>
 </div>
 <div class="panel panel-default">
     <div class="panel-heading"><h5>如何把 Clash 规则与本地 hosts 文件结合使用？</h5></div>
@@ -209,19 +209,19 @@ IPLC、IEPL中转，点对点专线连接。高速冲浪，科学上网不二选
         可在 Clash 的 rules 中优先设置域名直连规则，并在系统 hosts 中添加常用站点的固定解析以加速 DNS 解析。注意 hosts 优先级高于 DNS，因此修改 hosts 需谨慎以避免与真实解析冲突。<hr />    </div>
 </div>
 <div class="panel panel-default">
+    <div class="panel-heading"><h5>V2RayN 与 WinXray 哪个更易用？</h5></div>
+    <div class="panel-body">
+        V2RayN 界面更简洁，功能更稳定，而 WinXray 提供了更现代的界面和自动测速功能。对于初学者来说，V2RayN 上手更快；而追求高级功能的用户可能更喜欢 WinXray。<hr />    </div>
+</div>
+<div class="panel panel-default">
     <div class="panel-heading"><h5>何为 multiplex (mux)，启用后会有哪些利弊？</h5></div>
     <div class="panel-body">
         mux 是多路复用技术，可在单一连接上传输多路流量，从而减少握手次数与连接开销。优点是提升短连接并发效率，缺点是在丢包或单连接异常时可能影响多条会话并增加调试复杂度。<hr />    </div>
 </div>
 <div class="panel panel-default">
-    <div class="panel-heading"><h5>Mellow 如何通过配置实现多出口分流？</h5></div>
+    <div class="panel-heading"><h5>Surfboard 策略组如何提升在线视频体验？</h5></div>
     <div class="panel-body">
-        Mellow 可在配置文件中定义多个 outbound，并结合 routing 规则实现按域名、IP 或策略组分流。这样不同类型的流量可走不同节点，提高使用体验。<hr />    </div>
-</div>
-<div class="panel panel-default">
-    <div class="panel-heading"><h5>如何将 Windows 上的 V2Ray 与 WSL 环境联合调试？</h5></div>
-    <div class="panel-body">
-        在 WSL 内运行需要的调试工具并通过 localhost 或将 V2Ray 监听地址绑定为 0.0.0.0，然后在 Windows 与 WSL 之间配置端口映射。注意 Windows 防火墙规则需允许 WSL 与 Windows 进程通信。<hr />    </div>
+        Surfboard 可通过策略组将视频流量分配到低延迟、高带宽节点，自动切换到最佳节点，减少缓冲和卡顿，提高在线视频播放的流畅性和整体网络体验。<hr />    </div>
 </div>
 <div class="panel panel-default">
     <div class="panel-heading"><h5>PassWall2 的节点测速结果如何影响分流？</h5></div>
@@ -229,9 +229,9 @@ IPLC、IEPL中转，点对点专线连接。高速冲浪，科学上网不二选
         PassWall2 会根据节点延迟和成功率自动调整策略组选择最优节点。测速结果直接影响程序选择出口，从而提高连接速度和稳定性。<hr />    </div>
 </div>
 <div class="panel panel-default">
-    <div class="panel-heading"><h5>Netch 如何结合节点测速实现自动分流？</h5></div>
+    <div class="panel-heading"><h5>如何安全地在服务器上部署 V2Ray（最小权限原则）？</h5></div>
     <div class="panel-body">
-        Netch 可以结合节点延迟检测和策略组，将不同类型的流量分配到低延迟节点。提高网页、视频和游戏访问速度及稳定性，优化整体网络体验。    </div>
+        使用独立非 root 用户运行 V2Ray，限制服务访问端口并仅开放必要端口；配置防火墙规则与 Fail2ban 限制暴力登录；定期更新内核与 V2Ray 版本，并关闭不必要的系统服务以减少攻击面。    </div>
 </div>
 <div class="panel panel-default mt-5">
     <div class="panel-heading">
@@ -279,16 +279,16 @@ IPLC、IEPL中转，点对点专线连接。高速冲浪，科学上网不二选
     </div>
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
-                        <li class="py-2"><a href="/free-nodes/2026-9-14-free-subscribe-node.htm" title="9月14日 | Surge Mac每天更新22.7M/S免费节点订阅链接">9月14日 | Surge Mac每天更新22.7M/S免费节点订阅链接</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/2026-9-10-free-subscribe-node.htm" title="9月10日 | Surge Mac每天更新22M/S免费节点订阅链接">9月10日 | Surge Mac每天更新22M/S免费节点订阅链接</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/node-share-links-2026-9-23.htm" title="9月23日 | Surge Mac每天更新20.9M/S免费节点订阅链接">9月23日 | Surge Mac每天更新20.9M/S免费节点订阅链接</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/node-share-links-2026-9-9.htm" title="9月9日 | Surge Mac每天更新20M/S免费节点订阅链接">9月9日 | Surge Mac每天更新20M/S免费节点订阅链接</a><hr /></li>
                         <li class="py-2"><a href="/free-nodes/node-share-links-2026-10-1.htm" title="10月1日 | Surge Mac每天更新19.8M/S免费节点订阅链接">10月1日 | Surge Mac每天更新19.8M/S免费节点订阅链接</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/2026-9-4-free-surge-node.htm" title="9月4日 | Surge Mac每天更新18.9M/S免费节点订阅链接">9月4日 | Surge Mac每天更新18.9M/S免费节点订阅链接</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/2026-9-2-today-surge-node.htm" title="9月2日 | Surge Mac每天更新18.2M/S免费节点订阅链接">9月2日 | Surge Mac每天更新18.2M/S免费节点订阅链接</a><hr /></li>
                         <li class="py-2"><a href="/free-nodes/free-node-subscribe-links-2026-9-5.htm" title="9月5日 | Surge Mac每天更新22.5M/S免费节点订阅链接">9月5日 | Surge Mac每天更新22.5M/S免费节点订阅链接</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/2026-9-12-today-surge-node.htm" title="9月12日 | Surge Mac每天更新18.4M/S免费节点订阅链接">9月12日 | Surge Mac每天更新18.4M/S免费节点订阅链接</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/node-share-links-2026-9-11.htm" title="9月11日 | Surge Mac每天更新19M/S免费节点订阅链接">9月11日 | Surge Mac每天更新19M/S免费节点订阅链接</a><hr /></li>
-                        <li class="py-2"><a href="/free-nodes/2026-9-24-today-surge-node.htm" title="9月24日 | Surge Mac每天更新21.3M/S免费节点订阅链接">9月24日 | Surge Mac每天更新21.3M/S免费节点订阅链接</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/2026-9-30-today-surge-node.htm" title="9月30日 | Surge Mac每天更新22.2M/S免费节点订阅链接">9月30日 | Surge Mac每天更新22.2M/S免费节点订阅链接</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/2026-9-26-surge-node.htm" title="9月26日 | Surge Mac每天更新20.7M/S免费节点订阅链接">9月26日 | Surge Mac每天更新20.7M/S免费节点订阅链接</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/node-share-links-2026-9-27.htm" title="9月27日 | Surge Mac每天更新20.9M/S免费节点订阅链接">9月27日 | Surge Mac每天更新20.9M/S免费节点订阅链接</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/2026-9-16-surge-github.htm" title="9月16日 | Surge Mac每天更新22.6M/S免费节点订阅链接">9月16日 | Surge Mac每天更新22.6M/S免费节点订阅链接</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/surge-windows-2026-9-19.htm" title="9月19日 | Surge Mac每天更新19.7M/S免费节点订阅链接">9月19日 | Surge Mac每天更新19.7M/S免费节点订阅链接</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/2026-9-4-free-surge-node.htm" title="9月4日 | Surge Mac每天更新18.9M/S免费节点订阅链接">9月4日 | Surge Mac每天更新18.9M/S免费节点订阅链接</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/node-share-links-2026-9-23.htm" title="9月23日 | Surge Mac每天更新20.9M/S免费节点订阅链接">9月23日 | Surge Mac每天更新20.9M/S免费节点订阅链接</a><hr /></li>
                     </ul>
     </div>
 </div>
@@ -300,7 +300,7 @@ IPLC、IEPL中转，点对点专线连接。高速冲浪，科学上网不二选
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
                         <li class="py-2">
-                <h4><span class="badge" style="float: right;">2</span> <a href="/date/2026-10/" title="2026-10 归档">2026-10</a></h4>
+                <h4><span class="badge" style="float: right;">9</span> <a href="/date/2026-10/" title="2026-10 归档">2026-10</a></h4>
             </li>
                         <li class="py-2">
                 <h4><span class="badge" style="float: right;">29</span> <a href="/date/2026-09/" title="2026-09 归档">2026-09</a></h4>
